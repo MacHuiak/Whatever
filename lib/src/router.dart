@@ -15,6 +15,7 @@ class AppRouter extends _$AppRouter {
           path: "/mainVPN",
           children: [
             AutoRoute(page: ServerListRoute.page, path: "servers"),
+            // AutoRoute(page: PasswordManagerRoute.page, path: "password"),
           ],
         ),
       ];

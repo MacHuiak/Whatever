@@ -36,7 +36,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
         ),
       ),
       child: StreamBuilder<DataCounterClass>(
-        stream: _dataCountStream,
+        stream: Stream.value(DataCounterClass(byteSent: 0, byteReceived: 0)),
         builder: (context, snapshot) {
           final dataCount = snapshot.data;
           final connectionSpeedInfo = dataCount?.receivedCountWithUnit ??
@@ -142,7 +142,9 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
         ),
       ),
       child: StreamBuilder<DataCounterClass>(
-        stream: _dataCountStream,
+        stream: Stream.value(
+          const DataCounterClass(byteSent: 0, byteReceived: 0),
+        ),
         builder: (context, snapshot) {
           final dataCount = snapshot.data;
           final connectionSpeedInfo = dataCount?.receivedCountWithUnit ??
@@ -161,9 +163,9 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.arrow_upward,
+                          Icons.arrow_downward,
                           size: 18,
-                          color: Color(0xFF5CF64A),
+                          color: AppColors.red400,
                         ),
                         SizedBox(
                           width: 6,

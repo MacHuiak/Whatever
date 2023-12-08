@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/extension.dart';
@@ -24,7 +25,7 @@ class ServerSelectButton extends StatelessWidget {
           children: [
             //TODO: set icon
             const Icon(
-              Icons.add,
+              CupertinoIcons.globe,
               color: Colors.yellow,
             ),
             Text(

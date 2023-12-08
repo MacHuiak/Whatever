@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 // import 'package:get/get_core/get_core.dart';
 // import 'package:get/instance_manager.dart';
 // import 'package:hive/hive.dart';
@@ -28,8 +30,10 @@ class VPN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _appRouter.config(),
+    return GetMaterialApp(
+      home: MaterialApp.router(
+        routerConfig: _appRouter.config(),
+      ),
     );
   }
 }

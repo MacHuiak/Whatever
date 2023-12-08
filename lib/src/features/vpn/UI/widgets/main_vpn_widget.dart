@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
 
 class NoConnectionWidget extends StatelessWidget {
@@ -30,14 +31,31 @@ class _LightSwordWidgetState extends State<LightSwordWidget> {
   RiveFile? rive;
 
   @override
+  void initState() {
+    super.initState();
+
+    rootBundle.load("assets/rive/may.riv").then(
+      (value) async {
+        setState(() {
+          rive = RiveFile.import(value);
+        });
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return rive == null
         ? const SizedBox()
-        : RiveAnimation.direct(rive!,
-            artboard: "",
-            onInit: _onInit,
-            alignment: Alignment.center,
-            fit: BoxFit.fitHeight);
+        : SizedBox(
+      width: 700,
+          height: 650,
+          child: RiveAnimation.direct(rive!,
+              artboard: "Saber Fight Test",
+              onInit: _onInit,
+              alignment: Alignment.center,
+              fit: BoxFit.fitHeight),
+        );
   }
 
   void _onInit(Artboard board) {

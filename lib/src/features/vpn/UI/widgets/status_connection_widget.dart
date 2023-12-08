@@ -14,8 +14,8 @@ class ConnectionStatusWidget extends StatelessWidget {
       builder: (context, snapshot) {
         ConnectionTypeElement connectionType =
             snapshot.data ?? ConnectionTypeElement.disconnected;
-        return SizedBox(
-          width: 200,
+        return Container(
+          width: 240,
           child: DecoratedBox(
             decoration: switch (connectionType) {
               ConnectionTypeElement.disconnected => BoxDecoration(
@@ -65,29 +65,28 @@ class ConnectionStatusWidget extends StatelessWidget {
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 14.0),
-                  child: SizedBox(
-                    height: 24,
-                    width: 24,
-                    child: switch (connectionType) {
-                      ConnectionTypeElement.connected => const Icon(
-                          //TODO: add icon
-                          Icons.add,
-                          size: 24,
-                          color: AppColors.green400,
-                        ),
-                      ConnectionTypeElement.connecting =>
-                        const CircularProgressIndicator(
-                          color: Color(0xFFFFD600),
-                        ),
-                      ConnectionTypeElement.disconnecting ||
-                      ConnectionTypeElement.disconnected =>
-                        const SizedBox.shrink(),
-                    },
-                  ),
-                ),
+                switch (connectionType) {
+                  ConnectionTypeElement.connected => const Padding(
+                      padding: EdgeInsets.only(right: 14.0),
+                      child: Icon(
+                        //TODO: add icon
+                        Icons.network_wifi_sharp,
+                        size: 24,
+                        color: AppColors.green400,
+                      ),
+                    ),
+                  ConnectionTypeElement.connecting => const Padding(
+                      padding: EdgeInsets.only(right: 14.0),
+                      child: CircularProgressIndicator(
+                        color: Color(0xFFFFD600),
+                      ),
+                    ),
+                  ConnectionTypeElement.disconnecting ||
+                  ConnectionTypeElement.disconnected =>
+                    const SizedBox.shrink(),
+                },
                 Text(
                   connectionType.connectionStageValue,
                   textAlign: TextAlign.center,

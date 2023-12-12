@@ -32,7 +32,7 @@ class VpnConnectionService {
     await initConnection();
     String config = await _configServiceImpl.getConfig(hostData.ip);
     log("");
-    // await _vpnService.startConnection(config: config);
+    await _vpnService.startConnection(config: config);
   }
 
   Future<void> stopConnection() async {

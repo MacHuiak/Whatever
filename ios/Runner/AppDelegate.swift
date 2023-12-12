@@ -71,31 +71,19 @@ class VpnConnectionService{
     
     func initConnection(){
         Task{
-            _ = try? await NETunnelProviderManager.loadAllFromPreferences()
-        }
+                  await vpnExtension.prepare()
+              }
     }
     
     
     func connectVPN(config:String){
-
-        do{
-            var parsedConfig = try OpenVPN.ConfigurationParser.parsed(fromContents: config)
-            let configProvider = OpenVPN.ProviderConfiguration.init(title, appGroup: appGroup, configuration:parsedConfig.configuration)
-            
+        let vpnConfig = OpenVPN.Configuration.make("Whatever VPN", appGroup:appGroup, config: config)
                 Task{
-                    var extra = NetworkExtensionExtra()
-                    extra.disconnectsOnSleep = false
-                    try await vpnExtension.reconnect(extensionIdentifier,configuration: configProvider,extra: extra,after: .seconds(2))
-                    
-                
+                    var extraInfo = NetworkExtensionExtra()
+                    extraInfo.disconnectsOnSleep = false
+                    try await vpnExtension.reconnect(extensionIdentifier, configuration: vpnConfig, extra: extraInfo, after: .seconds(2))
                 }
-        }catch{
-            
-        }
-        
-        
-        
-        
+
         
     }
     
@@ -108,3 +96,28 @@ class VpnConnectionService{
     
 }
 
+
+extension OpenVPN{
+    struct Configuration{
+        
+        static func make(_ title:String,appGroup:String,config:String)->OpenVPN.ProviderConfiguration{
+            return parseConfig(title: title, appGroup: appGroup, config: config)!
+        }
+        
+    }
+    
+    static func parseConfig(title:String,appGroup:String,config:String)->OpenVPN.ProviderConfiguration?{
+        
+        do{
+            let parsedConfig = try OpenVPN.ConfigurationParser.parsed(fromContents: config)
+            
+            return OpenVPN.ProviderConfiguration.init(title, appGroup: appGroup, configuration: parsedConfig.configuration)
+        }catch{
+            print(error)
+        }
+        
+        return nil
+        
+    }
+    
+}

@@ -1,4 +1,4 @@
-enum ConnectionTypeElement {
+enum ConnectionStatus {
   disconnected("Not Connected"),
   connected("Connected"),
   connecting("Connecting..."),
@@ -6,20 +6,20 @@ enum ConnectionTypeElement {
 
   final String connectionStageValue;
 
-  const ConnectionTypeElement(this.connectionStageValue);
+  const ConnectionStatus(this.connectionStageValue);
 
-  factory ConnectionTypeElement.getTypeByName(String name) {
+  factory ConnectionStatus.getTypeByName(String name) {
     switch (name) {
       case "disconnected":
-        return ConnectionTypeElement.disconnected;
+        return ConnectionStatus.disconnected;
       case "connected":
-        return ConnectionTypeElement.connected;
+        return ConnectionStatus.connected;
       case "disconnecting":
-        return ConnectionTypeElement.disconnecting;
+        return ConnectionStatus.disconnecting;
       case "connecting":
-        return ConnectionTypeElement.connecting;
+        return ConnectionStatus.connecting;
       default:
-        return ConnectionTypeElement.disconnected;
+        return ConnectionStatus.disconnected;
     }
   }
 }

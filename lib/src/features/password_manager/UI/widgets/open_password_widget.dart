@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
 
 class OpenedPasswordWidget extends StatelessWidget {

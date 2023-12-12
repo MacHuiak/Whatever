@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/screens/server_list.dart';
 
 class ServerSelectButton extends StatelessWidget {
   const ServerSelectButton({super.key});
@@ -9,7 +11,9 @@ class ServerSelectButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Get.to(() => const ServerListScreen());
+      },
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: AppColors.mainBackgroundButtonColor,

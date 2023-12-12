@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
 @immutable
-class DataCounterClass {
+class DataCountInfo {
   final int? byteSent;
 
   final int? byteReceived;
 
-  const DataCounterClass({required this.byteSent, required this.byteReceived});
+  const DataCountInfo({required this.byteSent, required this.byteReceived});
 
   ConnectionSpeedInfo get sentDataCountWithUnit => _parseByteByUnit(byteSent);
 

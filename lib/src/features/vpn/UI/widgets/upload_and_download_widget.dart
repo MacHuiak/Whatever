@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/data_counter_class.dart';
 
 class DownloadInfoWidget extends StatefulWidget {
@@ -13,7 +13,7 @@ class DownloadInfoWidget extends StatefulWidget {
 }
 
 class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
-  late Stream<DataCounterClass> _dataCountStream;
+  late Stream<DataCountInfo> _dataCountStream;
 
   @override
   void didChangeDependencies() {
@@ -35,8 +35,8 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
           color: const Color(0xFF8B8B8B),
         ),
       ),
-      child: StreamBuilder<DataCounterClass>(
-        stream: Stream.value(DataCounterClass(byteSent: 0, byteReceived: 0)),
+      child: StreamBuilder<DataCountInfo>(
+        stream: Stream.value(DataCountInfo(byteSent: 0, byteReceived: 0)),
         builder: (context, snapshot) {
           final dataCount = snapshot.data;
           final connectionSpeedInfo = dataCount?.receivedCountWithUnit ??
@@ -119,7 +119,7 @@ class InfoUploadWidget extends StatefulWidget {
 }
 
 class _InfoUploadWidgetState extends State<InfoUploadWidget> {
-  late Stream<DataCounterClass> _dataCountStream;
+  late Stream<DataCountInfo> _dataCountStream;
 
   @override
   void didChangeDependencies() {
@@ -141,9 +141,9 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
           color: const Color(0xFF8B8B8B),
         ),
       ),
-      child: StreamBuilder<DataCounterClass>(
+      child: StreamBuilder<DataCountInfo>(
         stream: Stream.value(
-          const DataCounterClass(byteSent: 0, byteReceived: 0),
+          const DataCountInfo(byteSent: 0, byteReceived: 0),
         ),
         builder: (context, snapshot) {
           final dataCount = snapshot.data;

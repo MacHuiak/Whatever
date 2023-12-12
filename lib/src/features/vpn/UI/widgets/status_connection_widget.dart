@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 
 class ConnectionStatusWidget extends StatelessWidget {
@@ -9,20 +9,20 @@ class ConnectionStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: Stream<ConnectionTypeElement>.value(
-          ConnectionTypeElement.disconnected),
+      stream: Stream<ConnectionStatus>.value(
+          ConnectionStatus.disconnected),
       builder: (context, snapshot) {
-        ConnectionTypeElement connectionType =
-            snapshot.data ?? ConnectionTypeElement.disconnected;
+        ConnectionStatus connectionType =
+            snapshot.data ?? ConnectionStatus.disconnected;
         return Container(
           width: 240,
           child: DecoratedBox(
             decoration: switch (connectionType) {
-              ConnectionTypeElement.disconnected => BoxDecoration(
+              ConnectionStatus.disconnected => BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: const Color(0xFFA7A7A7),
                 ),
-              ConnectionTypeElement.connected => BoxDecoration(
+              ConnectionStatus.connected => BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
                     color: const Color(0xFFB5FFAC),
@@ -40,7 +40,7 @@ class ConnectionStatusWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              ConnectionTypeElement.connecting => BoxDecoration(
+              ConnectionStatus.connecting => BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
                     color: const Color(0xFFFFF2AE),
@@ -58,7 +58,7 @@ class ConnectionStatusWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              ConnectionTypeElement.disconnecting => BoxDecoration(
+              ConnectionStatus.disconnecting => BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: const Color(0xFFA7A7A7),
                 ),
@@ -68,7 +68,7 @@ class ConnectionStatusWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 switch (connectionType) {
-                  ConnectionTypeElement.connected => const Padding(
+                  ConnectionStatus.connected => const Padding(
                       padding: EdgeInsets.only(right: 14.0),
                       child: Icon(
                         //TODO: add icon
@@ -77,14 +77,14 @@ class ConnectionStatusWidget extends StatelessWidget {
                         color: AppColors.green400,
                       ),
                     ),
-                  ConnectionTypeElement.connecting => const Padding(
+                  ConnectionStatus.connecting => const Padding(
                       padding: EdgeInsets.only(right: 14.0),
                       child: CircularProgressIndicator(
                         color: Color(0xFFFFD600),
                       ),
                     ),
-                  ConnectionTypeElement.disconnecting ||
-                  ConnectionTypeElement.disconnected =>
+                  ConnectionStatus.disconnecting ||
+                  ConnectionStatus.disconnected =>
                     const SizedBox.shrink(),
                 },
                 Text(

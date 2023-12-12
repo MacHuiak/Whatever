@@ -1,32 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/vpn_config.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-@RoutePage()
-class ServerListScreen extends StatefulWidget {
+class ServerListScreen extends HookConsumerWidget {
   const ServerListScreen({super.key});
 
   @override
-  State<ServerListScreen> createState() => _ServerListScreenState();
-}
-
-class _ServerListScreenState extends State<ServerListScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    List<HostData> loadedHosts = ref.watch(loadedHostsProvider);
+    HostData? selectedHost = ref.watch(selectedHostProvider);
     return Scaffold(
       backgroundColor: Colors.black,
       body: CustomScrollView(
@@ -38,10 +28,13 @@ class _ServerListScreenState extends State<ServerListScreen> {
             leading: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                   icon: const Icon(
-                    Icons.arrow_back_ios,
+                    Icons.arrow_back_ios_new_rounded,
                     size: 20,
+                    color: Colors.white,
                   ),
                   padding: EdgeInsets.zero,
                 ),
@@ -95,7 +88,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
               ),
             ),
           ),
-          false
+          loadedHosts.isEmpty
               ? SliverList.list(
                   children: const [
                     Center(
@@ -106,31 +99,36 @@ class _ServerListScreenState extends State<ServerListScreen> {
               : SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   sliver: SliverList.separated(
-                    itemCount: 10,
+                    itemCount: loadedHosts.length,
                     itemBuilder: (BuildContext context, int index) {
                       // ignore: invalid_null_aware_operator
+
+                      final currentHost = loadedHosts[index];
                       VPNConfig? item = HostVPNConfig(
-                        host: const HostData(
-                            ip: '', country: '', imagePath: '', id: ''),
+                        host: currentHost,
                       );
                       switch (item) {
                         case HostVPNConfig _:
                           final currentItem = item;
                           return _SelectServerButton(
-                              onServerSelect: () {},
-                              connectionType: false
-                                  ? ConnectionTypeElement.connected
-                                  : ConnectionTypeElement.disconnected,
+                              flag: currentHost.imagePath,
+                              onServerSelect: () {
+                                ref
+                                    .read(hostInfoProvider.notifier)
+                                    .selectHost(currentHost);
+                              },
+                              connectionType: selectedHost == currentHost
+                                  ? ConnectionStatus.connected
+                                  : ConnectionStatus.disconnected,
                               name: currentItem.host.country);
                         case UserFileVPNConfig _:
                           final currentItem = item;
                           return _SelectServerButton(
                               onServerSelect: () {},
-                              connectionType: false
-                                  ? ConnectionTypeElement.connected
-                                  : ConnectionTypeElement.disconnected,
+                              connectionType: selectedHost == currentHost
+                                  ? ConnectionStatus.connected
+                                  : ConnectionStatus.disconnected,
                               //TODO: add placeholder
-                              flag: "",
                               name: currentItem.configName);
                         default:
                           return const SizedBox();
@@ -148,12 +146,157 @@ class _ServerListScreenState extends State<ServerListScreen> {
     );
   }
 }
+// @RoutePage()
+// class ServerListScreen extends StatefulWidget {
+//   const ServerListScreen({super.key});
+//
+//   @override
+//   State<ServerListScreen> createState() => _ServerListScreenState();
+// }
+//
+// class _ServerListScreenState extends State<ServerListScreen> {
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
+//
+//   @override
+//   void didChangeDependencies() {
+//     super.didChangeDependencies();
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.black,
+//       body: CustomScrollView(
+//         slivers: [
+//           SliverAppBar(
+//             leadingWidth: 200,
+//             pinned: true,
+//             backgroundColor: Colors.black,
+//             leading: Row(
+//               children: [
+//                 IconButton(
+//                   onPressed: () {
+//                     Get.back();
+//                   },
+//                   icon: const Icon(
+//                     Icons.arrow_back_ios_new_rounded,
+//                     size: 20,
+//                     color: Colors.white,
+//                   ),
+//                   padding: EdgeInsets.zero,
+//                 ),
+//                 Text(
+//                   "Server selection",
+//                   style: context.isBigScreen
+//                       ? const TextStyle(fontSize: 18, color: AppColors.white100)
+//                       : const TextStyle(color: AppColors.white100),
+//                 )
+//               ],
+//             ),
+//           ),
+//           SliverToBoxAdapter(
+//             child: Padding(
+//               padding: const EdgeInsets.only(bottom: 8.0),
+//               child: Column(
+//                 mainAxisSize: MainAxisSize.min,
+//                 children: [
+//                   Padding(
+//                     padding:
+//                         const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8),
+//                     child: ElevatedButton(
+//                       style: ElevatedButton.styleFrom(
+//                         backgroundColor: const Color(0xFF2D2D2D),
+//                         padding: EdgeInsets.zero,
+//                         alignment: Alignment.centerLeft,
+//                         shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(16),
+//                         ),
+//                       ),
+//                       onPressed: () {},
+//                       child: Padding(
+//                         padding: const EdgeInsets.symmetric(
+//                             horizontal: 16.0, vertical: 16),
+//                         child: Row(
+//                           mainAxisAlignment: MainAxisAlignment.center,
+//                           children: [
+//                             Text(
+//                               "Add user config",
+//                               style: context.isBigScreen
+//                                   ? const TextStyle(
+//                                       color: AppColors.white100, fontSize: 18)
+//                                   : const TextStyle(color: AppColors.white100),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
+//           false
+//               ? SliverList.list(
+//                   children: const [
+//                     Center(
+//                       child: CircularProgressIndicator(),
+//                     ),
+//                   ],
+//                 )
+//               : SliverPadding(
+//                   padding: const EdgeInsets.symmetric(horizontal: 8),
+//                   sliver: SliverList.separated(
+//                     itemCount: 10,
+//                     itemBuilder: (BuildContext context, int index) {
+//                       // ignore: invalid_null_aware_operator
+//                       VPNConfig? item = HostVPNConfig(
+//                         host: const HostData(
+//                             ip: '', country: '', imagePath: '', id: ''),
+//                       );
+//                       switch (item) {
+//                         case HostVPNConfig _:
+//                           final currentItem = item;
+//                           return _SelectServerButton(
+//                               onServerSelect: () {},
+//                               connectionType: false
+//                                   ? ConnectionTypeElement.connected
+//                                   : ConnectionTypeElement.disconnected,
+//                               name: currentItem.host.country);
+//                         case UserFileVPNConfig _:
+//                           final currentItem = item;
+//                           return _SelectServerButton(
+//                               onServerSelect: () {},
+//                               connectionType: false
+//                                   ? ConnectionTypeElement.connected
+//                                   : ConnectionTypeElement.disconnected,
+//                               //TODO: add placeholder
+//                               flag: "",
+//                               name: currentItem.configName);
+//                         default:
+//                           return const SizedBox();
+//                       }
+//                     },
+//                     separatorBuilder: (BuildContext context, int index) {
+//                       return const SizedBox(
+//                         height: 16,
+//                       );
+//                     },
+//                   ),
+//                 )
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class _SelectServerButton extends StatefulWidget {
   final String? flag;
   final String name;
   final void Function()? onServerSelect;
-  final ConnectionTypeElement connectionType;
+  final ConnectionStatus connectionType;
 
   const _SelectServerButton({
     Key? key,
@@ -168,7 +311,7 @@ class _SelectServerButton extends StatefulWidget {
 }
 
 class _SelectServerButtonState extends State<_SelectServerButton> {
-  ConnectionTypeElement get connectionType => widget.connectionType;
+  ConnectionStatus get connectionType => widget.connectionType;
   late bool isBigScreen;
 
   @override
@@ -180,7 +323,7 @@ class _SelectServerButtonState extends State<_SelectServerButton> {
   @override
   Widget build(BuildContext context) {
     switch (connectionType) {
-      case ConnectionTypeElement.connected:
+      case ConnectionStatus.connected:
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF545454),
@@ -225,7 +368,7 @@ class _SelectServerButtonState extends State<_SelectServerButton> {
             ),
           ),
         );
-      case ConnectionTypeElement.disconnected:
+      case ConnectionStatus.disconnected:
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
@@ -268,8 +411,8 @@ class _SelectServerButtonState extends State<_SelectServerButton> {
             ),
           ),
         );
-      case ConnectionTypeElement.disconnecting:
-      case ConnectionTypeElement.connecting:
+      case ConnectionStatus.disconnecting:
+      case ConnectionStatus.connecting:
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,

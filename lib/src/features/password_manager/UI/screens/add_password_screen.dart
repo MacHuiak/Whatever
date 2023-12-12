@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
-
 
 @RoutePage()
 class AddPasswordScreen extends StatefulWidget {
@@ -36,11 +35,11 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
         leading: InkWell(
           borderRadius: BorderRadius.circular(90),
           onTap: () {
-            context.router.pop();
+            Get.back();
           },
           child: const Center(
             child: Icon(
-              Icons.arrow_right,
+              Icons.arrow_back_ios_new_rounded,
               color: Colors.white,
               size: 24,
             ),
@@ -76,7 +75,7 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
                     //         site: siteController.text,
                     //         login: loginController.text,
                     //         password: passwordController.text);
-                    context.router.pop();
+                    Get.back();
                   }
                 },
                 style: ElevatedButton.styleFrom(

@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
-import 'package:modern_vpn_project/src/extension.dart';
+import 'package:modern_vpn_project/src/features/password_manager/UI/screens/add_password_screen.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/widgets/closed_password_widget.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/widgets/open_password_widget.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
@@ -37,11 +38,11 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
         leading: InkWell(
           borderRadius: BorderRadius.circular(90),
           onTap: () {
-            context.router.pop();
+            Get.back();
           },
           child: const Center(
             child: Icon(
-              Icons.arrow_right,
+              Icons.arrow_back_ios_new,
               color: Colors.white,
               size: 24,
             ),
@@ -61,7 +62,7 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
           children: [
             GestureDetector(
               onTap: () {
-                // router.pushNamed(RootNameRoute.addNewPassword);
+                Get.to(() => const AddPasswordScreen());
               },
               child: Container(
                 height: 56,
@@ -70,17 +71,17 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
                     borderRadius: BorderRadius.circular(24),
                     color: const Color(0xFF2D2D2D)),
                 child: const Padding(
-                  padding: EdgeInsets.all(21),
+                  padding: EdgeInsets.all(16),
                   child: Row(
                     children: [
                       Icon(
                         Icons.add,
-                        size: 16,
+                        size: 20,
                         color: Colors.white,
                       ),
                       SizedBox(width: 8),
                       Text('Add new',
-                          style: TextStyle(fontSize: 14, color: Colors.white)),
+                          style: TextStyle(fontSize: 16, color: Colors.white)),
                     ],
                   ),
                 ),
@@ -182,5 +183,3 @@ class _PasswordStorageWidgetState extends State<PasswordStorageWidget> {
     );
   }
 }
-
-

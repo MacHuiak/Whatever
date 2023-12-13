@@ -29,7 +29,7 @@ class ConnectionInfo extends Notifier<ConnectionStatus> {
     _connectionService.startConnection(host);
   }
 
-  void stopConnection(HostData host) {
+  void stopConnection() {
     _connectionService.stopConnection();
   }
 }

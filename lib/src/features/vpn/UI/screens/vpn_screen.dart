@@ -13,142 +13,44 @@ import 'package:modern_vpn_project/src/features/vpn/UI/widgets/time_connection_w
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/upload_and_download_widget.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
+import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
 
-// @RoutePage()
-// class MainVPNScreen extends StatefulWidget {
-//   const MainVPNScreen({super.key});
-//
-//   @override
-//   State<MainVPNScreen> createState() => _MainVPNScreenState();
-// }
-//
-// class _MainVPNScreenState extends State<MainVPNScreen> {
-//   var scaffoldKey = GlobalKey<ScaffoldState>();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       key: scaffoldKey,
-//       endDrawer: const BorderSideMenu(),
-//       appBar: AppBar(
-//         leadingWidth: 150,
-//         backgroundColor: Colors.black,
-//         leading: const Center(
-//           child: HeaderWidgetTitle(),
-//         ),
-//         actions: [
-//           IconButton(
-//             padding: EdgeInsets.zero,
-//             onPressed: () {
-//               scaffoldKey.currentState!.openEndDrawer();
-//             },
-//             icon: const Icon(
-//               Icons.menu,
-//               color: AppColors.subTitleColor,
-//             ),
-//           )
-//         ],
-//       ),
-//       backgroundColor: Colors.black,
-//       body: Stack(
-//         children: [
-//           //TODO: add vpn body
-//           // Align(
-//           //   alignment: const Alignment(0, 0),
-//           //   child: VpnBodyWidget(),
-//           // ),
-//
-//           // Align(
-//           //   alignment: const Alignment(0, 0.4),
-//           //   child: LightSwordWidget(
-//           //     onStart: () {},
-//           //   ),
-//           // ),
-//           Align(
-//             alignment: const Alignment(0.85, -0.92),
-//             child: GestureDetector(
-//               onTap: () {
-//                 Get.to(() => const PasswordManagerScreen());
-//               },
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                     color: AppColors.white400.withOpacity(0.5),
-//                     shape: BoxShape.circle),
-//                 child: const Padding(
-//                   padding: EdgeInsets.all(6.0),
-//                   child: Icon(Icons.key, size: 40, color: Colors.yellow),
-//                 ),
-//               ),
-//             ),
-//           ),
-//           Align(
-//             alignment: const Alignment(0, -0.9),
-//             child: SizedBox(
-//               width: context.width,
-//               child: const Column(
-//                 mainAxisSize: MainAxisSize.min,
-//                 children: [
-//                   Padding(
-//                     padding: EdgeInsets.only(bottom: 8.0),
-//                     child: ConnectionTimeWidget(),
-//                   ),
-//                   ConnectionStatusWidget(),
-//                   SizedBox(
-//                     height: 24,
-//                   ),
-//                   ServerSelectButton()
-//                 ],
-//               ),
-//             ),
-//           ),
-//           //TODO need add
-//
-//           const Align(
-//             alignment: Alignment(0, 0.8),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceAround,
-//               children: [
-//                 DownloadInfoWidget(),
-//                 //TODO:add upload
-//                 InfoUploadWidget()
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-class MainVPNScreen extends HookConsumerWidget {
+class MainVPNScreen extends StatefulHookConsumerWidget {
   const MainVPNScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => MainVPNState();
+}
+
+class MainVPNState extends ConsumerState<MainVPNScreen> {
+  final globalKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
     HostData? selectedHost = ref.watch(selectedHostProvider);
-    final globalKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
-      key: globalKey,
-      endDrawer: const BorderSideMenu(),
+      // key: globalKey,
+      // endDrawer: const BorderSideMenu(),
       appBar: AppBar(
         leadingWidth: 150,
         backgroundColor: Colors.black,
         leading: const Center(
           child: HeaderWidgetTitle(),
         ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {
-              globalKey.currentState!.openEndDrawer();
-            },
-            icon: const Icon(
-              Icons.menu,
-              color: AppColors.subTitleColor,
-            ),
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     padding: EdgeInsets.zero,
+        //     onPressed: () {
+        //       globalKey.currentState!.openEndDrawer();
+        //     },
+        //     icon: const Icon(
+        //       Icons.menu,
+        //       color: AppColors.subTitleColor,
+        //     ), БРО !!! Я ГОТОВ КОМП ПЕРЕЗАГРУЖАТЬ!
+        //   )
+        // ],Вперед !!!!
       ),
       backgroundColor: Colors.black,
       body: Stack(
@@ -162,7 +64,7 @@ class MainVPNScreen extends HookConsumerWidget {
                     .read(connectionProvider.notifier)
                     .startConnection(selectedHost!);
               },
-              child: Text("Click"),
+              child: const Text("Click"),
             ),
           ),
 
@@ -212,6 +114,10 @@ class MainVPNScreen extends HookConsumerWidget {
           //TODO need add
 
           const Align(
+            alignment: Alignment(0, 0.4),
+            child: ConnectionInfoWidget(),
+          ),
+          const Align(
             alignment: Alignment(0, 0.8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -225,5 +131,66 @@ class MainVPNScreen extends HookConsumerWidget {
         ],
       ),
     );
+  }
+}
+
+final ConnectionStatus connectionStatus = ConnectionStatus.disconnected;
+
+class ConnectionInfoWidget extends ConsumerWidget {
+  const ConnectionInfoWidget({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    switch (connectionStatus) {
+      case ConnectionStatus.disconnected:
+        return const Text(
+          "Drag sword to start \nVPN connection",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24
+          ),
+        );
+      case ConnectionStatus.connected:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white.withOpacity(0.3),
+              foregroundColor: Colors.white),
+          onPressed: () {
+            ref.read(connectionProvider.notifier).stopConnection();
+          },
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.cancel),
+              SizedBox(
+                width: 8,
+              ),
+              Text("Cancel connection"),
+            ],
+          ),
+        );
+      case ConnectionStatus.connecting:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white.withOpacity(0.3),
+              foregroundColor: Colors.white),
+          onPressed: () {
+            ref.read(connectionProvider.notifier).stopConnection();
+          },
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.cancel),
+              SizedBox(
+                width: 8,
+              ),
+              Text("Cancel connection"),
+            ],
+          ),
+        );
+      case ConnectionStatus.disconnecting:
+        return SizedBox();
+    }
   }
 }

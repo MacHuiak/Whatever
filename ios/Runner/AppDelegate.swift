@@ -29,7 +29,7 @@ import Sentry
       let viewController:FlutterViewController = window?.rootViewController as! FlutterViewController
       
       vpnService = VpnConnectionService()
-      let flutterChannel = FlutterMethodChannel(name: "com.whatever.flutter_call",binaryMessenger:viewController.binaryMessenger)
+     
       flutterMethodHandler(flutterChannel: flutterChannel)
       
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -39,7 +39,7 @@ import Sentry
         flutterChannel.setMethodCallHandler({[self](call:FlutterMethodCall,result: @escaping FlutterResult)-> Void in
             switch call.method{
             case "init_connection":
-                vpnService?.initConnection()
+                vpnService!.initConnection()
                 break
             case "start_vpn":
                 let arguments = call.arguments as? Dictionary<String,Any>

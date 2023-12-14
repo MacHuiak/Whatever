@@ -24,22 +24,28 @@ class ConfigServiceImpl extends OpenvpnServiceClient {
   }
 
   Future<String> getConfig(String ip) async {
-    final accessToken = _authRepository.tokenGetter;
-    if (accessToken == null) {
-      Sentry.captureMessage("DON NOT GET ACCESS TOKEN");
+    Sentry.captureMessage("START GET CONFIG");
+    try {
+      final accessToken = _authRepository.tokenGetter;
+      if (accessToken == null) {
+        Sentry.captureMessage("DON NOT GET ACCESS TOKEN");
 
-      throw Exception();
+        throw Exception();
+      }
+      final crtAndPrivateKey = await getCrtAndPrivateKey(accessToken);
+      final ca = await getCertChain(accessToken);
+
+      final config = openVPNConfigBuilder.getOpenVPNConfig(
+          ca: ca,
+          crt: crtAndPrivateKey.$1,
+          privateKey: crtAndPrivateKey.$2,
+          ip: ip);
+      Sentry.captureMessage("GENERATED CONFIG $config");
+      return config;
+    } catch (e) {
+      Sentry.captureException(e);
+      rethrow;
     }
-    final crtAndPrivateKey = await getCrtAndPrivateKey(accessToken);
-    final ca = await getCertChain(accessToken);
-
-    final config = openVPNConfigBuilder.getOpenVPNConfig(
-        ca: ca,
-        crt: crtAndPrivateKey.$1,
-        privateKey: crtAndPrivateKey.$2,
-        ip: ip);
-    Sentry.captureMessage("GENERATED CONFIG $config");
-    return config;
   }
 
   Future<(String, String)> getCrtAndPrivateKey(String accessToken) async {

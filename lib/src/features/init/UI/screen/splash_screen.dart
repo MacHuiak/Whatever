@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/route_manager.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/feature_check_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 
 @RoutePage()
@@ -18,7 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1)).whenComplete(() {
-      Get.to(() => const MainVPNScreen());
+      if (kDebugMode) {
+        Get.to(() => const FeatureCheckScreen());
+      } else {
+        Get.to(() => const MainVPNScreen());
+      }
       // context.router.replaceNamed('/mainVPN');
     });
   }
@@ -40,7 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
             const Text(
               "Whatever VPN",
               style: TextStyle(
-                  color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),

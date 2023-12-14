@@ -28,14 +28,15 @@ class VpnConnectionService {
   Future<void> initConnection() async {
     Sentry.captureMessage("TRY INIT");
 
-    await _vpnService.initConnection();
+    _vpnService.initConnection();
 
     Sentry.captureMessage("TRY INITED");
   }
 
   Future<void> startConnection(HostData hostData) async {
     Sentry.captureMessage("TRY START FLUTTER VPN CONNECTION");
-    await initConnection();
+    initConnection();
+    Sentry.captureMessage("FINISH INIT FLUTTER");
     String config = await _configServiceImpl.getConfig(hostData.ip);
     await _vpnService.startConnection(config: config);
     Sentry.captureMessage("FINIS");

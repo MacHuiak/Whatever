@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
@@ -73,7 +74,7 @@ class ServerListScreen extends HookConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Add user config",
+                              S.of(context).addUserConfig,
                               style: context.isBigScreen
                                   ? const TextStyle(
                                       color: AppColors.white100, fontSize: 18)

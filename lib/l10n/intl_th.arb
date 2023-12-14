@@ -1,0 +1,22 @@
+{
+  "@@locale": "th",
+  "site": "เว็บไซต์",
+  "login": "เข้าสู่ระบบ",
+  "password": "รหัสผ่าน",
+  "add": "เพิ่ม",
+  "addNew": "เพิ่มใหม่",
+  "use": "ใช้",
+  "addNewN": "เพิ่มใหม่\n",
+  "toAddNewPassword": "เพื่อเพิ่มรหัสผ่านใหม่",
+  "passwordManager": "ผู้จัดการรหัสผ่าน",
+  "copied": "คัดลอกแล้ว",
+  "disconnect": "ตัดการเชื่อมต่อ",
+  "tryAgain": "ลองอีกครั้ง",
+  "theLightSaberToConnectVpn": "ไฟเซเบอร์เพื่อเชื่อมต่อ VPN",
+  "clickAndDrag": "คลิกและลากรูป",
+  "fastestServer": "เซิร์ฟเวอร์ที่เร็วที่สุด",
+  "download": "ดาวน์โหลด",
+  "addUserConfig": "เพิ่มการตั้งค่าผู้ใช้",
+  "dragSwordToStartNvpnConnection": "ลากดาบเพื่อเริ่ม\nการเชื่อมต่อ VPN",
+  "cancelConnection": "ยกเลิกการเชื่อมต่อ"
+}

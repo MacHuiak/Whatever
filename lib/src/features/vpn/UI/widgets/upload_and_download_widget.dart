@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/data_counter_class.dart';
@@ -50,7 +51,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
@@ -63,7 +64,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                           width: 6,
                         ),
                         Text(
-                          "Download",
+                          S.of(context).download,
                           style: TextStyle(color: AppColors.subTitleColor),
                         )
                       ],

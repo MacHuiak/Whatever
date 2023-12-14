@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
@@ -42,11 +43,13 @@ class IosVPNService {
   }
 
   Future<void> initConnection() async {
-    await _flutterChannel.invokeMethod("init_connection");
+    final a =await _flutterChannel.invokeMethod("init_connection");
+    log("");
   }
 
   Future<void> startConnection({required String config}) async {
-    await _flutterChannel.invokeMethod("start_vpn", {"vpn_config": config});
+    final b =await _flutterChannel.invokeMethod("start_vpn", {"vpn_config": config});
+    log("");
   }
 
   Future<void> stopConnection() async {

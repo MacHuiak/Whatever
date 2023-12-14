@@ -1,0 +1,22 @@
+{
+  "@@locale": "fr",
+  "site": "Site",
+  "login": "Connexion",
+  "password": "Mot de passe",
+  "add": "Ajouter",
+  "addNew": "Ajouter nouveau",
+  "use": "Utiliser",
+  "addNewN": "Ajouter nouveau\n",
+  "toAddNewPassword": "pour ajouter un nouveau mot de passe",
+  "passwordManager": "Gestionnaire de mots de passe",
+  "copied": "Copié",
+  "disconnect": "Déconnecter",
+  "tryAgain": "Réessayer",
+  "theLightSaberToConnectVpn": "le sabre laser pour se connecter au VPN",
+  "clickAndDrag": "Cliquer et glisser",
+  "fastestServer": "Serveur le plus rapide",
+  "download": "Télécharger",
+  "addUserConfig": "Ajouter une configuration utilisateur",
+  "dragSwordToStartNvpnConnection": "Glissez l'épée pour démarrer\nla connexion VPN",
+  "cancelConnection": "Annuler la connexion"
+}

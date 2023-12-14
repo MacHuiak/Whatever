@@ -1,0 +1,22 @@
+{
+  "@@locale": "zh",
+  "site": "网站",
+  "login": "登录",
+  "password": "密码",
+  "add": "添加",
+  "addNew": "添加新",
+  "use": "使用",
+  "addNewN": "添加新\n",
+  "toAddNewPassword": "添加新密码",
+  "passwordManager": "密码管理器",
+  "copied": "已复制",
+  "disconnect": "断开连接",
+  "tryAgain": "重试",
+  "theLightSaberToConnectVpn": "连接VPN的光剑",
+  "clickAndDrag": "点击并拖动",
+  "fastestServer": "最快的服务器",
+  "download": "下载",
+  "addUserConfig": "添加用户配置",
+  "dragSwordToStartNvpnConnection": "拖动剑以开始\nVPN连接",
+  "cancelConnection": "取消连接"
+}

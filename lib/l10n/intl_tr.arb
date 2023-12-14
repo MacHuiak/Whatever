@@ -1,0 +1,22 @@
+{
+  "@@locale": "tr",
+  "site": "Site",
+  "login": "Giriş",
+  "password": "Şifre",
+  "add": "Ekle",
+  "addNew": "Yeni ekle",
+  "use": "Kullan",
+  "addNewN": "Yeni ekle\n",
+  "toAddNewPassword": "yeni şifre eklemek için",
+  "passwordManager": "Şifre yöneticisi",
+  "copied": "Kopyalandı",
+  "disconnect": "Bağlantıyı Kes",
+  "tryAgain": "Tekrar dene",
+  "theLightSaberToConnectVpn": "VPN bağlantısı için ışın kılıcı",
+  "clickAndDrag": "Tıkla ve sürükle",
+  "fastestServer": "En Hızlı Sunucu",
+  "download": "İndir",
+  "addUserConfig": "Kullanıcı konfigürasyonu ekle",
+  "dragSwordToStartNvpnConnection": "VPN bağlantısını başlatmak için kılıç sürükle",
+  "cancelConnection": "Bağlantıyı İptal Et"
+}

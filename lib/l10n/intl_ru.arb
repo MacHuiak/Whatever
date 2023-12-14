@@ -1,0 +1,22 @@
+{
+  "@@locale": "ru",
+  "site": "Сайт",
+  "login": "Логин",
+  "password": "Пароль",
+  "add": "Добавить",
+  "addNew": "Добавить новый",
+  "use": "Использовать",
+  "addNewN": "Добавить новый\n",
+  "toAddNewPassword": "чтобы добавить новый пароль",
+  "passwordManager": "Менеджер паролей",
+  "copied": "Скопировано",
+  "disconnect": "Отключиться",
+  "tryAgain": "Попробуйте еще раз",
+  "theLightSaberToConnectVpn": "световой меч для подключения к VPN",
+  "clickAndDrag": "Нажмите и перетащите",
+  "fastestServer": "Самый быстрый сервер",
+  "download": "Скачать",
+  "addUserConfig": "Добавить конфигурацию пользователя",
+  "dragSwordToStartNvpnConnection": "Перетащите меч, чтобы начать\nподключение к VPN",
+  "cancelConnection": "Отменить подключение"
+}

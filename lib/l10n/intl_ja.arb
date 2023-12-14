@@ -1,0 +1,22 @@
+{
+  "@@locale": "ja",
+  "site": "サイト",
+  "login": "ログイン",
+  "password": "パスワード",
+  "add": "追加",
+  "addNew": "新規追加",
+  "use": "使用",
+  "addNewN": "新規追加\n",
+  "toAddNewPassword": "新しいパスワードを追加するために",
+  "passwordManager": "パスワードマネージャー",
+  "copied": "コピー済み",
+  "disconnect": "切断",
+  "tryAgain": "再試行",
+  "theLightSaberToConnectVpn": "VPNに接続するための光の剣",
+  "clickAndDrag": "クリックしてドラッグ",
+  "fastestServer": "最速サーバー",
+  "download": "ダウンロード",
+  "addUserConfig": "ユーザー設定を追加",
+  "dragSwordToStartNvpnConnection": "剣をドラッグしてVPN接続を開始",
+  "cancelConnection": "接続をキャンセル"
+}

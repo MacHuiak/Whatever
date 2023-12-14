@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
@@ -73,11 +74,14 @@ class OpenedPasswordWidget extends StatelessWidget {
                 InkWell(
                   onTap: () async {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: const Text('Copied',
-                            style: TextStyle(color: Colors.black)),
+                        content: Text(
+                          S.of(context).copied,
+                          style: const TextStyle(color: Colors.black),
+                        ),
                         backgroundColor: Colors.grey.shade400));
                     await Clipboard.setData(
-                        ClipboardData(text: item.login ?? ""));
+                      ClipboardData(text: item.login ?? ""),
+                    );
                   },
                   child: const Icon(
                     Icons.copy,
@@ -98,10 +102,14 @@ class OpenedPasswordWidget extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () async {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: const Text('Copied',
-                            style: TextStyle(color: Colors.black)),
-                        backgroundColor: Colors.grey.shade400));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content: Text(
+                            S.of(context).copied,
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                          backgroundColor: Colors.grey.shade400),
+                    );
                     await Clipboard.setData(
                         ClipboardData(text: item.password ?? ""));
                   },

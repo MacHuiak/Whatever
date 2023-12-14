@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/screens/manager_of_password_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/drawer.dart';
@@ -143,13 +144,10 @@ class ConnectionInfoWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     switch (connectionStatus) {
       case ConnectionStatus.disconnected:
-        return const Text(
-          "Drag sword to start \nVPN connection",
+        return Text(
+          S.of(context).dragSwordToStartNvpnConnection,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24
-          ),
+          style: const TextStyle(color: Colors.white, fontSize: 24),
         );
       case ConnectionStatus.connected:
         return ElevatedButton(
@@ -159,14 +157,14 @@ class ConnectionInfoWidget extends ConsumerWidget {
           onPressed: () {
             ref.read(connectionProvider.notifier).stopConnection();
           },
-          child: const Row(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.cancel),
-              SizedBox(
+              const Icon(Icons.cancel),
+              const SizedBox(
                 width: 8,
               ),
-              Text("Cancel connection"),
+              Text(S.of(context).cancelConnection),
             ],
           ),
         );
@@ -178,19 +176,19 @@ class ConnectionInfoWidget extends ConsumerWidget {
           onPressed: () {
             ref.read(connectionProvider.notifier).stopConnection();
           },
-          child: const Row(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.cancel),
-              SizedBox(
+              const Icon(Icons.cancel),
+              const SizedBox(
                 width: 8,
               ),
-              Text("Cancel connection"),
+              Text(S.of(context).cancelConnection),
             ],
           ),
         );
       case ConnectionStatus.disconnecting:
-        return SizedBox();
+        return const SizedBox();
     }
   }
 }

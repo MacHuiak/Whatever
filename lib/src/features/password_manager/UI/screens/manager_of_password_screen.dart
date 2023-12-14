@@ -2,11 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/screens/add_password_screen.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/widgets/closed_password_widget.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/widgets/open_password_widget.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
+import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
 
 @RoutePage()
 class PasswordManagerScreen extends StatefulWidget {
@@ -49,7 +52,7 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
           ),
         ),
         title: Text(
-          'Password manager',
+          S.of(context).passwordManager,
           style: isBigScreen
               ? const TextStyle(fontSize: 18, color: AppColors.white100)
               : const TextStyle(color: AppColors.white100),
@@ -88,8 +91,8 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            StreamBuilder<List<StoredPassword>>(
-              stream: Stream.empty(),
+            StreamBuilder<List<StoredPassword>?>(
+              stream: DI.getDependency<PasswordRepository>().passwordStream,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Expanded(
@@ -108,16 +111,17 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
                             child: Center(
                               child: RichText(
                                 textAlign: TextAlign.center,
-                                text: const TextSpan(
-                                  text: "Use",
+                                text: TextSpan(
+                                  text: S.of(context).use,
                                   children: [
                                     TextSpan(
-                                      text: " «Add new» \n",
+                                      text: S.of(context).addNewN,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 20),
                                     ),
-                                    TextSpan(text: "to add new password")
+                                    TextSpan(
+                                        text: S.of(context).toAddNewPassword)
                                   ],
                                   style: TextStyle(
                                       fontWeight: FontWeight.w400,

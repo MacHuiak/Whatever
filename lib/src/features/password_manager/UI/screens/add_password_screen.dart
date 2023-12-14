@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
+import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
 
 @RoutePage()
 class AddPasswordScreen extends StatefulWidget {
@@ -46,7 +50,7 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
           ),
         ),
         title: Text(
-          'Add new',
+          S.of(context).addNew,
           style: isBigScreen
               ? const TextStyle(fontSize: 18, color: AppColors.white100)
               : const TextStyle(color: AppColors.white100),
@@ -57,24 +61,29 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Title(title: 'Site'),
-            PassTextField(controller: siteController, hintText: 'Site'),
-            const Title(title: 'Login'),
-            PassTextField(controller: loginController, hintText: 'Login'),
-            const Title(title: 'Password'),
-            PassTextField(controller: passwordController, hintText: 'Password'),
-            const Spacer(),
+            Title(title: S.of(context).site),
+            PassTextField(
+                controller: siteController, hintText: S.of(context).site),
+            Title(title: S.of(context).login),
+            PassTextField(
+                controller: loginController, hintText: S.of(context).login),
+            Title(title: S.of(context).password),
+            PassTextField(
+                controller: passwordController,
+                hintText: S.of(context).password),
+            Spacer(),
             Center(
               child: ElevatedButton(
                 onPressed: () async {
                   if (siteController.text.isNotEmpty &&
                       loginController.text.isNotEmpty &&
                       passwordController.text.isNotEmpty) {
-                    // await DependencyInjectorService.I.passRepository
-                    //     .savePassword(
-                    //         site: siteController.text,
-                    //         login: loginController.text,
-                    //         password: passwordController.text);
+                    DI.getDependency<PasswordRepository>().savePassword(
+                          StoredPassword(
+                              site: siteController.text,
+                              login: loginController.text,
+                              password: passwordController.text),
+                        );
                     Get.back();
                   }
                 },
@@ -83,9 +92,9 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
                     backgroundColor: const Color(0xFF2D2D2D),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24))),
-                child: const Text(
-                  'Add',
-                  style: TextStyle(
+                child: Text(
+                  S.of(context).add,
+                  style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white,
                       fontWeight: FontWeight.w500),

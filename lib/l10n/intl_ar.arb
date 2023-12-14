@@ -1,0 +1,22 @@
+{
+  "@@locale": "ar",
+  "site": "الموقع",
+  "login": "تسجيل الدخول",
+  "password": "كلمة المرور",
+  "add": "إضافة",
+  "addNew": "إضافة جديدة",
+  "use": "استخدام",
+  "addNewN": "إضافة جديدة\n",
+  "toAddNewPassword": "لإضافة كلمة مرور جديدة",
+  "passwordManager": "مدير كلمات المرور",
+  "copied": "تم النسخ",
+  "disconnect": "فصل الاتصال",
+  "tryAgain": "حاول مرة أخرى",
+  "theLightSaberToConnectVpn": "سيف الضوء للاتصال بشبكة الخصوصية الافتراضية",
+  "clickAndDrag": "انقر واسحب",
+  "fastestServer": "أسرع خادم",
+  "download": "تحميل",
+  "addUserConfig": "إضافة تكوين المستخدم",
+  "dragSwordToStartNvpnConnection": "اسحب السيف لبدء اتصال VPN",
+  "cancelConnection": "إلغاء الاتصال"
+}

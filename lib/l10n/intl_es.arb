@@ -1,0 +1,22 @@
+{
+  "@@locale": "es",
+  "site": "Sitio",
+  "login": "Iniciar sesión",
+  "password": "Contraseña",
+  "add": "Agregar",
+  "addNew": "Agregar nuevo",
+  "use": "Usar",
+  "addNewN": "Agregar nuevo\n",
+  "toAddNewPassword": "para agregar nueva contraseña",
+  "passwordManager": "Gestor de contraseñas",
+  "copied": "Copiado",
+  "disconnect": "Desconectar",
+  "tryAgain": "Intentar de nuevo",
+  "theLightSaberToConnectVpn": "el sable de luz para conectar VPN",
+  "clickAndDrag": "Hacer clic y arrastrar",
+  "fastestServer": "Servidor más rápido",
+  "download": "Descargar",
+  "addUserConfig": "Agregar configuración de usuario",
+  "dragSwordToStartNvpnConnection": "Arrastra la espada para iniciar\nla conexión VPN",
+  "cancelConnection": "Cancelar conexión"
+}

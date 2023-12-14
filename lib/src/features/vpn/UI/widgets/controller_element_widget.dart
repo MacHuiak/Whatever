@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/main_button_widget.dart';
 
@@ -7,20 +8,20 @@ class DisconnectedControllerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "Click and drag",
-          style: TextStyle(
+          S.of(context).clickAndDrag,
+          style: const TextStyle(
               fontSize: 18, color: AppColors.mainBackgroundButtonColor),
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         Text(
-          "the light saber to connect VPN",
-          style: TextStyle(
+          S.of(context).theLightSaberToConnectVpn,
+          style: const TextStyle(
               fontSize: 18, color: AppColors.mainBackgroundButtonColor),
         )
       ],
@@ -46,20 +47,20 @@ class HaveErrorConnectionWidget extends StatelessWidget {
       onPressed: () {
         //TODO: add action
       },
-      child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
         child: Row(
           children: [
             //TODO: change icons
-            Icon(
+            const Icon(
               Icons.sync,
               color: AppColors.grey,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(left: 8.0),
               child: Text(
-                "Try again",
-                style: TextStyle(
+                S.of(context).tryAgain,
+                style: const TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                 ),
@@ -78,10 +79,10 @@ class ActiveControllerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainButtonWidget(
-      child: const Row(
+      child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          DecoratedBox(
+          const DecoratedBox(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.grey,
@@ -95,14 +96,14 @@ class ActiveControllerWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
 
           //TODO: add font
           Text(
-            "Disconnect",
-            style: TextStyle(
+            S.of(context).disconnect,
+            style: const TextStyle(
               color: Colors.white,
             ),
           )

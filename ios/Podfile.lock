@@ -34,6 +34,8 @@ PODS:
     - DKImagePickerController/PhotoGallery
     - Flutter
   - Flutter (1.0.0)
+  - package_info_plus (0.4.5):
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -41,15 +43,21 @@ PODS:
     - Flutter
   - rive_common (0.0.1):
     - Flutter
-  - SDWebImage (5.18.5):
-    - SDWebImage/Core (= 5.18.5)
-  - SDWebImage/Core (5.18.5)
-  - Sentry (8.17.1):
-    - Sentry/Core (= 8.17.1)
-    - SentryPrivate (= 8.17.1)
-  - Sentry/Core (8.17.1):
-    - SentryPrivate (= 8.17.1)
-  - SentryPrivate (8.17.1)
+  - SDWebImage (5.18.7):
+    - SDWebImage/Core (= 5.18.7)
+  - SDWebImage/Core (5.18.7)
+  - Sentry (8.15.2):
+    - Sentry/Core (= 8.15.2)
+    - SentryPrivate (= 8.15.2)
+  - Sentry/Core (8.15.2):
+    - SentryPrivate (= 8.15.2)
+  - Sentry/HybridSDK (8.15.2):
+    - SentryPrivate (= 8.15.2)
+  - sentry_flutter (0.0.1):
+    - Flutter
+    - FlutterMacOS
+    - Sentry/HybridSDK (= 8.15.2)
+  - SentryPrivate (8.15.2)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -58,10 +66,12 @@ PODS:
 DEPENDENCIES:
   - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `Flutter`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - realm (from `.symlinks/plugins/realm/ios`)
   - rive_common (from `.symlinks/plugins/rive_common/ios`)
   - Sentry
+  - sentry_flutter (from `.symlinks/plugins/sentry_flutter/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
 
 SPEC REPOS:
@@ -78,12 +88,16 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/file_picker/ios"
   Flutter:
     :path: Flutter
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   realm:
     :path: ".symlinks/plugins/realm/ios"
   rive_common:
     :path: ".symlinks/plugins/rive_common/ios"
+  sentry_flutter:
+    :path: ".symlinks/plugins/sentry_flutter/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
 
@@ -92,12 +106,14 @@ SPEC CHECKSUMS:
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
   file_picker: 15fd9539e4eb735dc54bae8c0534a7a9511a03de
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   realm: efc5f9a5e49cbd4dd5227476c23c2269ae831b7b
   rive_common: 8a159d68033a8b073e5853acc50f03aa486a2888
-  SDWebImage: 7ac2b7ddc5e8484c79aa90fc4e30b149d6a2c88f
-  Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
-  SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
+  SDWebImage: f9258c58221ed854cfa0e2b80ee4033710b1c6d3
+  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
+  sentry_flutter: 2c309a1d4b45e59d02cfa15795705687f1e2081b
+  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
 

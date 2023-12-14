@@ -7,6 +7,7 @@ import 'package:modern_vpn_project/generated/openvpn_service.pbgrpc.dart';
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/repositories/auth_repository.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/vpn_config_builder.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class ConfigServiceImpl extends OpenvpnServiceClient {
   final AuthRepositoryImpl _authRepository;
@@ -25,6 +26,8 @@ class ConfigServiceImpl extends OpenvpnServiceClient {
   Future<String> getConfig(String ip) async {
     final accessToken = _authRepository.tokenGetter;
     if (accessToken == null) {
+      Sentry.captureMessage("DON NOT GET ACCESS TOKEN");
+
       throw Exception();
     }
     final crtAndPrivateKey = await getCrtAndPrivateKey(accessToken);
@@ -35,6 +38,7 @@ class ConfigServiceImpl extends OpenvpnServiceClient {
         crt: crtAndPrivateKey.$1,
         privateKey: crtAndPrivateKey.$2,
         ip: ip);
+    Sentry.captureMessage("GENERATED CONFIG $config");
     return config;
   }
 

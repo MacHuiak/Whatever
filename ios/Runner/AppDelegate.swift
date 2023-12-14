@@ -8,6 +8,7 @@ import TunnelKitCore
 import TunnelKitManager
 import TunnelKitOpenVPN
 import NetworkExtension
+import Sentry
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -20,7 +21,7 @@ import NetworkExtension
   ) -> Bool {
       GeneratedPluginRegistrant.register(with: self)
      
-      
+      SentrySDK.start {options in options.swiftAsyncStacktraces = true }
       
       if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
@@ -70,18 +71,31 @@ class VpnConnectionService{
     
     
     func initConnection(){
+        
+        
         Task{
-                  await vpnExtension.prepare()
+            
+        
+                await vpnExtension.prepare()
+            SentrySDK.capture(message: "INIT NATIVE VPN")
+            
               }
     }
     
     
     func connectVPN(config:String){
+        SentrySDK.capture(message: "START NATIVE VPN")
         let vpnConfig = OpenVPN.Configuration.make("Whatever VPN", appGroup:appGroup, config: config)
                 Task{
                     var extraInfo = NetworkExtensionExtra()
                     extraInfo.disconnectsOnSleep = false
-                    try await vpnExtension.reconnect(extensionIdentifier, configuration: vpnConfig, extra: extraInfo, after: .seconds(2))
+                    do{
+                        try await vpnExtension.reconnect(extensionIdentifier, configuration: vpnConfig, extra: extraInfo, after: .seconds(2))
+                    }catch{
+                        SentrySDK.capture(message: "FAILED START CONNECTION")
+                        SentrySDK.capture(error: error)
+
+                    }
                 }
 
         
@@ -114,6 +128,8 @@ extension OpenVPN{
             return OpenVPN.ProviderConfiguration.init(title, appGroup: appGroup, configuration: parsedConfig.configuration)
         }catch{
             print(error)
+            SentrySDK.capture(message: "FAILED PARSE CONFIG")
+            SentrySDK.capture(error: error)
         }
         
         return nil

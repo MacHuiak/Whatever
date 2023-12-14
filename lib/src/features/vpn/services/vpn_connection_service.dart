@@ -5,6 +5,7 @@ import 'package:modern_vpn_project/src/features/vpn/models/data_counter_class.da
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/config_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/native_vpn_service.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class VpnConnectionService {
   final IosVPNService _vpnService;
@@ -25,14 +26,19 @@ class VpnConnectionService {
       Stream.value(const DataCountInfo(byteSent: 0, byteReceived: 0));
 
   Future<void> initConnection() async {
+    Sentry.captureMessage("TRY INIT");
+
     await _vpnService.initConnection();
+
+    Sentry.captureMessage("TRY INITED");
   }
 
   Future<void> startConnection(HostData hostData) async {
+    Sentry.captureMessage("TRY START FLUTTER VPN CONNECTION");
     await initConnection();
     String config = await _configServiceImpl.getConfig(hostData.ip);
-    log("");
     await _vpnService.startConnection(config: config);
+    Sentry.captureMessage("FINIS");
   }
 
   Future<void> stopConnection() async {

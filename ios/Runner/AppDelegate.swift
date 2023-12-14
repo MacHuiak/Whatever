@@ -27,9 +27,9 @@ import Sentry
             UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
       }
       let viewController:FlutterViewController = window?.rootViewController as! FlutterViewController
-      
+      let flutterChannel = FlutterMethodChannel(name: "com.whatever.flutter_call",binaryMessenger:viewController.binaryMessenger)
       vpnService = VpnConnectionService()
-     
+      
       flutterMethodHandler(flutterChannel: flutterChannel)
       
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

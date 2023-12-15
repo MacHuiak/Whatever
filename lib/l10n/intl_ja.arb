@@ -18,5 +18,15 @@
   "download": "ダウンロード",
   "addUserConfig": "ユーザー設定を追加",
   "dragSwordToStartNvpnConnection": "剣をドラッグしてVPN接続を開始",
-  "cancelConnection": "接続をキャンセル"
+  "cancelConnection": "接続をキャンセル",
+  "Australia": "シドニー（オーストラリア）",
+  "India": "バンガロール（インド）",
+  "Germany": "フランクフルト（ドイツ）",
+  "UK": "ロンドン（イギリス）",
+  "Singapore": "シンガポール",
+  "USA": "ニューヨーク（アメリカ）",
+  "Netherlands": "アムステルダム（オランダ）",
+  "Canada": "トロント（カナダ）",
+  "Unknown": "不明",
+  "Upload": "アップロード"
 }

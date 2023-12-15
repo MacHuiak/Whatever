@@ -22,11 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Canada": MessageLookupByLibrary.simpleMessage("Toronto (Canada)"),
+        "Germany": MessageLookupByLibrary.simpleMessage("Frankfurt (Germany)"),
+        "India": MessageLookupByLibrary.simpleMessage("Bangalore (India)"),
+        "Netherlands":
+            MessageLookupByLibrary.simpleMessage("Amsterdam (Netherlands)"),
+        "Singapore": MessageLookupByLibrary.simpleMessage("Singapore"),
+        "Uk": MessageLookupByLibrary.simpleMessage("London (UK)"),
+        "Usa": MessageLookupByLibrary.simpleMessage("New York (USA)"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNew": MessageLookupByLibrary.simpleMessage("Add new"),
         "addNewN": MessageLookupByLibrary.simpleMessage("«Add new» \n"),
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("Add user config"),
+        "australia": MessageLookupByLibrary.simpleMessage("Sydney (Australia)"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Cancel connection"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("Click and drag"),
@@ -46,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "toAddNewPassword":
             MessageLookupByLibrary.simpleMessage("to add new password"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
+        "upload": MessageLookupByLibrary.simpleMessage("Upload"),
         "use": MessageLookupByLibrary.simpleMessage("Use")
       };
 }

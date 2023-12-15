@@ -23,7 +23,7 @@ class VpnConnectionService {
       _vpnService.connectionStatusStream;
 
   Stream<DataCountInfo> get connectionDataCount =>
-      Stream.value(const DataCountInfo(byteSent: 0, byteReceived: 0));
+      _vpnService.connectionDataCountStream;
 
   Future<void> initConnection() async {
     Sentry.captureMessage("TRY INIT");

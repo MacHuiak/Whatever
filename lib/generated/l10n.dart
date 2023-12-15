@@ -239,6 +239,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Sydney (Australia)`
+  String get australia {
+    return Intl.message(
+      'Sydney (Australia)',
+      name: 'australia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bangalore (India)`
+  String get India {
+    return Intl.message(
+      'Bangalore (India)',
+      name: 'India',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Frankfurt (Germany)`
+  String get Germany {
+    return Intl.message(
+      'Frankfurt (Germany)',
+      name: 'Germany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `London (UK)`
+  String get Uk {
+    return Intl.message(
+      'London (UK)',
+      name: 'Uk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Singapore`
+  String get Singapore {
+    return Intl.message(
+      'Singapore',
+      name: 'Singapore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New York (USA)`
+  String get Usa {
+    return Intl.message(
+      'New York (USA)',
+      name: 'Usa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amsterdam (Netherlands)`
+  String get Netherlands {
+    return Intl.message(
+      'Amsterdam (Netherlands)',
+      name: 'Netherlands',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Toronto (Canada)`
+  String get Canada {
+    return Intl.message(
+      'Toronto (Canada)',
+      name: 'Canada',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown`
+  String get unknown {
+    return Intl.message(
+      'Unknown',
+      name: 'unknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload`
+  String get upload {
+    return Intl.message(
+      'Upload',
+      name: 'upload',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -18,5 +18,15 @@
   "download": "下载",
   "addUserConfig": "添加用户配置",
   "dragSwordToStartNvpnConnection": "拖动剑以开始\nVPN连接",
-  "cancelConnection": "取消连接"
+  "cancelConnection": "取消连接",
+  "Australia": "悉尼 (澳大利亚)",
+  "India": "班加罗尔 (印度)",
+  "Germany": "法兰克福 (德国)",
+  "UK": "伦敦 (英国)",
+  "Singapore": "新加坡",
+  "USA": "纽约 (美国)",
+  "Netherlands": "阿姆斯特丹 (荷兰)",
+  "Canada": "多伦多 (加拿大)",
+  "Unknown": "未知",
+  "Upload": "上传"
 }

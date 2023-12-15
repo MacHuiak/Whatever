@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/vpn_connection_service.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/data_counter_class.dart';
 
@@ -14,8 +16,6 @@ class DownloadInfoWidget extends StatefulWidget {
 }
 
 class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
-  late Stream<DataCountInfo> _dataCountStream;
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -37,7 +37,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
         ),
       ),
       child: StreamBuilder<DataCountInfo>(
-        stream: Stream.value(DataCountInfo(byteSent: 0, byteReceived: 0)),
+        stream: DI.getDependency<VpnConnectionService>().connectionDataCount,
         builder: (context, snapshot) {
           final dataCount = snapshot.data;
           final connectionSpeedInfo = dataCount?.receivedCountWithUnit ??
@@ -52,20 +52,21 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 25),
+                    padding: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.arrow_upward,
                           size: 18,
                           color: Color(0xFF5CF64A),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 6,
                         ),
                         Text(
                           S.of(context).download,
-                          style: TextStyle(color: AppColors.subTitleColor),
+                          style:
+                              const TextStyle(color: AppColors.subTitleColor),
                         )
                       ],
                     ),
@@ -143,12 +144,10 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
         ),
       ),
       child: StreamBuilder<DataCountInfo>(
-        stream: Stream.value(
-          const DataCountInfo(byteSent: 0, byteReceived: 0),
-        ),
+        stream: DI.getDependency<VpnConnectionService>().connectionDataCount,
         builder: (context, snapshot) {
           final dataCount = snapshot.data;
-          final connectionSpeedInfo = dataCount?.receivedCountWithUnit ??
+          final connectionSpeedInfo = dataCount?.sentDataCountWithUnit ??
               const ConnectionSpeedInfo(speedValue: "0", measureUnit: "B");
           return ConstrainedBox(
             constraints: const BoxConstraints(
@@ -159,21 +158,22 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 25),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.arrow_downward,
                           size: 18,
                           color: AppColors.red400,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 6,
                         ),
                         Text(
-                          "Upload",
-                          style: TextStyle(color: AppColors.subTitleColor),
+                          S.of(context).upload,
+                          style:
+                              const TextStyle(color: AppColors.subTitleColor),
                         )
                       ],
                     ),

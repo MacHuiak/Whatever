@@ -9,7 +9,8 @@ import 'package:rxdart/rxdart.dart';
 class IosVPNService {
   final StreamController<ConnectionStatus> _connectionTypeController =
       BehaviorSubject<ConnectionStatus>();
-  final StreamController<int> _connectionTimeController = BehaviorSubject<int>();
+  final StreamController<int> _connectionTimeController =
+      BehaviorSubject<int>();
   final StreamController<DataCountInfo> _connectionDataCountController =
       BehaviorSubject<DataCountInfo>();
 
@@ -43,20 +44,19 @@ class IosVPNService {
   }
 
   Future<void> initConnection() async {
-    final a =await _flutterChannel.invokeMethod("init_connection");
+    final a = await _flutterChannel.invokeMethod("init_connection");
     log("");
   }
 
   Future<void> startConnection({required String config}) async {
-    final b =await _flutterChannel.invokeMethod("start_vpn", {"vpn_config": config});
+    final b =
+        await _flutterChannel.invokeMethod("start_vpn", {"vpn_config": config});
     log("");
   }
 
   Future<void> stopConnection() async {
     await _flutterChannel.invokeMethod("stop_vpn");
   }
-
-// Stream<ConnectionTypeElement> get connectionStatusStream =
 }
 
 class NativeCallbackHandler {
@@ -82,11 +82,14 @@ class NativeCallbackHandler {
         onConnectionStatusGet(ConnectionStatus.getTypeByName(connectionStatus));
         break;
       case "send_connection_time":
-        int connectionTime = call.arguments["activeConnectionTimeStamp"];
-        onTimeGet(connectionTime);
+        int? connectionTime = int.tryParse(call.arguments["connectionTime"]);
+        if (connectionTime != null) {
+          onTimeGet(connectionTime);
+        }
+
         break;
       case "send_data_count":
-        final byteSent = call.arguments["byteSent"];
+        final byteSent = call.arguments["byteSend"];
         final byteReceived = call.arguments["byteReceived"];
         onDataCountGet(
             DataCountInfo(byteSent: byteSent, byteReceived: byteReceived));

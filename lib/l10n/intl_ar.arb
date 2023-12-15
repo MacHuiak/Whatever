@@ -18,5 +18,15 @@
   "download": "تحميل",
   "addUserConfig": "إضافة تكوين المستخدم",
   "dragSwordToStartNvpnConnection": "اسحب السيف لبدء اتصال VPN",
-  "cancelConnection": "إلغاء الاتصال"
+  "cancelConnection": "إلغاء الاتصال",
+  "Australia": "سيدني (أستراليا)",
+  "India": "بنغالور (الهند)",
+  "Germany": "فرانكفورت (ألمانيا)",
+  "UK": "لندن (المملكة المتحدة)",
+  "Singapore": "سنغافورة",
+  "USA": "نيويورك (الولايات المتحدة)",
+  "Netherlands": "أمستردام (هولندا)",
+  "Canada": "تورونتو (كندا)",
+  "Unknown": "غير معروف",
+  "Upload": "رفع"
 }

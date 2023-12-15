@@ -18,5 +18,15 @@
   "download": "Descargar",
   "addUserConfig": "Agregar configuración de usuario",
   "dragSwordToStartNvpnConnection": "Arrastra la espada para iniciar\nla conexión VPN",
-  "cancelConnection": "Cancelar conexión"
+  "cancelConnection": "Cancelar conexión",
+  "Australia": "Sídney (Australia)",
+  "India": "Bangalore (India)",
+  "Germany": "Frankfurt (Germany)",
+  "UK": "Londres (Reino Unido)",
+  "Singapore": "Singapur",
+  "USA": "Nueva York (EE. UU.)",
+  "Netherlands": "Ámsterdam (Países Bajos)",
+  "Canada": "Toronto (Canadá)",
+  "Unknown": "Desconocido",
+  "Upload": "Subir"
 }

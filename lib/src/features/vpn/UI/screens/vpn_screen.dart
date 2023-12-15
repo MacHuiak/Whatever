@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/screens/manager_of_password_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/drawer.dart';
@@ -16,6 +17,7 @@ import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/vpn_connection_service.dart';
 
 class MainVPNScreen extends StatefulHookConsumerWidget {
   const MainVPNScreen({super.key});
@@ -69,12 +71,16 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
             ),
           ),
 
-          // Align(
-          //   alignment: const Alignment(0, 0.4),
-          //   child: LightSwordWidget(
-          //     onStart: () {},
-          //   ),
-          // ),
+          Align(
+            alignment: const Alignment(0, 0.4),
+            child: LightSwordWidget(
+              onStart: () {
+                ref
+                    .read(connectionProvider.notifier)
+                    .startConnection(selectedHost!);
+              },
+            ),
+          ),
           Align(
             alignment: const Alignment(0.85, -0.92),
             child: GestureDetector(
@@ -112,8 +118,6 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
               ),
             ),
           ),
-          //TODO need add
-
           const Align(
             alignment: Alignment(0, 0.4),
             child: ConnectionInfoWidget(),
@@ -122,11 +126,7 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
             alignment: Alignment(0, 0.8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                DownloadInfoWidget(),
-                //TODO:add upload
-                InfoUploadWidget()
-              ],
+              children: [DownloadInfoWidget(), InfoUploadWidget()],
             ),
           ),
         ],
@@ -135,60 +135,66 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
   }
 }
 
-final ConnectionStatus connectionStatus = ConnectionStatus.disconnected;
+const ConnectionStatus connectionStatus = ConnectionStatus.disconnected;
 
 class ConnectionInfoWidget extends ConsumerWidget {
   const ConnectionInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    switch (connectionStatus) {
-      case ConnectionStatus.disconnected:
-        return Text(
-          S.of(context).dragSwordToStartNvpnConnection,
-          textAlign: TextAlign.center,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
-        );
-      case ConnectionStatus.connected:
-        return ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white.withOpacity(0.3),
-              foregroundColor: Colors.white),
-          onPressed: () {
-            ref.read(connectionProvider.notifier).stopConnection();
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.cancel),
-              const SizedBox(
-                width: 8,
+    return StreamBuilder(
+      stream: DI.getDependency<VpnConnectionService>().connectionStatus,
+      builder: (context, snapshot) {
+        final connectionStatus = snapshot.data ?? ConnectionStatus.disconnected;
+        switch (connectionStatus) {
+          case ConnectionStatus.disconnected:
+            return Text(
+              S.of(context).dragSwordToStartNvpnConnection,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.white, fontSize: 24),
+            );
+          case ConnectionStatus.connected:
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(0.3),
+                  foregroundColor: Colors.white),
+              onPressed: () {
+                ref.read(connectionProvider.notifier).stopConnection();
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.cancel),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(S.of(context).cancelConnection),
+                ],
               ),
-              Text(S.of(context).cancelConnection),
-            ],
-          ),
-        );
-      case ConnectionStatus.connecting:
-        return ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white.withOpacity(0.3),
-              foregroundColor: Colors.white),
-          onPressed: () {
-            ref.read(connectionProvider.notifier).stopConnection();
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.cancel),
-              const SizedBox(
-                width: 8,
+            );
+          case ConnectionStatus.connecting:
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(0.3),
+                  foregroundColor: Colors.white),
+              onPressed: () {
+                ref.read(connectionProvider.notifier).stopConnection();
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.cancel),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(S.of(context).cancelConnection),
+                ],
               ),
-              Text(S.of(context).cancelConnection),
-            ],
-          ),
-        );
-      case ConnectionStatus.disconnecting:
-        return const SizedBox();
-    }
+            );
+          case ConnectionStatus.disconnecting:
+            return const SizedBox();
+        }
+      },
+    );
   }
 }

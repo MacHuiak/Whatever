@@ -18,5 +18,15 @@
   "download": "İndir",
   "addUserConfig": "Kullanıcı konfigürasyonu ekle",
   "dragSwordToStartNvpnConnection": "VPN bağlantısını başlatmak için kılıç sürükle",
-  "cancelConnection": "Bağlantıyı İptal Et"
+  "cancelConnection": "Bağlantıyı İptal Et",
+  "Australia": "Sidney (Avustralya)",
+  "India": "Bangalore (Hindistan)",
+  "Germany": "Frankfurt (Almanya)",
+  "UK": "Londra (Birleşik Krallık)",
+  "Singapore": "Singapur",
+  "USA": "New York (ABD)",
+  "Netherlands": "Amsterdam (Hollanda)",
+  "Canada": "Toronto (Kanada)",
+  "Unknown": "Bilinmiyor",
+  "Upload": "Yükle"
 }

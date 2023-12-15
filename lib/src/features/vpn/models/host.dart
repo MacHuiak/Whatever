@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:modern_vpn_project/generated/host.pb.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 
 @immutable
 class HostData {
@@ -39,25 +40,25 @@ extension ExtensioHostInfoElement on Host {
   String getNameCountryFunction() {
     switch (country) {
       case HostCountry.COUNTRY_AUS:
-        return "Sydney (Australia)";
+        return S.current.australia;
       case HostCountry.COUNTRY_IND:
-        return "Bangalore (India)";
+        return S.current.India;
       case HostCountry.COUNTRY_DEU:
-        return "Frankfurt (Germany)";
+        return S.current.Germany;
       case HostCountry.COUNTRY_GBR:
-        return "London (UK)";
+        return S.current.Uk;
       case HostCountry.COUNTRY_SGP:
-        return "Singapore";
+        return S.current.Singapore;
       case HostCountry.COUNTRY_USA:
-        return "New York (USA)";
+        return S.current.Usa;
       case HostCountry.COUNTRY_NLD:
-        return "Amsterdam (Netherlands)";
+        return S.current.Netherlands;
       case HostCountry.COUNTRY_CAN:
-        return "Toronto (Canada)";
+        return S.current.Canada;
       case HostCountry.COUNTRY_UNSPECIFIED:
-        return "Unknown";
+        return S.current.unknown;
       default:
-        return "Unknown";
+        return S.current.unknown;
     }
   }
 

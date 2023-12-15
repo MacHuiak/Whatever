@@ -16,7 +16,15 @@ class FeatureCheckScreen extends StatelessWidget {
                 minHeight: context.height,
                 maxHeight: context.height),
             child: Column(
-              children: [],
+              children: [
+                SizedBox(
+                  width: context.width,
+                  height: 120,
+                  child: Stack(
+                    children: [Container()],
+                  ),
+                )
+              ],
             ),
           )
         ],

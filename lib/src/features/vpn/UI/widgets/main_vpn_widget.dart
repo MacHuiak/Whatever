@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/sword_controller/sword_controller.dart';
 import 'package:rive/rive.dart';
 
 class NoConnectionWidget extends StatelessWidget {
@@ -7,7 +9,7 @@ class NoConnectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [Icon(Icons.add), Text("")],
@@ -15,16 +17,16 @@ class NoConnectionWidget extends StatelessWidget {
   }
 }
 
-class LightSwordWidget extends StatefulWidget {
+class LightSwordWidget extends ConsumerStatefulWidget {
   final Function onStart;
 
   const LightSwordWidget({super.key, required this.onStart});
 
   @override
-  State<LightSwordWidget> createState() => _LightSwordWidgetState();
+  ConsumerState<LightSwordWidget> createState() => _LightSwordWidgetState();
 }
 
-class _LightSwordWidgetState extends State<LightSwordWidget> {
+class _LightSwordWidgetState extends ConsumerState<LightSwordWidget> {
   SMIInput<bool>? _isPressed;
   StateMachineController? stateMachineController;
   String? _currentStateName;
@@ -45,17 +47,22 @@ class _LightSwordWidgetState extends State<LightSwordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(swordController, (_, next) {
+      if (next == SwordConnection.reboot) {
+        _restartSwordAnimation();
+      }
+    });
     return rive == null
         ? const SizedBox()
         : SizedBox(
-      width: 700,
-          height: 650,
-          child: RiveAnimation.direct(rive!,
-              artboard: "Saber Fight Test",
-              onInit: _onInit,
-              alignment: Alignment.center,
-              fit: BoxFit.fitHeight),
-        );
+            width: 700,
+            height: 650,
+            child: RiveAnimation.direct(rive!,
+                artboard: "Saber Fight Test",
+                onInit: _onInit,
+                alignment: Alignment.center,
+                fit: BoxFit.fitHeight),
+          );
   }
 
   void _onInit(Artboard board) {
@@ -73,6 +80,21 @@ class _LightSwordWidgetState extends State<LightSwordWidget> {
     ) as StateMachineController;
     // _controllerBloc!.add(LightSabersInit(stateMachineController!));
     board.addController(stateMachineController!);
+  }
+
+  Future<void> _restartSwordAnimation() async {
+    setState(() {
+      rive = null;
+    });
+
+    await rootBundle.load("assets/rive/may.riv").then(
+      (value) async {
+        setState(() {
+          rive = RiveFile.import(value);
+        });
+        ref.read(swordController.notifier).activate();
+      },
+    );
   }
 
   @override

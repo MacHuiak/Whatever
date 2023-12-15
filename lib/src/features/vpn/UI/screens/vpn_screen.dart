@@ -15,6 +15,7 @@ import 'package:modern_vpn_project/src/features/vpn/UI/widgets/time_connection_w
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/upload_and_download_widget.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/sword_controller/sword_controller.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/vpn_connection_service.dart';
@@ -51,25 +52,25 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
         //     icon: const Icon(
         //       Icons.menu,
         //       color: AppColors.subTitleColor,
-        //     ), БРО !!! Я ГОТОВ КОМП ПЕРЕЗАГРУЖАТЬ!
+        //     ),
         //   )
-        // ],Вперед !!!!
+        // ]
       ),
       backgroundColor: Colors.black,
       body: Stack(
         children: [
           //TODO: add vpn body
-          Align(
-            alignment: const Alignment(0, 0),
-            child: ElevatedButton(
-              onPressed: () {
-                ref
-                    .read(connectionProvider.notifier)
-                    .startConnection(selectedHost!);
-              },
-              child: const Text("Click"),
-            ),
-          ),
+          // Align(
+          //   alignment: const Alignment(0, 0),
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       ref
+          //           .read(connectionProvider.notifier)
+          //           .startConnection(selectedHost!);
+          //     },
+          //     child: const Text("Click"),
+          //   ),
+          // ),
 
           Align(
             alignment: const Alignment(0, 0.4),
@@ -135,7 +136,7 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
   }
 }
 
-const ConnectionStatus connectionStatus = ConnectionStatus.disconnected;
+const ConnectionStatus connectionStatus = ConnectionStatus.connected;
 
 class ConnectionInfoWidget extends ConsumerWidget {
   const ConnectionInfoWidget({super.key});
@@ -159,6 +160,7 @@ class ConnectionInfoWidget extends ConsumerWidget {
                   backgroundColor: Colors.white.withOpacity(0.3),
                   foregroundColor: Colors.white),
               onPressed: () {
+                ref.read(swordController.notifier).reboot();
                 ref.read(connectionProvider.notifier).stopConnection();
               },
               child: Row(

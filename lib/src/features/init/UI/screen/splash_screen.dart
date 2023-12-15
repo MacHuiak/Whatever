@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1)).whenComplete(() {
-      if (kDebugMode) {
+      if (false) {
         Get.to(() => const FeatureCheckScreen());
       } else {
         Get.to(() => const MainVPNScreen());

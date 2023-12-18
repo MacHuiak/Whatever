@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
@@ -14,6 +16,7 @@ import 'package:modern_vpn_project/src/features/vpn/UI/widgets/status_connection
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/time_connection_widget.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/upload_and_download_widget.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/rate_app/rate_app.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/sword_controller/sword_controller.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
@@ -33,7 +36,7 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
   @override
   Widget build(BuildContext context) {
     HostData? selectedHost = ref.watch(selectedHostProvider);
-
+    bool shouldRate = ref.watch(rateNotifier);
     return Scaffold(
       // key: globalKey,
       // endDrawer: const BorderSideMenu(),
@@ -59,14 +62,12 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          //TODO: add vpn body
+          // TODO: add vpn body
           // Align(
           //   alignment: const Alignment(0, 0),
           //   child: ElevatedButton(
           //     onPressed: () {
-          //       ref
-          //           .read(connectionProvider.notifier)
-          //           .startConnection(selectedHost!);
+          //
           //     },
           //     child: const Text("Click"),
           //   ),
@@ -79,6 +80,18 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
                 ref
                     .read(connectionProvider.notifier)
                     .startConnection(selectedHost!);
+
+                if (shouldRate) {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Dialog(
+                          insetPadding: EdgeInsets.zero,
+                          child: RateAppWidget());
+                    },
+                  );
+                }
+                ref.read(rateNotifier.notifier).updateLaunchCount();
               },
             ),
           ),
@@ -131,6 +144,85 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class RateAppWidget extends StatefulHookConsumerWidget {
+  const RateAppWidget({super.key});
+
+  @override
+  ConsumerState<RateAppWidget> createState() => _RateAppWidgetState();
+}
+
+class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
+  double rate = 3;
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: SizedBox(
+        height: 400,
+        width: context.width * 0.8,
+        child: Stack(
+          children: [
+            Align(
+              alignment: const Alignment(0, -0.8),
+              child: Image.asset(
+                "assets/images/rate_saber.png",
+                width: 128,
+                height: 128,
+              ),
+            ),
+            const Align(
+              alignment: Alignment(0, 0.1),
+              child: Text(
+                "Rate our app and may the force be with you",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+              ),
+            ),
+            Align(
+              alignment: const Alignment(0, 0.5),
+              child: RatingBar.builder(
+                initialRating: 3,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: false,
+                unratedColor: Colors.amber.withAlpha(50),
+                itemCount: 5,
+                itemSize: 50.0,
+                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {
+                  setState(() {
+                    rate = rating;
+                  });
+                },
+                updateOnDrag: true,
+              ),
+            ),
+            Align(
+              alignment: const Alignment(0, 0.9),
+              child: ElevatedButton(
+                onPressed: () {
+                  ref.read(rateNotifier.notifier).rateApp(rate);
+                  Navigator.of(context).pop();
+                },
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Text("Rate App"),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

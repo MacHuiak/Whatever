@@ -16,16 +16,14 @@ class DI {
   static final channelForClient =
       SingleChannelClient.factory("178.128.196.119", 9090);
 
-  static Future<void> init(
-      SharedPreferences sharedPreferences) async {
+  static Future<void> init(SharedPreferences sharedPreferences) async {
     _buildDependency(sharedPreferences);
   }
 
   static T getDependency<T>() => _dependencies[T] as T;
 
   //PasswordRepository
-  static void _buildDependency(
-      SharedPreferences sharedPreferences) {
+  static void _buildDependency(SharedPreferences sharedPreferences) {
     final auth = AuthRepositoryImpl(sharedPreferences);
     final host = HostService(channelForClient, auth);
     final createAccount = CreateAccount(channelForClient);
@@ -35,13 +33,12 @@ class DI {
         configServiceImpl: configService, vpnService: IosVPNService());
     final passwordRepository = PasswordRepository();
 
-
     _dependencies[PasswordRepository] = passwordRepository;
     _dependencies[AuthRepositoryImpl] = auth;
     _dependencies[HostService] = host;
     _dependencies[CreateAccount] = createAccount;
     _dependencies[UserLogin] = userLogin;
     _dependencies[VpnConnectionService] = connectionService;
-
+    _dependencies[SharedPreferences] = sharedPreferences;
   }
 }

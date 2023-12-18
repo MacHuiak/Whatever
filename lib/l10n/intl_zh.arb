@@ -28,5 +28,7 @@
   "Netherlands": "阿姆斯特丹 (荷兰)",
   "Canada": "多伦多 (加拿大)",
   "Unknown": "未知",
-  "Upload": "上传"
+  "Upload": "上传",
+  "rateText": "评价我们的应用，愿原力与你同在",
+  "rateButton": "评价应用"
 }

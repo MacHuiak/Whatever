@@ -28,5 +28,7 @@
   "Netherlands": "Ámsterdam (Países Bajos)",
   "Canada": "Toronto (Canadá)",
   "Unknown": "Desconocido",
-  "Upload": "Subir"
+  "Upload": "Subir",
+  "rateText": "Califica nuestra aplicación y que la fuerza esté contigo",
+  "rateButton": "Calificar App"
 }

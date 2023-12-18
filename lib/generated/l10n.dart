@@ -339,6 +339,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Rate our app and may the force be with you`
+  String get rateText {
+    return Intl.message(
+      'Rate our app and may the force be with you',
+      name: 'rateText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate App`
+  String get rateButton {
+    return Intl.message(
+      'Rate App',
+      name: 'rateButton',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

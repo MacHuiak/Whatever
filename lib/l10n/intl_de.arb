@@ -28,5 +28,7 @@
   "Netherlands": "Amsterdam (Niederlande)",
   "Canada": "Toronto (Kanada)",
   "Unknown": "Unbekannt",
-  "Upload": "Hochladen"
+  "Upload": "Hochladen",
+  "rateText": "Bewerte unsere App und möge die Macht mit dir sein",
+  "rateButton": "App bewerten"
 }

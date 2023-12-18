@@ -46,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("مدير كلمات المرور"),
+        "rateButton": MessageLookupByLibrary.simpleMessage("قيم التطبيق"),
+        "rateText":
+            MessageLookupByLibrary.simpleMessage("قيم تطبيقنا ولتكن القوة معك"),
         "site": MessageLookupByLibrary.simpleMessage("الموقع"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "سيف الضوء للاتصال بشبكة الخصوصية الافتراضية"),

@@ -42,6 +42,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("パスワードマネージャー"),
+        "rateButton": MessageLookupByLibrary.simpleMessage("アプリを評価する"),
+        "rateText":
+            MessageLookupByLibrary.simpleMessage("アプリを評価して、フォースがあなたと共にありますように"),
         "site": MessageLookupByLibrary.simpleMessage("サイト"),
         "theLightSaberToConnectVpn":
             MessageLookupByLibrary.simpleMessage("VPNに接続するための光の剣"),

@@ -48,6 +48,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("Şifre yöneticisi"),
+        "rateButton":
+            MessageLookupByLibrary.simpleMessage("Uygulamayı Değerlendir"),
+        "rateText": MessageLookupByLibrary.simpleMessage(
+            "Uygulamamızı değerlendir ve kuvvet seninle olsun"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "VPN bağlantısı için ışın kılıcı"),

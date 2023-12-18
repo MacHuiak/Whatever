@@ -28,5 +28,7 @@
   "Netherlands": "Amsterdam (Hollanda)",
   "Canada": "Toronto (Kanada)",
   "Unknown": "Bilinmiyor",
-  "Upload": "Yükle"
+  "Upload": "Yükle",
+  "rateText": "Uygulamamızı değerlendir ve kuvvet seninle olsun",
+  "rateButton": "Uygulamayı Değerlendir"
 }

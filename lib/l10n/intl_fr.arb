@@ -28,5 +28,7 @@
   "Netherlands": "Amsterdam (Pays-Bas)",
   "Canada": "Toronto (Canada)",
   "Unknown": "Inconnu",
-  "Upload": "Télécharger"
+  "Upload": "Télécharger",
+  "rateText": "Notez notre application et que la force soit avec vous",
+  "rateButton": "Noter l'application"
 }

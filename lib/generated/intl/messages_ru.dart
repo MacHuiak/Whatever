@@ -48,6 +48,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("Менеджер паролей"),
+        "rateButton":
+            MessageLookupByLibrary.simpleMessage("Оценить приложение"),
+        "rateText": MessageLookupByLibrary.simpleMessage(
+            "Оцените наше приложение, и пусть с вами будет Сила"),
         "site": MessageLookupByLibrary.simpleMessage("Сайт"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "световой меч для подключения к VPN"),

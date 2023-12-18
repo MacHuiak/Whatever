@@ -158,6 +158,7 @@ class RateAppWidget extends StatefulHookConsumerWidget {
 
 class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
   double rate = 3;
+
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -177,10 +178,10 @@ class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
                 height: 128,
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment(0, 0.1),
               child: Text(
-                "Rate our app and may the force be with you",
+                S.of(context).rateText,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
               ),
@@ -215,9 +216,9 @@ class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
                   ref.read(rateNotifier.notifier).rateApp(rate);
                   Navigator.of(context).pop();
                 },
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Text("Rate App"),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Text(S.of(context).rateButton),
                 ),
               ),
             )

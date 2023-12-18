@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "password": MessageLookupByLibrary.simpleMessage("密码"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("密码管理器"),
+        "rateButton": MessageLookupByLibrary.simpleMessage("评价应用"),
+        "rateText": MessageLookupByLibrary.simpleMessage("评价我们的应用，愿原力与你同在"),
         "site": MessageLookupByLibrary.simpleMessage("网站"),
         "theLightSaberToConnectVpn":
             MessageLookupByLibrary.simpleMessage("连接VPN的光剑"),

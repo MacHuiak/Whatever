@@ -28,5 +28,7 @@
   "Netherlands": "Amsterdam (Netherlands)",
   "Canada": "Toronto (Canada)",
   "unknown": "Unknown",
-  "upload": "Upload"
+  "upload": "Upload",
+  "rateText": "Rate our app and may the force be with you",
+  "rateButton": "Rate App"
 }

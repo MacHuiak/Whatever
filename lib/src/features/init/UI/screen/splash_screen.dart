@@ -21,10 +21,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1)).whenComplete(() {
-      if (true) {
+      if (false) {
         Get.to(() => const PayWall());
       } else {
-        Get.to(() => const MainVPNScreen());
+        Get.offAll(() => const MainVPNScreen());
       }
       // context.router.replaceNamed('/mainVPN');
     });

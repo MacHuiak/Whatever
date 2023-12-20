@@ -63,35 +63,37 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
       body: Stack(
         children: [
           // TODO: add vpn body
-          // Align(
-          //   alignment: const Alignment(0, 0),
-          //   child: ElevatedButton(
-          //     onPressed: () {
-          //
-          //     },
-          //     child: const Text("Click"),
-          //   ),
-          // ),
+          Align(
+            alignment: const Alignment(0, 0),
+            child: ElevatedButton(
+              onPressed: () {
+                ref
+                    .read(connectionProvider.notifier)
+                    .startConnection(selectedHost!);
+              },
+              child: const Text("Click"),
+            ),
+          ),
 
           Align(
             alignment: const Alignment(0, 0.4),
             child: LightSwordWidget(
               onStart: () {
-                ref
-                    .read(connectionProvider.notifier)
-                    .startConnection(selectedHost!);
-
-                if (shouldRate) {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const Dialog(
-                          insetPadding: EdgeInsets.zero,
-                          child: RateAppWidget());
-                    },
-                  );
-                }
-                ref.read(rateNotifier.notifier).updateLaunchCount();
+                // ref
+                //     .read(connectionProvider.notifier)
+                //     .startConnection(selectedHost!);
+                //
+                // if (shouldRate) {
+                //   showDialog(
+                //     context: context,
+                //     builder: (context) {
+                //       return const Dialog(
+                //           insetPadding: EdgeInsets.zero,
+                //           child: RateAppWidget());
+                //     },
+                //   );
+                // }
+                // ref.read(rateNotifier.notifier).updateLaunchCount();
               },
             ),
           ),
@@ -102,12 +104,15 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
                 Get.to(() => const PasswordManagerScreen());
               },
               child: Container(
+                width: 48,
+                height: 48,
                 decoration: BoxDecoration(
-                    color: AppColors.white400.withOpacity(0.5),
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.white),
                     shape: BoxShape.circle),
                 child: const Padding(
                   padding: EdgeInsets.all(6.0),
-                  child: Icon(Icons.key, size: 40, color: Colors.yellow),
+                  child: Icon(Icons.key, size: 24, color: Colors.yellow),
                 ),
               ),
             ),
@@ -179,11 +184,12 @@ class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
               ),
             ),
             Align(
-              alignment: Alignment(0, 0.1),
+              alignment: const Alignment(0, 0.1),
               child: Text(
                 S.of(context).rateText,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
               ),
             ),
             Align(
@@ -245,7 +251,7 @@ class ConnectionInfoWidget extends ConsumerWidget {
             return Text(
               S.of(context).dragSwordToStartNvpnConnection,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white, fontSize: 24),
+              style: const TextStyle(color: Color(0xFF565656), fontSize: 14),
             );
           case ConnectionStatus.connected:
             return ElevatedButton(

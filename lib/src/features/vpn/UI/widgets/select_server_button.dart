@@ -17,8 +17,9 @@ class ServerSelectButton extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: AppColors.mainBackgroundButtonColor,
+          backgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(24),
           ),
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20)),

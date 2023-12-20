@@ -30,7 +30,7 @@ class ConfigServiceImpl extends OpenvpnServiceClient {
       if (accessToken == null) {
         Sentry.captureMessage("DON NOT GET ACCESS TOKEN");
 
-        throw Exception();
+        throw Exception("DON NOT GET ACCESS TOKEN");
       }
       final crtAndPrivateKey = await getCrtAndPrivateKey(accessToken);
       final ca = await getCertChain(accessToken);

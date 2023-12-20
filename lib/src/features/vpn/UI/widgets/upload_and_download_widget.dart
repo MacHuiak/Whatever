@@ -82,7 +82,8 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                           style: context.isBigScreen
                               ? const TextStyle(
                                   fontSize: 26, color: AppColors.white100)
-                              : const TextStyle(color: AppColors.white100),
+                              : const TextStyle(
+                                  fontSize: 26, color: AppColors.white100),
                         ),
                         const SizedBox(
                           width: 4,
@@ -93,6 +94,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                               textAlign: TextAlign.end,
                               style: context.isBigScreen
                                   ? const TextStyle(
+                                      fontSize: 18,
                                       color: AppColors.subTitleColor)
                                   : const TextStyle(
                                       fontSize: 18,
@@ -189,7 +191,8 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                           style: context.isBigScreen
                               ? const TextStyle(
                                   fontSize: 26, color: AppColors.white100)
-                              : const TextStyle(color: AppColors.white100),
+                              : const TextStyle(
+                                  fontSize: 26, color: AppColors.white100),
                         ),
                         const SizedBox(
                           width: 4,
@@ -201,6 +204,7 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                             textAlign: TextAlign.end,
                             style: context.isBigScreen
                                 ? const TextStyle(
+                                    fontSize: 18,
                                     color: AppColors.subTitleColor)
                                 : const TextStyle(
                                     fontSize: 18,

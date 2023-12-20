@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/vpn_connection_service.dart';
 
 class ConnectionTimeWidget extends StatelessWidget {
   const ConnectionTimeWidget({super.key});
@@ -8,7 +10,7 @@ class ConnectionTimeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: add builder for time
     return StreamBuilder<int>(
-      stream: Stream<int>.value(0),
+      stream: DI.getDependency<VpnConnectionService>().connectionTime,
       initialData: 0,
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         final seconds = snapshot.data ?? 0;

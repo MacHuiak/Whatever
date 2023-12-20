@@ -38,8 +38,8 @@ class VpnConnectionService {
     initConnection();
     Sentry.captureMessage("FINISH INIT FLUTTER");
     String config = await _configServiceImpl.getConfig(hostData.ip);
-    await _vpnService.startConnection(config: config);
-    Sentry.captureMessage("FINIS");
+    // await _vpnService.startConnection(config: config);
+    // Sentry.captureMessage("FINIS");
   }
 
   Future<void> stopConnection() async {

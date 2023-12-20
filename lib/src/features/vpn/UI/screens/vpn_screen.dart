@@ -63,37 +63,37 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
       body: Stack(
         children: [
           // TODO: add vpn body
-          Align(
-            alignment: const Alignment(0, 0),
-            child: ElevatedButton(
-              onPressed: () {
-                ref
-                    .read(connectionProvider.notifier)
-                    .startConnection(selectedHost!);
-              },
-              child: const Text("Click"),
-            ),
-          ),
+          // Align(
+          //   alignment: const Alignment(0, 0),
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       ref
+          //           .read(connectionProvider.notifier)
+          //           .startConnection(selectedHost!);
+          //     },
+          //     child: const Text("Click"),
+          //   ),
+          // ),
 
           Align(
             alignment: const Alignment(0, 0.4),
             child: LightSwordWidget(
               onStart: () {
-                // ref
-                //     .read(connectionProvider.notifier)
-                //     .startConnection(selectedHost!);
-                //
-                // if (shouldRate) {
-                //   showDialog(
-                //     context: context,
-                //     builder: (context) {
-                //       return const Dialog(
-                //           insetPadding: EdgeInsets.zero,
-                //           child: RateAppWidget());
-                //     },
-                //   );
-                // }
-                // ref.read(rateNotifier.notifier).updateLaunchCount();
+                ref
+                    .read(connectionProvider.notifier)
+                    .startConnection(selectedHost!);
+
+                if (shouldRate) {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Dialog(
+                          insetPadding: EdgeInsets.zero,
+                          child: RateAppWidget());
+                    },
+                  );
+                }
+                ref.read(rateNotifier.notifier).updateLaunchCount();
               },
             ),
           ),

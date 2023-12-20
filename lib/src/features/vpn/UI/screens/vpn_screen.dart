@@ -183,7 +183,7 @@ class _RateAppWidgetState extends ConsumerState<RateAppWidget> {
               child: Text(
                 S.of(context).rateText,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
               ),
             ),
             Align(

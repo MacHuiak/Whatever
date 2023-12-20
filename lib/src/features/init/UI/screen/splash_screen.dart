@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/route_manager.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/feature_check_screen.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 
 @RoutePage()
@@ -20,8 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1)).whenComplete(() {
-      if (false) {
-        Get.to(() => const FeatureCheckScreen());
+      if (true) {
+        Get.to(() => const PayWall());
       } else {
         Get.to(() => const MainVPNScreen());
       }

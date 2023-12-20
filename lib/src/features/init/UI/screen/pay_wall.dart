@@ -1,0 +1,319 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+class PayWall extends StatefulWidget {
+  const PayWall({super.key});
+
+  @override
+  State<PayWall> createState() => _PayWallState();
+}
+
+class _PayWallState extends State<PayWall> {
+  final PageController _pageController = PageController();
+
+  //Protects your smartphone stealing
+  // your banking and personal data
+
+  //Protects your smartphone from
+  // a bad site activity
+
+  //Help to prevent using resourses of your smartphone for mining cryptocurrency
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Align(
+            alignment: const Alignment(0, -0.4),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      maxWidth: context.width,
+                      minWidth: context.width,
+                      maxHeight: 450,
+                      minHeight: 300),
+                  child: PageView(
+                    controller: _pageController,
+                    children: const [
+                      PayWallStepWidget(
+                        mainImagePath: 'assets/images/filter.png',
+                        littleCirclePath: 'assets/images/small_ell_spam.png',
+                        bigCirclePath: 'assets/images/ell_spam.png',
+                        title: 'Spam filter',
+                      ),
+                      PayWallStepWidget(
+                        mainImagePath: 'assets/images/phishing.png',
+                        littleCirclePath: 'assets/images/small_ell_phi.png',
+                        bigCirclePath: 'assets/images/ell_phi.png',
+                        title: 'Phishing filter',
+                      ),
+                      PayWallStepWidget(
+                        mainImagePath: 'assets/images/ads.png',
+                        littleCirclePath: 'assets/images/small_ell_ads.png',
+                        bigCirclePath: 'assets/images/ell_ads.png',
+                        title: 'Adware filter',
+                      ),
+                      PayWallStepWidget(
+                        mainImagePath: 'assets/images/bit.png',
+                        littleCirclePath: 'assets/images/small_ell_bit.png',
+                        bigCirclePath: 'assets/images/ell_bit.png',
+                        title: 'Cryptominers filter',
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                PaginationWidget()
+              ],
+            ),
+          ),
+          Align(
+            alignment: const Alignment(0, 1),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        minHeight: 120,
+                        maxHeight: 120,
+                        minWidth: context.width,
+                        maxWidth: context.width),
+                    child: Stack(
+                      children: [
+                        AnimatedContainer(
+                          height: 120,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:
+                                    const Color(0xFFE2FFE0).withOpacity(0.25)),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          duration: const Duration(milliseconds: 300),
+                          child: Center(
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: const Alignment(0, 0.6),
+                                  child: Text(
+                                    "3 days free trial — after \$9.99 / week",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14,
+                                        color: const Color(0xFFE2FFE0)
+                                            .withOpacity(0.4)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 59,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFFA7FF9C).withAlpha(60),
+                                blurRadius: 8.0,
+                                spreadRadius: 4.0,
+                              ),
+                            ],
+                            border: Border.all(
+                              color: const Color(0xFFA7FF9C),
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(17.0),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(30),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Colors.black,
+                                      blurRadius: 8.0,
+                                      spreadRadius: 10.0,
+                                    ),
+                                  ]),
+                              child: const Center(
+                                child: Text(
+                                  "ACTIVATE",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 14,
+                                    color: Color(0xFFC0FFB8),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Privacy Policy",
+                        style: TextStyle(decoration: TextDecoration.underline),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Restore",
+                        style: TextStyle(decoration: TextDecoration.underline),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Terms of Use",
+                        style: TextStyle(decoration: TextDecoration.underline),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PaginationWidget extends StatelessWidget {
+  const PaginationWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 70,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _PaginationStepWidget(),
+          _PaginationStepWidget(),
+          _PaginationStepWidget(),
+          _PaginationStepWidget(),
+        ],
+      ),
+    );
+  }
+}
+
+class _PaginationStepWidget extends StatelessWidget {
+  const _PaginationStepWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 10,
+      height: 10,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.76),
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: Colors.white.withOpacity(0.28),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PayWallStepWidget extends StatelessWidget {
+  final String mainImagePath;
+  final String littleCirclePath;
+  final String bigCirclePath;
+  final String title;
+
+  const PayWallStepWidget({
+    super.key,
+    required this.mainImagePath,
+    required this.littleCirclePath,
+    required this.bigCirclePath,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+              fontWeight: FontWeight.w400, fontSize: 22, color: Colors.white),
+        ),
+        ConstrainedBox(
+          constraints: BoxConstraints(
+              maxWidth: context.width,
+              minWidth: context.width,
+              maxHeight: 300,
+              minHeight: 300),
+          child: Stack(
+            children: [
+              Align(
+                alignment: const Alignment(0.7, 1.7),
+                child: Image.asset(
+                  mainImagePath,
+                  width: 254,
+                  height: 254,
+                ),
+              ),
+              Align(
+                alignment: const Alignment(-0, -.3),
+                child: Image.asset(
+                  bigCirclePath,
+                  width: 232,
+                  height: 232,
+                ),
+              ),
+              Align(
+                alignment: const Alignment(-0.5, -.5),
+                child: Image.asset(
+                  littleCirclePath,
+                  width: 38,
+                  height: 38,
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          child: Text(
+            "Protects your smartphone from spam advertising activity",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+              color: Colors.white.withOpacity(0.76),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

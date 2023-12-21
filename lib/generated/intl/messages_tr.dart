@@ -28,16 +28,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "Netherlands":
             MessageLookupByLibrary.simpleMessage("Amsterdam (Hollanda)"),
         "Singapore": MessageLookupByLibrary.simpleMessage("Singapur"),
+        "activate": MessageLookupByLibrary.simpleMessage("ETKİNLEŞTİR"),
         "add": MessageLookupByLibrary.simpleMessage("Ekle"),
         "addNew": MessageLookupByLibrary.simpleMessage("Yeni ekle"),
         "addNewN": MessageLookupByLibrary.simpleMessage("Yeni ekle\n"),
         "addUserConfig": MessageLookupByLibrary.simpleMessage(
             "Kullanıcı konfigürasyonu ekle"),
+        "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filtresi"),
+        "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Telefonunuzu kötü sitelerin etkinliklerinden korur"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Bağlantıyı İptal Et"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Tıkla ve sürükle"),
         "copied": MessageLookupByLibrary.simpleMessage("Kopyalandı"),
+        "cryptominersFilter":
+            MessageLookupByLibrary.simpleMessage("Cryptominers filtresi"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Telefonunuzun kaynaklarının kripto para madenciliği için kullanılmasını önlemeye yardımcı olur"),
         "disconnect": MessageLookupByLibrary.simpleMessage("Bağlantıyı Kes"),
         "download": MessageLookupByLibrary.simpleMessage("İndir"),
         "dragSwordToStartNvpnConnection": MessageLookupByLibrary.simpleMessage(
@@ -48,11 +56,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("Şifre yöneticisi"),
+        "phishingFilter":
+            MessageLookupByLibrary.simpleMessage("Phishing filtresi"),
+        "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Bankacılık ve kişisel verilerinizi çalmaya karşı telefonunuzu korur"),
         "rateButton":
             MessageLookupByLibrary.simpleMessage("Uygulamayı Değerlendir"),
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Uygulamamızı değerlendir ve kuvvet seninle olsun"),
+        "restore": MessageLookupByLibrary.simpleMessage("Geri Yükle"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("Spam filtresi"),
+        "spamFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Telefonunuzu istenmeyen spam reklam etkinliklerinden korur"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "VPN bağlantısı için ışın kılıcı"),
         "toAddNewPassword":

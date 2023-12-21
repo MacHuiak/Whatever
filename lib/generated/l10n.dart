@@ -359,6 +359,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Spam filter`
+  String get spamFilter {
+    return Intl.message(
+      'Spam filter',
+      name: 'spamFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protects your smartphone from spam advertising activity`
+  String get spamFilterBody {
+    return Intl.message(
+      'Protects your smartphone from spam advertising activity',
+      name: 'spamFilterBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phishing filter`
+  String get phishingFilter {
+    return Intl.message(
+      'Phishing filter',
+      name: 'phishingFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protects your smartphone stealing your banking and personal data`
+  String get phisingFilterBody {
+    return Intl.message(
+      'Protects your smartphone stealing your banking and personal data',
+      name: 'phisingFilterBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adware filter`
+  String get adwareFilter {
+    return Intl.message(
+      'Adware filter',
+      name: 'adwareFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protects your smartphone from a bad site activity`
+  String get adwareFilterBody {
+    return Intl.message(
+      'Protects your smartphone from a bad site activity',
+      name: 'adwareFilterBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cryptominers filter`
+  String get cryptominersFilter {
+    return Intl.message(
+      'Cryptominers filter',
+      name: 'cryptominersFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help to prevent using resourses of your smartphone for mining cryptocurrency`
+  String get cryptominersFilterBody {
+    return Intl.message(
+      'Help to prevent using resourses of your smartphone for mining cryptocurrency',
+      name: 'cryptominersFilterBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ACTIVATE`
+  String get activate {
+    return Intl.message(
+      'ACTIVATE',
+      name: 'activate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restore`
+  String get restore {
+    return Intl.message(
+      'Restore',
+      name: 'restore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

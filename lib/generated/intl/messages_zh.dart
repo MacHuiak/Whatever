@@ -27,13 +27,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "India": MessageLookupByLibrary.simpleMessage("班加罗尔 (印度)"),
         "Netherlands": MessageLookupByLibrary.simpleMessage("阿姆斯特丹 (荷兰)"),
         "Singapore": MessageLookupByLibrary.simpleMessage("新加坡"),
+        "activate": MessageLookupByLibrary.simpleMessage("激活"),
         "add": MessageLookupByLibrary.simpleMessage("添加"),
         "addNew": MessageLookupByLibrary.simpleMessage("添加新"),
         "addNewN": MessageLookupByLibrary.simpleMessage("添加新\n"),
         "addUserConfig": MessageLookupByLibrary.simpleMessage("添加用户配置"),
+        "adwareFilter": MessageLookupByLibrary.simpleMessage("广告软件过滤器"),
+        "adwareFilterBody":
+            MessageLookupByLibrary.simpleMessage("保护您的智能手机免受恶意网站活动的侵害"),
         "cancelConnection": MessageLookupByLibrary.simpleMessage("取消连接"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("点击并拖动"),
         "copied": MessageLookupByLibrary.simpleMessage("已复制"),
+        "cryptominersFilter": MessageLookupByLibrary.simpleMessage("加密货币挖矿过滤器"),
+        "cryptominersFilterBody":
+            MessageLookupByLibrary.simpleMessage("帮助防止您的智能手机资源被用于挖矿"),
         "disconnect": MessageLookupByLibrary.simpleMessage("断开连接"),
         "download": MessageLookupByLibrary.simpleMessage("下载"),
         "dragSwordToStartNvpnConnection":
@@ -42,9 +49,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "password": MessageLookupByLibrary.simpleMessage("密码"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("密码管理器"),
+        "phishingFilter": MessageLookupByLibrary.simpleMessage("网络钓鱼过滤器"),
+        "phisingFilterBody":
+            MessageLookupByLibrary.simpleMessage("保护您的智能手机免受银行和个人数据窃取的威胁"),
         "rateButton": MessageLookupByLibrary.simpleMessage("评价应用"),
         "rateText": MessageLookupByLibrary.simpleMessage("评价我们的应用，愿原力与你同在"),
+        "restore": MessageLookupByLibrary.simpleMessage("恢复"),
         "site": MessageLookupByLibrary.simpleMessage("网站"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("垃圾邮件过滤器"),
+        "spamFilterBody":
+            MessageLookupByLibrary.simpleMessage("保护您的智能手机免受垃圾广告活动的侵害"),
         "theLightSaberToConnectVpn":
             MessageLookupByLibrary.simpleMessage("连接VPN的光剑"),
         "toAddNewPassword": MessageLookupByLibrary.simpleMessage("添加新密码"),

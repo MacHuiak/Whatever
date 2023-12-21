@@ -30,5 +30,15 @@
   "Unknown": "Desconocido",
   "Upload": "Subir",
   "rateText": "Califica nuestra aplicación y que la fuerza esté contigo",
-  "rateButton": "Calificar App"
+  "rateButton": "Calificar App",
+  "spamFilter": "Filtro de spam",
+  "spamFilterBody": "Protege tu teléfono inteligente de la actividad publicitaria no deseada",
+  "phishingFilter": "Filtro antiphishing",
+  "phisingFilterBody": "Protege tu teléfono inteligente contra el robo de datos bancarios y personales",
+  "adwareFilter": "Filtro de adware",
+  "adwareFilterBody": "Protege tu teléfono inteligente de la actividad de sitios web maliciosos",
+  "cryptominersFilter": "Filtro de criptomonedas",
+  "cryptominersFilterBody": "Ayuda a prevenir el uso de los recursos de tu teléfono inteligente para minar criptomonedas",
+  "activate": "ACTIVAR",
+  "restore": "Restaurar"
 }

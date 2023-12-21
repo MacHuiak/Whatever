@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
@@ -54,37 +55,37 @@ class ServerListScreen extends HookConsumerWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2D2D2D),
-                        padding: EdgeInsets.zero,
-                        alignment: Alignment.centerLeft,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              S.of(context).addUserConfig,
-                              style: context.isBigScreen
-                                  ? const TextStyle(
-                                      color: AppColors.white100, fontSize: 18)
-                                  : const TextStyle(color: AppColors.white100),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  // Padding(
+                  //   padding:
+                  //       const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8),
+                  //   child: ElevatedButton(
+                  //     style: ElevatedButton.styleFrom(
+                  //       backgroundColor: const Color(0xFF2D2D2D),
+                  //       padding: EdgeInsets.zero,
+                  //       alignment: Alignment.centerLeft,
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(16),
+                  //       ),
+                  //     ),
+                  //     onPressed: () {},
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.symmetric(
+                  //           horizontal: 16.0, vertical: 16),
+                  //       child: Row(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: [
+                  //           Text(
+                  //             S.of(context).addUserConfig,
+                  //             style: context.isBigScreen
+                  //                 ? const TextStyle(
+                  //                     color: AppColors.white100, fontSize: 18)
+                  //                 : const TextStyle(color: AppColors.white100),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
             ),
@@ -114,9 +115,14 @@ class ServerListScreen extends HookConsumerWidget {
                           return _SelectServerButton(
                               flag: currentHost.imagePath,
                               onServerSelect: () {
-                                ref
-                                    .read(hostInfoProvider.notifier)
-                                    .selectHost(currentHost);
+                                if (selectedHost != currentHost) {
+                                  ref
+                                      .read(hostInfoProvider.notifier)
+                                      .selectHost(currentHost);
+                                  ref
+                                      .read(connectionProvider.notifier)
+                                      .stopConnection();
+                                }
                               },
                               connectionType: selectedHost == currentHost
                                   ? ConnectionStatus.connected

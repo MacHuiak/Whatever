@@ -30,5 +30,15 @@
   "Unknown": "不明",
   "Upload": "アップロード",
   "rateText": "アプリを評価して、フォースがあなたと共にありますように",
-  "rateButton": "アプリを評価する"
+  "rateButton": "アプリを評価する",
+  "spamFilter": "スパムフィルター",
+  "spamFilterBody": "スマートフォンをスパム広告の活動から保護します",
+  "phishingFilter": "フィッシングフィルター",
+  "phisingFilterBody": "銀行や個人データの盗難からスマートフォンを守ります",
+  "adwareFilter": "広告ソフトウェアフィルター",
+  "adwareFilterBody": "悪意のあるサイトの活動からスマートフォンを保護します",
+  "cryptominersFilter": "クリプトマイナーフィルター",
+  "cryptominersFilterBody": "スマートフォンのリソースが暗号通貨のマイニングに使用されるのを防ぎます",
+  "activate": "アクティベート",
+  "restore": "復元"
 }

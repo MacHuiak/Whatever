@@ -28,15 +28,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "Netherlands":
             MessageLookupByLibrary.simpleMessage("أمستردام (هولندا)"),
         "Singapore": MessageLookupByLibrary.simpleMessage("سنغافورة"),
+        "activate": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "addNew": MessageLookupByLibrary.simpleMessage("إضافة جديدة"),
         "addNewN": MessageLookupByLibrary.simpleMessage("إضافة جديدة\n"),
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("إضافة تكوين المستخدم"),
+        "adwareFilter":
+            MessageLookupByLibrary.simpleMessage("مرشح البرمجيات الإعلانية"),
+        "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
+            "يحمي هاتفك الذكي من نشاط مواقع الويب الضارة"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("إلغاء الاتصال"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("انقر واسحب"),
         "copied": MessageLookupByLibrary.simpleMessage("تم النسخ"),
+        "cryptominersFilter": MessageLookupByLibrary.simpleMessage(
+            "مرشح التعدين بالعملات الرقمية"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "يساعد في منع استخدام موارد هاتفك الذكي لتعدين العملات الرقمية"),
         "disconnect": MessageLookupByLibrary.simpleMessage("فصل الاتصال"),
         "download": MessageLookupByLibrary.simpleMessage("تحميل"),
         "dragSwordToStartNvpnConnection":
@@ -46,10 +55,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("مدير كلمات المرور"),
+        "phishingFilter":
+            MessageLookupByLibrary.simpleMessage("مرشح الاحتيال الإلكتروني"),
+        "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
+            "يحمي هاتفك الذكي من سرقة بياناتك المصرفية والشخصية"),
         "rateButton": MessageLookupByLibrary.simpleMessage("قيم التطبيق"),
         "rateText":
             MessageLookupByLibrary.simpleMessage("قيم تطبيقنا ولتكن القوة معك"),
+        "restore": MessageLookupByLibrary.simpleMessage("استعادة"),
         "site": MessageLookupByLibrary.simpleMessage("الموقع"),
+        "spamFilter":
+            MessageLookupByLibrary.simpleMessage("مرشح البريد العشوائي"),
+        "spamFilterBody": MessageLookupByLibrary.simpleMessage(
+            "يحمي هاتفك الذكي من نشاط الإعلانات غير المرغوب فيها"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "سيف الضوء للاتصال بشبكة الخصوصية الافتراضية"),
         "toAddNewPassword":

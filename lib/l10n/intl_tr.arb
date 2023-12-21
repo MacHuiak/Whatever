@@ -30,5 +30,16 @@
   "Unknown": "Bilinmiyor",
   "Upload": "Yükle",
   "rateText": "Uygulamamızı değerlendir ve kuvvet seninle olsun",
-  "rateButton": "Uygulamayı Değerlendir"
+  "rateButton": "Uygulamayı Değerlendir",
+  "spamFilter": "Spam filtresi",
+  "spamFilterBody": "Telefonunuzu istenmeyen spam reklam etkinliklerinden korur",
+  "phishingFilter": "Phishing filtresi",
+  "phisingFilterBody": "Bankacılık ve kişisel verilerinizi çalmaya karşı telefonunuzu korur",
+  "adwareFilter": "Adware filtresi",
+  "adwareFilterBody": "Telefonunuzu kötü sitelerin etkinliklerinden korur",
+  "cryptominersFilter": "Cryptominers filtresi",
+  "cryptominersFilterBody": "Telefonunuzun kaynaklarının kripto para madenciliği için kullanılmasını önlemeye yardımcı olur",
+  "activate": "ETKİNLEŞTİR",
+  "restore": "Geri Yükle"
+
 }

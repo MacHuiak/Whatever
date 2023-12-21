@@ -30,5 +30,15 @@
   "Unknown": "Unbekannt",
   "Upload": "Hochladen",
   "rateText": "Bewerte unsere App und möge die Macht mit dir sein",
-  "rateButton": "App bewerten"
+  "rateButton": "App bewerten",
+  "spamFilter": "Spam-Filter",
+  "spamFilterBody": "Schützt Ihr Smartphone vor Spam-Werbemaßnahmen",
+  "phishingFilter": "Phishing-Filter",
+  "phisingFilterBody": "Schützt Ihr Smartphone vor dem Diebstahl Ihrer Bank- und persönlichen Daten",
+  "adwareFilter": "Adware-Filter",
+  "adwareFilterBody": "Schützt Ihr Smartphone vor bösartiger Webseitenaktivität",
+  "cryptominersFilter": "Cryptominers-Filter",
+  "cryptominersFilterBody": "Hilft dabei, die Nutzung der Ressourcen Ihres Smartphones für das Mining von Kryptowährungen zu verhindern",
+  "activate": "AKTIVIEREN",
+  "restore": "Wiederherstellen"
 }

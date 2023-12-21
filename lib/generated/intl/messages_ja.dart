@@ -27,13 +27,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "India": MessageLookupByLibrary.simpleMessage("バンガロール（インド）"),
         "Netherlands": MessageLookupByLibrary.simpleMessage("アムステルダム（オランダ）"),
         "Singapore": MessageLookupByLibrary.simpleMessage("シンガポール"),
+        "activate": MessageLookupByLibrary.simpleMessage("アクティベート"),
         "add": MessageLookupByLibrary.simpleMessage("追加"),
         "addNew": MessageLookupByLibrary.simpleMessage("新規追加"),
         "addNewN": MessageLookupByLibrary.simpleMessage("新規追加\n"),
         "addUserConfig": MessageLookupByLibrary.simpleMessage("ユーザー設定を追加"),
+        "adwareFilter": MessageLookupByLibrary.simpleMessage("広告ソフトウェアフィルター"),
+        "adwareFilterBody":
+            MessageLookupByLibrary.simpleMessage("悪意のあるサイトの活動からスマートフォンを保護します"),
         "cancelConnection": MessageLookupByLibrary.simpleMessage("接続をキャンセル"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("クリックしてドラッグ"),
         "copied": MessageLookupByLibrary.simpleMessage("コピー済み"),
+        "cryptominersFilter":
+            MessageLookupByLibrary.simpleMessage("クリプトマイナーフィルター"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "スマートフォンのリソースが暗号通貨のマイニングに使用されるのを防ぎます"),
         "disconnect": MessageLookupByLibrary.simpleMessage("切断"),
         "download": MessageLookupByLibrary.simpleMessage("ダウンロード"),
         "dragSwordToStartNvpnConnection":
@@ -42,10 +50,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("パスワードマネージャー"),
+        "phishingFilter": MessageLookupByLibrary.simpleMessage("フィッシングフィルター"),
+        "phisingFilterBody":
+            MessageLookupByLibrary.simpleMessage("銀行や個人データの盗難からスマートフォンを守ります"),
         "rateButton": MessageLookupByLibrary.simpleMessage("アプリを評価する"),
         "rateText":
             MessageLookupByLibrary.simpleMessage("アプリを評価して、フォースがあなたと共にありますように"),
+        "restore": MessageLookupByLibrary.simpleMessage("復元"),
         "site": MessageLookupByLibrary.simpleMessage("サイト"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("スパムフィルター"),
+        "spamFilterBody":
+            MessageLookupByLibrary.simpleMessage("スマートフォンをスパム広告の活動から保護します"),
         "theLightSaberToConnectVpn":
             MessageLookupByLibrary.simpleMessage("VPNに接続するための光の剣"),
         "toAddNewPassword":

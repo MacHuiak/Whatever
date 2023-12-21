@@ -30,5 +30,15 @@
   "Unknown": "Inconnu",
   "Upload": "Télécharger",
   "rateText": "Notez notre application et que la force soit avec vous",
-  "rateButton": "Noter l'application"
+  "rateButton": "Noter l'application",
+  "spamFilter": "Filtre anti-spam",
+  "spamFilterBody": "Protège votre smartphone contre l'activité publicitaire indésirable",
+  "phishingFilter": "Filtre anti-phishing",
+  "phisingFilterBody": "Protège votre smartphone contre le vol de vos données bancaires et personnelles",
+  "adwareFilter": "Filtre anti-logiciels publicitaires",
+  "adwareFilterBody": "Protège votre smartphone contre l'activité des sites Web malveillants",
+  "cryptominersFilter": "Filtre anti-cryptomineurs",
+  "cryptominersFilterBody": "Aide à prévenir l'utilisation des ressources de votre smartphone pour miner des cryptomonnaies",
+  "activate": "ACTIVER",
+  "restore": "Restaurer"
 }

@@ -28,16 +28,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "Netherlands":
             MessageLookupByLibrary.simpleMessage("Амстердам (Нидерланды)"),
         "Singapore": MessageLookupByLibrary.simpleMessage("Сингапур"),
+        "activate": MessageLookupByLibrary.simpleMessage("АКТИВИРОВАТЬ"),
         "add": MessageLookupByLibrary.simpleMessage("Добавить"),
         "addNew": MessageLookupByLibrary.simpleMessage("Добавить новый"),
         "addNewN": MessageLookupByLibrary.simpleMessage("Добавить новый\n"),
         "addUserConfig": MessageLookupByLibrary.simpleMessage(
             "Добавить конфигурацию пользователя"),
+        "adwareFilter":
+            MessageLookupByLibrary.simpleMessage("Фильтр рекламного ПО"),
+        "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Защищает ваш смартфон от вредной активности сайтов"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Отменить подключение"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Нажмите и перетащите"),
         "copied": MessageLookupByLibrary.simpleMessage("Скопировано"),
+        "cryptominersFilter": MessageLookupByLibrary.simpleMessage(
+            "Фильтр криптовалютных майнеров"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Помогает предотвратить использование ресурсов вашего смартфона для майнинга криптовалюты"),
         "disconnect": MessageLookupByLibrary.simpleMessage("Отключиться"),
         "download": MessageLookupByLibrary.simpleMessage("Скачать"),
         "dragSwordToStartNvpnConnection": MessageLookupByLibrary.simpleMessage(
@@ -48,11 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("Менеджер паролей"),
+        "phishingFilter":
+            MessageLookupByLibrary.simpleMessage("Фильтр фишинга"),
+        "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Защищает ваш смартфон от кражи банковских и личных данных"),
         "rateButton":
             MessageLookupByLibrary.simpleMessage("Оценить приложение"),
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Оцените наше приложение, и пусть с вами будет Сила"),
+        "restore": MessageLookupByLibrary.simpleMessage("Восстановить"),
         "site": MessageLookupByLibrary.simpleMessage("Сайт"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("Фильтр спама"),
+        "spamFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Защищает ваш смартфон от активности спам-рекламы"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "световой меч для подключения к VPN"),
         "toAddNewPassword":

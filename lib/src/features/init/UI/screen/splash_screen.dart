@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1)).whenComplete(() {
-      if (true) {
+      if (false) {
         Get.offAll(() => const PayWall());
       } else {
         Get.offAll(() => const MainVPNScreen());

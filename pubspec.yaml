@@ -4,7 +4,7 @@ description: "New vpn app"
 
 publish_to: 'none'
 
-version: 1.0.2+4
+version: 1.0.2+5
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -41,6 +41,8 @@ dependencies:
   sentry_flutter: ^7.13.2
   in_app_review: ^2.0.8
   flutter_rating_bar: ^4.0.1
+  flutter_local_notifications: ^16.2.0
+
 
 dev_dependencies:
   flutter_test:

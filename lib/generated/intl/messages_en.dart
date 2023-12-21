@@ -30,16 +30,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "Singapore": MessageLookupByLibrary.simpleMessage("Singapore"),
         "Uk": MessageLookupByLibrary.simpleMessage("London (UK)"),
         "Usa": MessageLookupByLibrary.simpleMessage("New York (USA)"),
+        "activate": MessageLookupByLibrary.simpleMessage("ACTIVATE"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNew": MessageLookupByLibrary.simpleMessage("Add new"),
         "addNewN": MessageLookupByLibrary.simpleMessage("«Add new» \n"),
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("Add user config"),
+        "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filter"),
+        "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Protects your smartphone from a bad site activity"),
         "australia": MessageLookupByLibrary.simpleMessage("Sydney (Australia)"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Cancel connection"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("Click and drag"),
         "copied": MessageLookupByLibrary.simpleMessage("Copied"),
+        "cryptominersFilter":
+            MessageLookupByLibrary.simpleMessage("Cryptominers filter"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Help to prevent using resourses of your smartphone for mining cryptocurrency"),
         "disconnect": MessageLookupByLibrary.simpleMessage("Disconnect"),
         "download": MessageLookupByLibrary.simpleMessage("Download"),
         "dragSwordToStartNvpnConnection": MessageLookupByLibrary.simpleMessage(
@@ -49,10 +57,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("Password manager"),
+        "phishingFilter":
+            MessageLookupByLibrary.simpleMessage("Phishing filter"),
+        "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Protects your smartphone stealing your banking and personal data"),
         "rateButton": MessageLookupByLibrary.simpleMessage("Rate App"),
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Rate our app and may the force be with you"),
+        "restore": MessageLookupByLibrary.simpleMessage("Restore"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("Spam filter"),
+        "spamFilterBody": MessageLookupByLibrary.simpleMessage(
+            "Protects your smartphone from spam advertising activity"),
         "theLightSaberToConnectVpn": MessageLookupByLibrary.simpleMessage(
             "the light saber to connect VPN"),
         "toAddNewPassword":

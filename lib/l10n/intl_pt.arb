@@ -30,5 +30,15 @@
   "Unknown": "Desconhecido",
   "Upload": "Enviar",
   "rateText": "Avalie nosso aplicativo e que a força esteja com você",
-  "rateButton": "Avaliar App"
+  "rateButton": "Avaliar App",
+  "spamFilter": "Filtro de spam",
+  "spamFilterBody": "Protege seu smartphone contra atividades de spam publicitário",
+  "phishingFilter": "Filtro de phishing",
+  "phisingFilterBody": "Protege seu smartphone contra o roubo de dados bancários e pessoais",
+  "adwareFilter": "Filtro de adware",
+  "adwareFilterBody": "Protege seu smartphone contra atividades de sites maliciosos",
+  "cryptominersFilter": "Filtro de criptomineração",
+  "cryptominersFilterBody": "Ajuda a evitar o uso dos recursos do seu smartphone para minerar criptomoedas",
+  "activate": "ATIVAR",
+  "restore": "Restaurar"
 }

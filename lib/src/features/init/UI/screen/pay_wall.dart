@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 
 class PayWall extends StatefulWidget {
@@ -50,38 +51,38 @@ class _PayWallState extends State<PayWall> {
                       minHeight: 300),
                   child: PageView(
                     controller: _pageController,
-                    children: const [
+                    children:  [
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/filter.png',
                         littleCirclePath: 'assets/images/small_ell_spam.png',
                         bigCirclePath: 'assets/images/ell_spam.png',
-                        title: 'Spam filter',
+                        title: S.of(context).spamFilter,
                         description:
-                            "Protects your smartphone from spam advertising activity",
+                            S.of(context).spamFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/phishing.png',
                         littleCirclePath: 'assets/images/small_ell_phi.png',
                         bigCirclePath: 'assets/images/ell_phi.png',
-                        title: 'Phishing filter',
+                        title: S.of(context).phishingFilter,
                         description:
-                            "Protects your smartphone stealing your banking and personal data",
+                            S.of(context).phisingFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/ads.png',
                         littleCirclePath: 'assets/images/small_ell_ads.png',
                         bigCirclePath: 'assets/images/ell_ads.png',
-                        title: 'Adware filter',
+                        title: S.of(context).adwareFilter,
                         description:
-                            "Protects your smartphone from a bad site activity",
+                            S.of(context).adwareFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/bit.png',
                         littleCirclePath: 'assets/images/small_ell_bit.png',
                         bigCirclePath: 'assets/images/ell_bit.png',
-                        title: 'Cryptominers filter',
+                        title: S.of(context).cryptominersFilter,
                         description:
-                            "Help to prevent using resourses of your smartphone for mining cryptocurrency",
+                            S.of(context).cryptominersFilterBody,
                       )
                     ],
                   ),
@@ -163,7 +164,7 @@ class _PayWallState extends State<PayWall> {
                                     ]),
                                 child: Center(
                                   child: Text(
-                                    "ACTIVATE",
+                                    S.of(context).activate,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w300,
@@ -195,7 +196,7 @@ class _PayWallState extends State<PayWall> {
                       TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Restore",
+                          S.of(context).restore,
                           style: _getTextButtonStyle(),
                         ),
                       ),

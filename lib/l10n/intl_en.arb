@@ -30,5 +30,15 @@
   "unknown": "Unknown",
   "upload": "Upload",
   "rateText": "Rate our app and may the force be with you",
-  "rateButton": "Rate App"
+  "rateButton": "Rate App",
+  "spamFilter": "Spam filter",
+  "spamFilterBody": "Protects your smartphone from spam advertising activity",
+  "phishingFilter": "Phishing filter",
+  "phisingFilterBody": "Protects your smartphone stealing your banking and personal data",
+  "adwareFilter": "Adware filter",
+  "adwareFilterBody": "Protects your smartphone from a bad site activity",
+  "cryptominersFilter": "Cryptominers filter",
+  "cryptominersFilterBody": "Help to prevent using resourses of your smartphone for mining cryptocurrency",
+  "activate": "ACTIVATE",
+  "restore": "Restore"
 }

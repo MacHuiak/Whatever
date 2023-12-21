@@ -29,15 +29,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "Netherlands":
             MessageLookupByLibrary.simpleMessage("อัมสเตอร์ดัม (เนเธอร์แลนด์)"),
         "Singapore": MessageLookupByLibrary.simpleMessage("สิงคโปร์"),
+        "activate": MessageLookupByLibrary.simpleMessage("เปิดใช้งาน"),
         "add": MessageLookupByLibrary.simpleMessage("เพิ่ม"),
         "addNew": MessageLookupByLibrary.simpleMessage("เพิ่มใหม่"),
         "addNewN": MessageLookupByLibrary.simpleMessage("เพิ่มใหม่\n"),
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("เพิ่มการตั้งค่าผู้ใช้"),
+        "adwareFilter": MessageLookupByLibrary.simpleMessage("ตัวกรองแอดแวร์"),
+        "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
+            "ป้องกันสมาร์ทโฟนของคุณจากกิจกรรมของเว็บไซต์ที่ไม่ดี"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("ยกเลิกการเชื่อมต่อ"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("คลิกและลากรูป"),
         "copied": MessageLookupByLibrary.simpleMessage("คัดลอกแล้ว"),
+        "cryptominersFilter":
+            MessageLookupByLibrary.simpleMessage("ตัวกรองคริปโตมายเนอร์"),
+        "cryptominersFilterBody": MessageLookupByLibrary.simpleMessage(
+            "ช่วยป้องกันการใช้ทรัพยากรของสมาร์ทโฟนของคุณในการขุดเหรียญดิจิทัล"),
         "disconnect": MessageLookupByLibrary.simpleMessage("ตัดการเชื่อมต่อ"),
         "download": MessageLookupByLibrary.simpleMessage("ดาวน์โหลด"),
         "dragSwordToStartNvpnConnection": MessageLookupByLibrary.simpleMessage(
@@ -48,10 +56,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("รหัสผ่าน"),
         "passwordManager":
             MessageLookupByLibrary.simpleMessage("ผู้จัดการรหัสผ่าน"),
+        "phishingFilter":
+            MessageLookupByLibrary.simpleMessage("ตัวกรองการหลอกลวง"),
+        "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
+            "ป้องกันสมาร์ทโฟนของคุณไม่ให้ถูกขโมยข้อมูลการเงินและส่วนตัว"),
         "rateButton": MessageLookupByLibrary.simpleMessage("ให้คะแนนแอป"),
         "rateText": MessageLookupByLibrary.simpleMessage(
             "ให้คะแนนแอปของเราและขอให้พลังสร้างสรรค์อยู่กับคุณ"),
+        "restore": MessageLookupByLibrary.simpleMessage("กู้คืน"),
         "site": MessageLookupByLibrary.simpleMessage("เว็บไซต์"),
+        "spamFilter": MessageLookupByLibrary.simpleMessage("ตัวกรองสแปม"),
+        "spamFilterBody": MessageLookupByLibrary.simpleMessage(
+            "ป้องกันสมาร์ทโฟนของคุณจากกิจกรรมโฆษณาสแปม"),
         "theLightSaberToConnectVpn":
             MessageLookupByLibrary.simpleMessage("ไฟเซเบอร์เพื่อเชื่อมต่อ VPN"),
         "toAddNewPassword":

@@ -30,5 +30,15 @@
   "Unknown": "未知",
   "Upload": "上传",
   "rateText": "评价我们的应用，愿原力与你同在",
-  "rateButton": "评价应用"
+  "rateButton": "评价应用",
+  "spamFilter": "垃圾邮件过滤器",
+  "spamFilterBody": "保护您的智能手机免受垃圾广告活动的侵害",
+  "phishingFilter": "网络钓鱼过滤器",
+  "phisingFilterBody": "保护您的智能手机免受银行和个人数据窃取的威胁",
+  "adwareFilter": "广告软件过滤器",
+  "adwareFilterBody": "保护您的智能手机免受恶意网站活动的侵害",
+  "cryptominersFilter": "加密货币挖矿过滤器",
+  "cryptominersFilterBody": "帮助防止您的智能手机资源被用于挖矿",
+  "activate": "激活",
+  "restore": "恢复"
 }

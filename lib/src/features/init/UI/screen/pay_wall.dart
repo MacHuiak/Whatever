@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 
 class PayWall extends StatefulWidget {
   const PayWall({super.key});
@@ -13,6 +14,7 @@ class PayWall extends StatefulWidget {
 
 class _PayWallState extends State<PayWall> {
   final PageController _pageController = PageController();
+  int currentPage = 0;
 
   @override
   void initState() {
@@ -20,12 +22,15 @@ class _PayWallState extends State<PayWall> {
     _pageController.addListener(_onPageChange);
   }
 
-
-  void _onPageChange(){
-    final a = _pageController.page!.round();
-    log("");
-
+  void _onPageChange() {
+    final updatedPage = _pageController.page!.round();
+    if (updatedPage != currentPage) {
+      setState(() {
+        currentPage = updatedPage;
+      });
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +89,7 @@ class _PayWallState extends State<PayWall> {
                 const SizedBox(
                   height: 32,
                 ),
-                const PaginationWidget()
+                 PaginationWidget(currentPage: currentPage,)
               ],
             ),
           ),
@@ -106,9 +111,7 @@ class _PayWallState extends State<PayWall> {
                         AnimatedContainer(
                           height: 120,
                           decoration: BoxDecoration(
-                            border: Border.all(
-                                color:
-                                    const Color(0xFFE2FFE0).withOpacity(0.25)),
+                            border: Border.all(color: _getBorderColor()),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           duration: const Duration(milliseconds: 300),
@@ -122,50 +125,51 @@ class _PayWallState extends State<PayWall> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14,
-                                        color: const Color(0xFFE2FFE0)
-                                            .withOpacity(0.4)),
+                                        color: _getPriceColor()),
                                   ),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        Container(
-                          height: 59,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFFA7FF9C).withAlpha(60),
-                                blurRadius: 8.0,
-                                spreadRadius: 4.0,
+                        GestureDetector(
+                          onTap: (){
+                            Get.offAll(() => const MainVPNScreen());
+                          },
+                          child: AnimatedContainer(
+                            height: 59,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                _getButtonShadow(),
+                              ],
+                              border: Border.all(
+                                color: _getMainBorderColor(),
                               ),
-                            ],
-                            border: Border.all(
-                              color: const Color(0xFFA7FF9C),
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(17.0),
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(30),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: Colors.black,
-                                      blurRadius: 8.0,
-                                      spreadRadius: 10.0,
+                            duration: const Duration(milliseconds: 300),
+                            child: Padding(
+                              padding: const EdgeInsets.all(17.0),
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(30),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        blurRadius: 8.0,
+                                        spreadRadius: 10.0,
+                                      ),
+                                    ]),
+                                child: Center(
+                                  child: Text(
+                                    "ACTIVATE",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14,
+                                      color: _getTextColor(),
                                     ),
-                                  ]),
-                              child: const Center(
-                                child: Text(
-                                  "ACTIVATE",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 14,
-                                    color: Color(0xFFC0FFB8),
                                   ),
                                 ),
                               ),
@@ -176,31 +180,34 @@ class _PayWallState extends State<PayWall> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Privacy Policy",
-                        style: TextStyle(decoration: TextDecoration.underline),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Privacy Policy",
+                          style: _getTextButtonStyle(),
+                        ),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Restore",
-                        style: TextStyle(decoration: TextDecoration.underline),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Restore",
+                          style: _getTextButtonStyle(),
+                        ),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Terms of Use",
-                        style: TextStyle(decoration: TextDecoration.underline),
-                      ),
-                    )
-                  ],
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Terms of Use",
+                          style: _getTextButtonStyle(),
+                        ),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
@@ -209,11 +216,157 @@ class _PayWallState extends State<PayWall> {
       ),
     );
   }
+
+  TextStyle _getTextButtonStyle() {
+    final textStyle = TextStyle(
+      decoration: TextDecoration.underline,
+      color: const Color(0xFFE2FFE0).withOpacity(0.2),
+    );
+    switch (currentPage) {
+      case 0:
+        return textStyle.copyWith(
+          color: const Color(0xFFE2FFE0).withOpacity(0.2),
+        );
+      case 1:
+        return textStyle.copyWith(
+          color: const Color(0xFFB9D9FF).withOpacity(0.22),
+        );
+
+      case 2:
+        return textStyle.copyWith(
+          color: const Color(0xFFFFCEDA).withOpacity(0.22),
+        );
+
+      case 3:
+        return textStyle.copyWith(
+          color: const Color(0xFFFFFCB5).withOpacity(0.22),
+        );
+
+      default:
+        return textStyle.copyWith(
+          color: const Color(0xFFFFFCB5).withOpacity(0.22),
+        );
+    }
+  }
+
+  Color _getTextColor() {
+    switch (currentPage) {
+      case 0:
+        return const Color(0xFFC0FFB8);
+      case 1:
+        return const Color(0xFFB6D7FF);
+
+      case 2:
+        return const Color(0xFFFFBACA);
+
+      case 3:
+        return const Color(0xFFEBE67C);
+
+      default:
+        return const Color(0xFFDEDA70);
+    }
+  }
+
+  Color _getMainBorderColor() {
+    switch (currentPage) {
+      case 0:
+        return const Color(0xFFA7FF9C);
+      case 1:
+        return const Color(0xFF8EC2FF);
+
+      case 2:
+        return const Color(0xFFFF96B0);
+
+      case 3:
+        return const Color(0xFFDEDA70);
+
+      default:
+        return const Color(0xFFDEDA70);
+    }
+  }
+
+  BoxShadow _getButtonShadow() {
+    switch (currentPage) {
+      case 0:
+        return BoxShadow(
+          color: const Color(0xFFA7FF9C).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+      case 1:
+        return BoxShadow(
+          color: const Color(0xFF8EC2FF).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+
+      case 2:
+        return BoxShadow(
+          color: const Color(0xFFFF96B0).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+
+      case 3:
+        return BoxShadow(
+          color: const Color(0xFFDEDA70).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+
+      default:
+        return BoxShadow(
+          color: _getMainBorderColor().withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+    }
+  }
+
+  Color _getPriceColor() {
+    switch (currentPage) {
+      case 0:
+        return const Color(0xFFE2FFE0).withOpacity(0.4);
+      case 1:
+        return const Color(0xFFB9D9FF).withOpacity(0.42);
+
+      case 2:
+        return const Color(0xFFFFCEDA).withOpacity(0.42);
+
+      case 3:
+        return const Color(0xFFFFFCB5).withOpacity(0.4);
+
+      default:
+        return const Color(0xFFFFFCB5).withOpacity(0.25);
+    }
+  }
+
+  // const Color(0xFFE2FFE0).withOpacity(0.25);
+  Color _getBorderColor() {
+    switch (currentPage) {
+      case 0:
+        return const Color(0xFFE2FFE0).withOpacity(0.25);
+      case 1:
+        return const Color(0xFFB9D9FF).withOpacity(0.27);
+
+      case 2:
+        return const Color(0xFFFFCEDA).withOpacity(0.27);
+
+      case 3:
+        return const Color(0xFFFFFCB5).withOpacity(0.25);
+
+      default:
+        return const Color(0xFFFFFCB5).withOpacity(0.25);
+    }
+  }
 }
 
 class PaginationWidget extends StatelessWidget {
+  final int currentPage;
+
   const PaginationWidget({
     super.key,
+    required this.currentPage,
   });
 
   @override
@@ -224,10 +377,21 @@ class PaginationWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _PaginationStepWidget(),
-          _PaginationStepWidget(),
-          _PaginationStepWidget(),
-          _PaginationStepWidget(),
+          _PaginationStepWidget(
+            isSelected: currentPage == 0,
+          ),
+          _PaginationStepWidget(
+            isSelected: currentPage == 1,
+
+          ),
+          _PaginationStepWidget(
+            isSelected: currentPage == 2,
+
+          ),
+          _PaginationStepWidget(
+            isSelected: currentPage == 3,
+
+          ),
         ],
       ),
     );
@@ -235,8 +399,11 @@ class PaginationWidget extends StatelessWidget {
 }
 
 class _PaginationStepWidget extends StatelessWidget {
+  final bool isSelected;
+
   const _PaginationStepWidget({
     super.key,
+    required this.isSelected,
   });
 
   @override
@@ -246,7 +413,7 @@ class _PaginationStepWidget extends StatelessWidget {
       height: 10,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.76),
+          color: isSelected?Colors.white.withOpacity(0.76):Colors.transparent,
           shape: BoxShape.circle,
           border: Border.all(
             color: Colors.white.withOpacity(0.28),

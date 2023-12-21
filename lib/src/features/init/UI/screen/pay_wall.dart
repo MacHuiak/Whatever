@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -12,13 +14,18 @@ class PayWall extends StatefulWidget {
 class _PayWallState extends State<PayWall> {
   final PageController _pageController = PageController();
 
-  //Protects your smartphone stealing
-  // your banking and personal data
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(_onPageChange);
+  }
 
-  //Protects your smartphone from
-  // a bad site activity
 
-  //Help to prevent using resourses of your smartphone for mining cryptocurrency
+  void _onPageChange(){
+    final a = _pageController.page!.round();
+    log("");
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,24 +51,32 @@ class _PayWallState extends State<PayWall> {
                         littleCirclePath: 'assets/images/small_ell_spam.png',
                         bigCirclePath: 'assets/images/ell_spam.png',
                         title: 'Spam filter',
+                        description:
+                            "Protects your smartphone from spam advertising activity",
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/phishing.png',
                         littleCirclePath: 'assets/images/small_ell_phi.png',
                         bigCirclePath: 'assets/images/ell_phi.png',
                         title: 'Phishing filter',
+                        description:
+                            "Protects your smartphone stealing your banking and personal data",
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/ads.png',
                         littleCirclePath: 'assets/images/small_ell_ads.png',
                         bigCirclePath: 'assets/images/ell_ads.png',
                         title: 'Adware filter',
+                        description:
+                            "Protects your smartphone from a bad site activity",
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/bit.png',
                         littleCirclePath: 'assets/images/small_ell_bit.png',
                         bigCirclePath: 'assets/images/ell_bit.png',
                         title: 'Cryptominers filter',
+                        description:
+                            "Help to prevent using resourses of your smartphone for mining cryptocurrency",
                       )
                     ],
                   ),
@@ -69,7 +84,7 @@ class _PayWallState extends State<PayWall> {
                 const SizedBox(
                   height: 32,
                 ),
-                PaginationWidget()
+                const PaginationWidget()
               ],
             ),
           ),
@@ -247,6 +262,7 @@ class PayWallStepWidget extends StatelessWidget {
   final String littleCirclePath;
   final String bigCirclePath;
   final String title;
+  final String description;
 
   const PayWallStepWidget({
     super.key,
@@ -254,6 +270,7 @@ class PayWallStepWidget extends StatelessWidget {
     required this.littleCirclePath,
     required this.bigCirclePath,
     required this.title,
+    required this.description,
   });
 
   @override

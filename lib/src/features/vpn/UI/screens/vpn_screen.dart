@@ -10,6 +10,7 @@ import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/screens/manager_of_password_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/drawer.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/header_widget_title.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/main_vpn_widget.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/select_server_button.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/status_connection_widget.dart';
@@ -112,7 +113,7 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
                     shape: BoxShape.circle),
                 child: const Padding(
                   padding: EdgeInsets.all(6.0),
-                  child: Icon(Icons.key, size: 24, color: Colors.yellow),
+                  child: Icon(Icomoon.key, size: 24, color: Colors.yellow),
                 ),
               ),
             ),

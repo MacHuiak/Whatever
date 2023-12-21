@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 
 class HeaderWidgetTitle extends StatelessWidget {
   const HeaderWidgetTitle({
@@ -13,7 +14,7 @@ class HeaderWidgetTitle extends StatelessWidget {
           baseline: -5,
           baselineType: TextBaseline.alphabetic,
           child: Icon(
-            Icons.star,
+            Icomoon.star,
             color: Colors.white,
             size: 14,
           ),

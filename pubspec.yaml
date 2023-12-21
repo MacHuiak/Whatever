@@ -66,6 +66,12 @@ flutter:
 
   uses-material-design: true
 
+
+  fonts:
+    - family: icomoon
+      fonts:
+        - asset: assets/fonts/icomoon.ttf
+
   assets:
     - assets/rive/
     - assets/images/

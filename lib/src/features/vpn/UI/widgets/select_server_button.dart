@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/server_list.dart';
 
@@ -31,7 +32,7 @@ class ServerSelectButton extends StatelessWidget {
           children: [
             //TODO: set icon
             const Icon(
-              CupertinoIcons.globe,
+              Icomoon.lightning,
               color: Colors.yellow,
             ),
             Text(

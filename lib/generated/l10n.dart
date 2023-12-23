@@ -459,6 +459,206 @@ class S {
       args: [],
     );
   }
+
+  /// `Ensure Security!`
+  String get ensureSecurity {
+    return Intl.message(
+      'Ensure Security!',
+      name: 'ensureSecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to Activate the VPN and Safeguard Your Data from Hackers and Snoops!`
+  String get ensureSecurityBody {
+    return Intl.message(
+      'Tap to Activate the VPN and Safeguard Your Data from Hackers and Snoops!',
+      name: 'ensureSecurityBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Guard Your Privacy!`
+  String get guardYourPrivacy {
+    return Intl.message(
+      'Guard Your Privacy!',
+      name: 'guardYourPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shield Your Online Identity - Open the VPN Now!`
+  String get guardYourPrivacyBody {
+    return Intl.message(
+      'Shield Your Online Identity - Open the VPN Now!',
+      name: 'guardYourPrivacyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert: Unsecured Wi-Fi!`
+  String get alertUnsecuredWifi {
+    return Intl.message(
+      'Alert: Unsecured Wi-Fi!',
+      name: 'alertUnsecuredWifi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap Here to Activate the VPN and Encrypt Your Connection.`
+  String get alertUnsecuredWifiBody {
+    return Intl.message(
+      'Tap Here to Activate the VPN and Encrypt Your Connection.',
+      name: 'alertUnsecuredWifiBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Public Network Warning!`
+  String get publicNetworkWarning {
+    return Intl.message(
+      'Public Network Warning!',
+      name: 'publicNetworkWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable VPN to Safeguard Your Personal Information.`
+  String get publicNetworkWarningBody {
+    return Intl.message(
+      'Enable VPN to Safeguard Your Personal Information.',
+      name: 'publicNetworkWarningBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `VPN Alert`
+  String get vpnAlert {
+    return Intl.message(
+      'VPN Alert',
+      name: 'vpnAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maintain Privacy and Safety - Tap to Connect!`
+  String get vpnAlertBody {
+    return Intl.message(
+      'Maintain Privacy and Safety - Tap to Connect!',
+      name: 'vpnAlertBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beware of Hackers!`
+  String get bewareOfHackersBody {
+    return Intl.message(
+      'Beware of Hackers!',
+      name: 'bewareOfHackersBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open the VPN to Defend Against Cyber Threats!`
+  String get bewareOfHackers {
+    return Intl.message(
+      'Open the VPN to Defend Against Cyber Threats!',
+      name: 'bewareOfHackers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Data is Vulnerable!`
+  String get yourDataIsVulnerable {
+    return Intl.message(
+      'Your Data is Vulnerable!',
+      name: 'yourDataIsVulnerable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to Activate VPN and Remain Anonymous Online.`
+  String get yourDataIsVulnerableBody {
+    return Intl.message(
+      'Tap to Activate VPN and Remain Anonymous Online.',
+      name: 'yourDataIsVulnerableBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prioritize Privacy!`
+  String get prioritizePrivacy {
+    return Intl.message(
+      'Prioritize Privacy!',
+      name: 'prioritizePrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open VPN for Secure Internet Browsing.`
+  String get prioritizePrivacyBody {
+    return Intl.message(
+      'Open VPN for Secure Internet Browsing.',
+      name: 'prioritizePrivacyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Secure Your Online Footprint!`
+  String get secureYourOnlineFootprint {
+    return Intl.message(
+      'Secure Your Online Footprint!',
+      name: 'secureYourOnlineFootprint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to Enable VPN and Shield Yourself.`
+  String get secureYourOnlineFootprintBody {
+    return Intl.message(
+      'Tap to Enable VPN and Shield Yourself.',
+      name: 'secureYourOnlineFootprintBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `VPN On-the-Go`
+  String get vpnOnthego {
+    return Intl.message(
+      'VPN On-the-Go',
+      name: 'vpnOnthego',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Boost Your Privacy by Tapping to Connect!`
+  String get vpnOnthegoBody {
+    return Intl.message(
+      'Boost Your Privacy by Tapping to Connect!',
+      name: 'vpnOnthegoBody',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

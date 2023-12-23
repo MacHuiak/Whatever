@@ -1,19 +1,21 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
 
-class PayWall extends StatefulWidget {
+class PayWall extends ConsumerStatefulWidget {
   const PayWall({super.key});
 
   @override
-  State<PayWall> createState() => _PayWallState();
+  ConsumerState<PayWall> createState() => _PayWallState();
 }
 
-class _PayWallState extends State<PayWall> {
+class _PayWallState extends ConsumerState<PayWall> {
   final PageController _pageController = PageController();
   int currentPage = 0;
 
@@ -51,38 +53,34 @@ class _PayWallState extends State<PayWall> {
                       minHeight: 300),
                   child: PageView(
                     controller: _pageController,
-                    children:  [
+                    children: [
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/filter.png',
                         littleCirclePath: 'assets/images/small_ell_spam.png',
                         bigCirclePath: 'assets/images/ell_spam.png',
                         title: S.of(context).spamFilter,
-                        description:
-                            S.of(context).spamFilterBody,
+                        description: S.of(context).spamFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/phishing.png',
                         littleCirclePath: 'assets/images/small_ell_phi.png',
                         bigCirclePath: 'assets/images/ell_phi.png',
                         title: S.of(context).phishingFilter,
-                        description:
-                            S.of(context).phisingFilterBody,
+                        description: S.of(context).phisingFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/ads.png',
                         littleCirclePath: 'assets/images/small_ell_ads.png',
                         bigCirclePath: 'assets/images/ell_ads.png',
                         title: S.of(context).adwareFilter,
-                        description:
-                            S.of(context).adwareFilterBody,
+                        description: S.of(context).adwareFilterBody,
                       ),
                       PayWallStepWidget(
                         mainImagePath: 'assets/images/bit.png',
                         littleCirclePath: 'assets/images/small_ell_bit.png',
                         bigCirclePath: 'assets/images/ell_bit.png',
                         title: S.of(context).cryptominersFilter,
-                        description:
-                            S.of(context).cryptominersFilterBody,
+                        description: S.of(context).cryptominersFilterBody,
                       )
                     ],
                   ),
@@ -90,7 +88,9 @@ class _PayWallState extends State<PayWall> {
                 const SizedBox(
                   height: 32,
                 ),
-                 PaginationWidget(currentPage: currentPage,)
+                PaginationWidget(
+                  currentPage: currentPage,
+                )
               ],
             ),
           ),
@@ -134,8 +134,10 @@ class _PayWallState extends State<PayWall> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: (){
-                            Get.offAll(() => const MainVPNScreen());
+                          onTap: () {
+                            ref
+                                .read(subscriptionStatusController.notifier)
+                                .buySubscription();
                           },
                           child: AnimatedContainer(
                             height: 59,
@@ -194,7 +196,11 @@ class _PayWallState extends State<PayWall> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          ref
+                              .read(subscriptionStatusController.notifier)
+                              .buySubscription();
+                        },
                         child: Text(
                           S.of(context).restore,
                           style: _getTextButtonStyle(),
@@ -383,15 +389,12 @@ class PaginationWidget extends StatelessWidget {
           ),
           _PaginationStepWidget(
             isSelected: currentPage == 1,
-
           ),
           _PaginationStepWidget(
             isSelected: currentPage == 2,
-
           ),
           _PaginationStepWidget(
             isSelected: currentPage == 3,
-
           ),
         ],
       ),
@@ -414,7 +417,8 @@ class _PaginationStepWidget extends StatelessWidget {
       height: 10,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: isSelected?Colors.white.withOpacity(0.76):Colors.transparent,
+          color:
+              isSelected ? Colors.white.withOpacity(0.76) : Colors.transparent,
           shape: BoxShape.circle,
           border: Border.all(
             color: Colors.white.withOpacity(0.28),

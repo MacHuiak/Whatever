@@ -49,9 +49,9 @@ class ServerListScreen extends HookConsumerWidget {
               ],
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
+              padding: EdgeInsets.only(bottom: 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

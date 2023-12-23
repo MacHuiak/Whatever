@@ -12,6 +12,9 @@ import 'package:modern_vpn_project/generated/l10n.dart';
 // import 'package:hive/hive.dart';
 import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/analitics_service.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/payment_service.dart';
 import 'package:modern_vpn_project/src/router.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -55,7 +58,9 @@ class VPN extends StatelessWidget {
     DI
         .getDependency<UserLogin>()
         .logIn(userName: "GalaxyNewUser", password: "newUser1907*!");
+    IOSPaymentServiceImpl().loadPurchases();
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         S.delegate,
         // 2
@@ -64,7 +69,8 @@ class VPN extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       home: MaterialApp.router(
-        localizationsDelegates: [
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
           S.delegate,
           // 2
           GlobalMaterialLocalizations.delegate,

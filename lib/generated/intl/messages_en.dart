@@ -39,7 +39,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filter"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Protects your smartphone from a bad site activity"),
+        "alertUnsecuredWifi":
+            MessageLookupByLibrary.simpleMessage("Alert: Unsecured Wi-Fi!"),
+        "alertUnsecuredWifiBody": MessageLookupByLibrary.simpleMessage(
+            "Tap Here to Activate the VPN and Encrypt Your Connection."),
         "australia": MessageLookupByLibrary.simpleMessage("Sydney (Australia)"),
+        "bewareOfHackers": MessageLookupByLibrary.simpleMessage(
+            "Open the VPN to Defend Against Cyber Threats!"),
+        "bewareOfHackersBody":
+            MessageLookupByLibrary.simpleMessage("Beware of Hackers!"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Cancel connection"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("Click and drag"),
@@ -52,7 +60,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "download": MessageLookupByLibrary.simpleMessage("Download"),
         "dragSwordToStartNvpnConnection": MessageLookupByLibrary.simpleMessage(
             "Drag sword to start \nVPN connection"),
+        "ensureSecurity":
+            MessageLookupByLibrary.simpleMessage("Ensure Security!"),
+        "ensureSecurityBody": MessageLookupByLibrary.simpleMessage(
+            "Tap to Activate the VPN and Safeguard Your Data from Hackers and Snoops!"),
         "fastestServer": MessageLookupByLibrary.simpleMessage("Fastest Server"),
+        "guardYourPrivacy":
+            MessageLookupByLibrary.simpleMessage("Guard Your Privacy!"),
+        "guardYourPrivacyBody": MessageLookupByLibrary.simpleMessage(
+            "Shield Your Online Identity - Open the VPN Now!"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordManager":
@@ -61,10 +77,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Phishing filter"),
         "phisingFilterBody": MessageLookupByLibrary.simpleMessage(
             "Protects your smartphone stealing your banking and personal data"),
+        "prioritizePrivacy":
+            MessageLookupByLibrary.simpleMessage("Prioritize Privacy!"),
+        "prioritizePrivacyBody": MessageLookupByLibrary.simpleMessage(
+            "Open VPN for Secure Internet Browsing."),
+        "publicNetworkWarning":
+            MessageLookupByLibrary.simpleMessage("Public Network Warning!"),
+        "publicNetworkWarningBody": MessageLookupByLibrary.simpleMessage(
+            "Enable VPN to Safeguard Your Personal Information."),
         "rateButton": MessageLookupByLibrary.simpleMessage("Rate App"),
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Rate our app and may the force be with you"),
         "restore": MessageLookupByLibrary.simpleMessage("Restore"),
+        "secureYourOnlineFootprint": MessageLookupByLibrary.simpleMessage(
+            "Secure Your Online Footprint!"),
+        "secureYourOnlineFootprintBody": MessageLookupByLibrary.simpleMessage(
+            "Tap to Enable VPN and Shield Yourself."),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Spam filter"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +104,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "upload": MessageLookupByLibrary.simpleMessage("Upload"),
-        "use": MessageLookupByLibrary.simpleMessage("Use")
+        "use": MessageLookupByLibrary.simpleMessage("Use"),
+        "vpnAlert": MessageLookupByLibrary.simpleMessage("VPN Alert"),
+        "vpnAlertBody": MessageLookupByLibrary.simpleMessage(
+            "Maintain Privacy and Safety - Tap to Connect!"),
+        "vpnOnthego": MessageLookupByLibrary.simpleMessage("VPN On-the-Go"),
+        "vpnOnthegoBody": MessageLookupByLibrary.simpleMessage(
+            "Boost Your Privacy by Tapping to Connect!"),
+        "yourDataIsVulnerable":
+            MessageLookupByLibrary.simpleMessage("Your Data is Vulnerable!"),
+        "yourDataIsVulnerableBody": MessageLookupByLibrary.simpleMessage(
+            "Tap to Activate VPN and Remain Anonymous Online.")
       };
 }

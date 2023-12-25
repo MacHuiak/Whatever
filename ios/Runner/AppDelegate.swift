@@ -9,7 +9,7 @@ import TunnelKitManager
 import TunnelKitOpenVPN
 import NetworkExtension
 import Sentry
-//import ExtremeVPNAnalytics
+import ExtremeVPNAnalytics
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -22,7 +22,7 @@ import Sentry
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       GeneratedPluginRegistrant.register(with: self)
-//      ExtremeVPNAnalytics.configure(applicationToken: "app8akjh12v9ua120ki", baseUrl: "https://hripsten.com")
+      ExtremeVPNAnalytics.configure(applicationToken: "app8akjh12v9ua120ki", baseUrl: "https://hripsten.com")
       SentrySDK.start {options in options.swiftAsyncStacktraces = true }
       
       if #available(iOS 10.0, *) {

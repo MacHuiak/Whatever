@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		2485CC162B395161007275BE /* ExtremeVPNAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2485CC152B395161007275BE /* ExtremeVPNAnalytics */; };
 		249A5B592B270789007F7A3A /* TunnelKit in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B582B270789007F7A3A /* TunnelKit */; };
 		249A5B5B2B270789007F7A3A /* TunnelKitLZO in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B5A2B270789007F7A3A /* TunnelKitLZO */; };
 		249A5B5D2B270789007F7A3A /* TunnelKitOpenVPN in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		2485CC122B394E77007275BE /* ExtremeVPNAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ExtremeVPNAnalytics; path = ../../../Desktop/ExtremeVPNAnalytics; sourceTree = "<group>"; };
 		24F70D542B21B8BC005C7E6A /* OpenVPNExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenVPNExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F70D552B21B8BC005C7E6A /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		24F70D582B21B8BC005C7E6A /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				249A5B5F2B270789007F7A3A /* TunnelKitOpenVPNAppExtension in Frameworks */,
 				249A5B5D2B270789007F7A3A /* TunnelKitOpenVPN in Frameworks */,
 				249A5B5B2B270789007F7A3A /* TunnelKitLZO in Frameworks */,
+				2485CC162B395161007275BE /* ExtremeVPNAnalytics in Frameworks */,
 				249A5B592B270789007F7A3A /* TunnelKit in Frameworks */,
 				A914FE8E11FEAF66E5208378 /* Pods_Runner.framework in Frameworks */,
 			);
@@ -123,6 +126,7 @@
 		2485CC0E2B371CC8007275BE /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				2485CC122B394E77007275BE /* ExtremeVPNAnalytics */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -253,6 +257,7 @@
 				249A5B5A2B270789007F7A3A /* TunnelKitLZO */,
 				249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */,
 				249A5B5E2B270789007F7A3A /* TunnelKitOpenVPNAppExtension */,
+				2485CC152B395161007275BE /* ExtremeVPNAnalytics */,
 			);
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
@@ -288,7 +293,7 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */,
+				249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -864,7 +869,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */ = {
+		249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/passepartoutvpn/tunnelkit.git";
 			requirement = {
@@ -875,29 +880,33 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2485CC152B395161007275BE /* ExtremeVPNAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ExtremeVPNAnalytics;
+		};
 		249A5B582B270789007F7A3A /* TunnelKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKit;
 		};
 		249A5B5A2B270789007F7A3A /* TunnelKitLZO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitLZO;
 		};
 		249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPN;
 		};
 		249A5B5E2B270789007F7A3A /* TunnelKitOpenVPNAppExtension */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPNAppExtension;
 		};
 		249A5B602B27091E007F7A3A /* TunnelKitOpenVPNAppExtension */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPNAppExtension;
 		};
 /* End XCSwiftPackageProductDependency section */

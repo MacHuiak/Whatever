@@ -71,9 +71,9 @@ import ExtremeVPNAnalytics
                 ExtremeVPNAnalytics.logEvent(eventType:event,params: ["campaignId" : "78Hkt9vakt51"])
                 break
             case "buySubscription":
-                let arguments = call.arguments as? Dictionary<String,Any>
+                let arguments = call.arguments as! Dictionary<String,Any>
 
-                ExtremeVPNAnalytics.logEvent(eventType:ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial,params: ["campaignId" : "78Hkt9vakt51","subscription_id":arguments["purchaseId"]])
+                ExtremeVPNAnalytics.logEvent(eventType:ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial,params: ["campaignId" : "78Hkt9vakt51","subscription_id":arguments["purchaseId"] as! String])
                 break
             default:
                 break

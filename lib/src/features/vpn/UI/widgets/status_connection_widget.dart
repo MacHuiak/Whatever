@@ -67,7 +67,10 @@ class ConnectionStatusWidget extends StatelessWidget {
                 ),
               ConnectionStatus.disconnecting => BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: const Color(0xFFA7A7A7),
+                  border: Border.all(
+                    color: const Color(0xFFFFF2AE),
+                  ),
+                color: Colors.transparent,
                 ),
             },
             child: Padding(

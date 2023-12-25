@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "whatever_logger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MacHuiak/whatever_logger.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "73a0370512625b2a170f064bc1b9d092297d1d6c"
+      }
+    },
+    {
       "identity" : "wireguard-apple",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/passepartoutvpn/wireguard-apple",

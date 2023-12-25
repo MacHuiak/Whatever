@@ -9,7 +9,7 @@ import TunnelKitManager
 import TunnelKitOpenVPN
 import NetworkExtension
 import Sentry
-import ExtremeVPNAnalytics
+//import ExtremeVPNAnalytics
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -22,7 +22,7 @@ import ExtremeVPNAnalytics
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       GeneratedPluginRegistrant.register(with: self)
-      ExtremeVPNAnalytics.configure(applicationToken: "app8akjh12v9ua120ki", baseUrl: "https://hripsten.com")
+//      ExtremeVPNAnalytics.configure(applicationToken: "app8akjh12v9ua120ki", baseUrl: "https://hripsten.com")
       SentrySDK.start {options in options.swiftAsyncStacktraces = true }
       
       if #available(iOS 10.0, *) {
@@ -45,41 +45,41 @@ import ExtremeVPNAnalytics
       })
       
       flutterMethodHandler(flutterChannel: flutterChannel)
-      prepareLogHandler(logChannel: appLogHandler)
+     // prepareLogHandler(logChannel: appLogHandler)
       
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
     
-    private func getEventType(eventName:String)->ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent{
-        switch(eventName){
-        case "install":
-            return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.install;
-        case "trial":
-            return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial;
-        case "renew":
-            return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.renew;
-        default:
-            return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.install;
-        }
-    }
+ //   private func getEventType(eventName:String)->ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent{
+   //     switch(eventName){
+     //   case "install":
+       //     return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.install;
+        //case "trial":
+          //  return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial;
+        //case "renew":
+          //  return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.renew;
+       // default:
+         //   return ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.install;
+       // }
+   // }
     
-    public func prepareLogHandler(logChannel:FlutterMethodChannel){
-        logChannel.setMethodCallHandler({ [self](call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
-            switch call.method{
-            case "logEvent":
-                let event = getEventType(eventName:  call.arguments as! String)
-                ExtremeVPNAnalytics.logEvent(eventType:event,params: ["campaignId" : "78Hkt9vakt51"])
-                break
-            case "buySubscription":
-                let arguments = call.arguments as! Dictionary<String,Any>
+   // public func prepareLogHandler(logChannel:FlutterMethodChannel){
+     //   logChannel.setMethodCallHandler({ [self](call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+       //     switch call.method{
+         //   case "logEvent":
+           //     let event = getEventType(eventName:  call.arguments as! String)
+             //   ExtremeVPNAnalytics.logEvent(eventType:event,params: ["campaignId" : "78Hkt9vakt51"])
+               // break
+            //case "buySubscription":
+              //  let arguments = call.arguments as! Dictionary<String,Any>
 
-                ExtremeVPNAnalytics.logEvent(eventType:ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial,params: ["campaignId" : "78Hkt9vakt51","subscription_id":arguments["purchaseId"] as! String])
-                break
-            default:
-                break
-            }
-        })
-    }
+                //ExtremeVPNAnalytics.logEvent(eventType:ExtremeVPNAnalyticsConstants.ExtremeVPNAnalyticsEvent.startTrial,params: //["campaignId" : "78Hkt9vakt51","subscription_id":arguments["purchaseId"] as! String])
+                //break
+            //default:
+              //  break
+            //}
+        //})
+    //}
     
     public func dataCountHandle(flutterChannel: FlutterMethodChannel,byteSent:UInt,byteReceived:UInt){
         

@@ -58,7 +58,8 @@ class VPN extends StatelessWidget {
     DI
         .getDependency<UserLogin>()
         .logIn(userName: "GalaxyNewUser", password: "newUser1907*!");
-    IOSPaymentServiceImpl().loadPurchases();
+
+    DI.getDependency<IOSPaymentServiceImpl>().loadPurchases();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [

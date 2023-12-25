@@ -36,6 +36,11 @@ class _PayWallState extends ConsumerState<PayWall> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(subscriptionStatusController, (previous, next) {
+      if (previous?.value !=null || (next.value !=null)) {
+        Get.offAll(() => const MainVPNScreen());
+      }
+    });
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(

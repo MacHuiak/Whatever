@@ -78,25 +78,25 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
 
           Align(
             alignment: const Alignment(0, 0.4),
-            // child: LightSwordWidget(
-            //   onStart: () {
-            //     ref
-            //         .read(connectionProvider.notifier)
-            //         .startConnection(selectedHost!);
-            //
-            //     if (shouldRate) {
-            //       showDialog(
-            //         context: context,
-            //         builder: (context) {
-            //           return const Dialog(
-            //               insetPadding: EdgeInsets.zero,
-            //               child: RateAppWidget());
-            //         },
-            //       );
-            //     }
-            //     ref.read(rateNotifier.notifier).updateLaunchCount();
-            //   },
-            // ),
+            child: LightSwordWidget(
+              onStart: () {
+                ref
+                    .read(connectionProvider.notifier)
+                    .startConnection(selectedHost!);
+
+                if (shouldRate) {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Dialog(
+                          insetPadding: EdgeInsets.zero,
+                          child: RateAppWidget());
+                    },
+                  );
+                }
+                ref.read(rateNotifier.notifier).updateLaunchCount();
+              },
+            ),
           ),
           Align(
             alignment: const Alignment(0.85, -0.92),

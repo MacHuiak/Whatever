@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D2CCA55F9C6EB0FEAD1A9D9 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2926E41AE68F8871B5170860 /* Pods_Runner.framework */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		243E36DA2B35B28D00B64DBE /* ExtremeVPNAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 243E36D92B35B28D00B64DBE /* ExtremeVPNAnalytics */; };
+		2485CC112B393B79007275BE /* ExtremeVPNAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2485CC102B393B79007275BE /* ExtremeVPNAnalytics */; };
 		249A5B592B270789007F7A3A /* TunnelKit in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B582B270789007F7A3A /* TunnelKit */; };
 		249A5B5B2B270789007F7A3A /* TunnelKitLZO in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B5A2B270789007F7A3A /* TunnelKitLZO */; };
 		249A5B5D2B270789007F7A3A /* TunnelKitOpenVPN in Frameworks */ = {isa = PBXBuildFile; productRef = 249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */; };
@@ -62,7 +62,6 @@
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
-		243E36D82B35A7B600B64DBE /* ExtremeVPNAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ExtremeVPNAnalytics; path = ../../../Desktop/ExtremeVPNAnalytics; sourceTree = "<group>"; };
 		2485CC0F2B371CC8007275BE /* ExtremeVPNAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ExtremeVPNAnalytics; path = ../../../Desktop/ExtremeVPNAnalytics; sourceTree = "<group>"; };
 		24F70D542B21B8BC005C7E6A /* OpenVPNExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenVPNExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F70D552B21B8BC005C7E6A /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -105,7 +104,7 @@
 				249A5B5F2B270789007F7A3A /* TunnelKitOpenVPNAppExtension in Frameworks */,
 				249A5B5D2B270789007F7A3A /* TunnelKitOpenVPN in Frameworks */,
 				249A5B5B2B270789007F7A3A /* TunnelKitLZO in Frameworks */,
-				243E36DA2B35B28D00B64DBE /* ExtremeVPNAnalytics in Frameworks */,
+				2485CC112B393B79007275BE /* ExtremeVPNAnalytics in Frameworks */,
 				249A5B592B270789007F7A3A /* TunnelKit in Frameworks */,
 				0D2CCA55F9C6EB0FEAD1A9D9 /* Pods_Runner.framework in Frameworks */,
 			);
@@ -153,7 +152,6 @@
 		70E05188FE0779C749158A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				243E36D82B35A7B600B64DBE /* ExtremeVPNAnalytics */,
 				24F70D552B21B8BC005C7E6A /* NetworkExtension.framework */,
 				2926E41AE68F8871B5170860 /* Pods_Runner.framework */,
 			);
@@ -259,7 +257,7 @@
 				249A5B5A2B270789007F7A3A /* TunnelKitLZO */,
 				249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */,
 				249A5B5E2B270789007F7A3A /* TunnelKitOpenVPNAppExtension */,
-				243E36D92B35B28D00B64DBE /* ExtremeVPNAnalytics */,
+				2485CC102B393B79007275BE /* ExtremeVPNAnalytics */,
 			);
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
@@ -882,7 +880,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		243E36D92B35B28D00B64DBE /* ExtremeVPNAnalytics */ = {
+		2485CC102B393B79007275BE /* ExtremeVPNAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ExtremeVPNAnalytics;
 		};

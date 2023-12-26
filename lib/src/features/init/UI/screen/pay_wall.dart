@@ -1,8 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
@@ -140,6 +139,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                         ),
                         GestureDetector(
                           onTap: () {
+                            HapticFeedback.vibrate();
                             ref
                                 .read(subscriptionStatusController.notifier)
                                 .buySubscription();
@@ -194,7 +194,9 @@ class _PayWallState extends ConsumerState<PayWall> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         child: Text(
                           "Privacy Policy",
                           style: _getTextButtonStyle(),

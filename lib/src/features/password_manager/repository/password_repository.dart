@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 

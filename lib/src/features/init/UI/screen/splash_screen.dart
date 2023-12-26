@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +10,6 @@ import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
 
-@RoutePage()
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 

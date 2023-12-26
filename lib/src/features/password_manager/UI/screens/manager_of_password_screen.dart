@@ -1,6 +1,4 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/DI/di_container.dart';
@@ -11,7 +9,6 @@ import 'package:modern_vpn_project/src/features/password_manager/UI/widgets/open
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
 import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
 
-@RoutePage()
 class PasswordManagerScreen extends StatefulWidget {
   const PasswordManagerScreen({super.key});
 

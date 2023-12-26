@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
@@ -9,7 +7,6 @@ import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/vpn_config.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ServerListScreen extends HookConsumerWidget {

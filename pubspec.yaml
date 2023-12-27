@@ -39,7 +39,6 @@ dependencies:
   flutter_local_notifications: ^16.2.0
   flutter_inapp_purchase: ^5.6.1
   in_app_purchase: ^3.1.11
-  flutter_native_splash: ^2.3.8
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +47,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   build_runner: ^2.4.7
   riverpod_generator: ^2.3.9
+  flutter_native_splash: ^2.3.8
 
 
 

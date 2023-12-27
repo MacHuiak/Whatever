@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("広告ソフトウェアフィルター"),
         "adwareFilterBody":
             MessageLookupByLibrary.simpleMessage("悪意のあるサイトの活動からスマートフォンを保護します"),
+        "best_service":
+            MessageLookupByLibrary.simpleMessage("• 最高のサービスを提供するためのモダンな技術"),
         "cancelConnection": MessageLookupByLibrary.simpleMessage("接続をキャンセル"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("クリックしてドラッグ"),
         "copied": MessageLookupByLibrary.simpleMessage("コピー済み"),
@@ -47,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dragSwordToStartNvpnConnection":
             MessageLookupByLibrary.simpleMessage("剣をドラッグしてVPN接続を開始"),
         "fastestServer": MessageLookupByLibrary.simpleMessage("最速サーバー"),
+        "full_base":
+            MessageLookupByLibrary.simpleMessage("• 疑わしいウェブサイトの完全なデータベース"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("パスワードマネージャー"),
@@ -57,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText":
             MessageLookupByLibrary.simpleMessage("アプリを評価して、フォースがあなたと共にありますように"),
         "restore": MessageLookupByLibrary.simpleMessage("復元"),
+        "security": MessageLookupByLibrary.simpleMessage("• 適切な保護を確保するための週次更新"),
         "site": MessageLookupByLibrary.simpleMessage("サイト"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("スパムフィルター"),
         "spamFilterBody":

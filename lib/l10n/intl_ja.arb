@@ -40,5 +40,8 @@
   "cryptominersFilter": "クリプトマイナーフィルター",
   "cryptominersFilterBody": "スマートフォンのリソースが暗号通貨のマイニングに使用されるのを防ぎます",
   "activate": "アクティベート",
-  "restore": "復元"
+  "restore": "復元",
+  "full_base": "• 疑わしいウェブサイトの完全なデータベース",
+  "security": "• 適切な保護を確保するための週次更新",
+  "best_service": "• 最高のサービスを提供するためのモダンな技術"
 }

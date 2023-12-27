@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Filtre anti-logiciels publicitaires"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Protège votre smartphone contre l\'activité des sites Web malveillants"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• Technologies modernes pour offrir le meilleur service"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Annuler la connexion"),
         "clickAndDrag":
@@ -54,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Glissez l\'épée pour démarrer\nla connexion VPN"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("Serveur le plus rapide"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Base de données complète des sites Web suspects"),
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
         "password": MessageLookupByLibrary.simpleMessage("Mot de passe"),
         "passwordManager": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Notez notre application et que la force soit avec vous"),
         "restore": MessageLookupByLibrary.simpleMessage("Restaurer"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Mises à jour hebdomadaires pour assurer une protection adéquate"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Filtre anti-spam"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

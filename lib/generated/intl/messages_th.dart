@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("ตัวกรองแอดแวร์"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "ป้องกันสมาร์ทโฟนของคุณจากกิจกรรมของเว็บไซต์ที่ไม่ดี"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• เทคโนโลยีทันสมัยเพื่อให้บริการที่ดีที่สุด"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("ยกเลิกการเชื่อมต่อ"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("คลิกและลากรูป"),
@@ -52,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "ลากดาบเพื่อเริ่ม\nการเชื่อมต่อ VPN"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("เซิร์ฟเวอร์ที่เร็วที่สุด"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• ฐานข้อมูลเต็มของเว็บไซต์ที่น่าสงสัย"),
         "login": MessageLookupByLibrary.simpleMessage("เข้าสู่ระบบ"),
         "password": MessageLookupByLibrary.simpleMessage("รหัสผ่าน"),
         "passwordManager":
@@ -64,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "ให้คะแนนแอปของเราและขอให้พลังสร้างสรรค์อยู่กับคุณ"),
         "restore": MessageLookupByLibrary.simpleMessage("กู้คืน"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• การอัปเดตรายสัปดาห์เพื่อให้มีการป้องกันที่เหมาะสม"),
         "site": MessageLookupByLibrary.simpleMessage("เว็บไซต์"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("ตัวกรองสแปม"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

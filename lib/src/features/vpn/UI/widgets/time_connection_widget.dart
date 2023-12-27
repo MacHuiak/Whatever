@@ -17,7 +17,7 @@ class ConnectionTimeWidget extends StatelessWidget {
         return Text(
           formatTime(seconds),
           textAlign: TextAlign.center,
-          style: const TextStyle(color: AppColors.greyDarker,fontSize: 42),
+          style: const TextStyle(color: AppColors.greyDarker,fontSize: 42,fontFamily: "bruno"),
         );
       },
     );

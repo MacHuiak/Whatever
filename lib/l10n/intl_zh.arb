@@ -40,5 +40,8 @@
   "cryptominersFilter": "加密货币挖矿过滤器",
   "cryptominersFilterBody": "帮助防止您的智能手机资源被用于挖矿",
   "activate": "激活",
-  "restore": "恢复"
+  "restore": "恢复",
+  "full_base": "• 可疑网站的完整数据库",
+  "security": "• 每周更新以确保适当的保护",
+  "best_service": "• 为提供最佳服务而采用的现代技术"
 }

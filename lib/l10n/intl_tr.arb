@@ -40,6 +40,9 @@
   "cryptominersFilter": "Cryptominers filtresi",
   "cryptominersFilterBody": "Telefonunuzun kaynaklarının kripto para madenciliği için kullanılmasını önlemeye yardımcı olur",
   "activate": "ETKİNLEŞTİR",
-  "restore": "Geri Yükle"
+  "restore": "Geri Yükle",
+  "full_base": "• Şüpheli web sitelerinin tam veritabanı",
+  "security": "• Uygun korumayı sağlamak için haftalık güncellemeler",
+  "best_service": "• En iyi hizmeti sağlamak için modern teknolojiler"
 
 }

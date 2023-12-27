@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("广告软件过滤器"),
         "adwareFilterBody":
             MessageLookupByLibrary.simpleMessage("保护您的智能手机免受恶意网站活动的侵害"),
+        "best_service":
+            MessageLookupByLibrary.simpleMessage("• 为提供最佳服务而采用的现代技术"),
         "cancelConnection": MessageLookupByLibrary.simpleMessage("取消连接"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("点击并拖动"),
         "copied": MessageLookupByLibrary.simpleMessage("已复制"),
@@ -46,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dragSwordToStartNvpnConnection":
             MessageLookupByLibrary.simpleMessage("拖动剑以开始\nVPN连接"),
         "fastestServer": MessageLookupByLibrary.simpleMessage("最快的服务器"),
+        "full_base": MessageLookupByLibrary.simpleMessage("• 可疑网站的完整数据库"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "password": MessageLookupByLibrary.simpleMessage("密码"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("密码管理器"),
@@ -55,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateButton": MessageLookupByLibrary.simpleMessage("评价应用"),
         "rateText": MessageLookupByLibrary.simpleMessage("评价我们的应用，愿原力与你同在"),
         "restore": MessageLookupByLibrary.simpleMessage("恢复"),
+        "security": MessageLookupByLibrary.simpleMessage("• 每周更新以确保适当的保护"),
         "site": MessageLookupByLibrary.simpleMessage("网站"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("垃圾邮件过滤器"),
         "spamFilterBody":

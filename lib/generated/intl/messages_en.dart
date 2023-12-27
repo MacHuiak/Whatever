@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "alertUnsecuredWifiBody": MessageLookupByLibrary.simpleMessage(
             "Tap Here to Activate the VPN and Encrypt Your Connection."),
         "australia": MessageLookupByLibrary.simpleMessage("Sydney (Australia)"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• Modern technologies for providing the best service"),
         "bewareOfHackers": MessageLookupByLibrary.simpleMessage(
             "Open the VPN to Defend Against Cyber Threats!"),
         "bewareOfHackersBody":
@@ -65,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ensureSecurityBody": MessageLookupByLibrary.simpleMessage(
             "Tap to Activate the VPN and Safeguard Your Data from Hackers and Snoops!"),
         "fastestServer": MessageLookupByLibrary.simpleMessage("Fastest Server"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Full database of suspicious websites"),
         "guardYourPrivacy":
             MessageLookupByLibrary.simpleMessage("Guard Your Privacy!"),
         "guardYourPrivacyBody": MessageLookupByLibrary.simpleMessage(
@@ -93,6 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Secure Your Online Footprint!"),
         "secureYourOnlineFootprintBody": MessageLookupByLibrary.simpleMessage(
             "Tap to Enable VPN and Shield Yourself."),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Weekly updates to ensure proper protection"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Spam filter"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

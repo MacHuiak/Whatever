@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مرشح البرمجيات الإعلانية"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "يحمي هاتفك الذكي من نشاط مواقع الويب الضارة"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• تقنيات حديثة لتوفير أفضل خدمة"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("إلغاء الاتصال"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("انقر واسحب"),
@@ -51,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dragSwordToStartNvpnConnection":
             MessageLookupByLibrary.simpleMessage("اسحب السيف لبدء اتصال VPN"),
         "fastestServer": MessageLookupByLibrary.simpleMessage("أسرع خادم"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• قاعدة بيانات كاملة للمواقع الإلكترونية المشبوهة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordManager":
@@ -63,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText":
             MessageLookupByLibrary.simpleMessage("قيم تطبيقنا ولتكن القوة معك"),
         "restore": MessageLookupByLibrary.simpleMessage("استعادة"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• تحديثات أسبوعية لضمان الحماية السليمة"),
         "site": MessageLookupByLibrary.simpleMessage("الموقع"),
         "spamFilter":
             MessageLookupByLibrary.simpleMessage("مرشح البريد العشوائي"),

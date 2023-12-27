@@ -40,5 +40,8 @@
   "cryptominersFilter": "Filtro de criptomineração",
   "cryptominersFilterBody": "Ajuda a evitar o uso dos recursos do seu smartphone para minerar criptomoedas",
   "activate": "ATIVAR",
-  "restore": "Restaurar"
+  "restore": "Restaurar",
+  "full_base": "• Base de dados completa de sites suspeitos",
+  "security": "• Atualizações semanais para garantir uma proteção adequada",
+  "best_service": "• Tecnologias modernas para fornecer o melhor serviço"
 }

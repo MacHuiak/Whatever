@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Filtro de adware"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Protege tu teléfono inteligente de la actividad de sitios web maliciosos"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• Tecnologías modernas para brindar el mejor servicio"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Cancelar conexión"),
         "clickAndDrag":
@@ -53,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Arrastra la espada para iniciar\nla conexión VPN"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("Servidor más rápido"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Base de datos completa de sitios web sospechosos"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordManager":
@@ -65,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Califica nuestra aplicación y que la fuerza esté contigo"),
         "restore": MessageLookupByLibrary.simpleMessage("Restaurar"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Actualizaciones semanales para garantizar una protección adecuada"),
         "site": MessageLookupByLibrary.simpleMessage("Sitio"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Filtro de spam"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

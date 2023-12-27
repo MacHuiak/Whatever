@@ -40,5 +40,8 @@
   "cryptominersFilter": "Cryptominers-Filter",
   "cryptominersFilterBody": "Hilft dabei, die Nutzung der Ressourcen Ihres Smartphones für das Mining von Kryptowährungen zu verhindern",
   "activate": "AKTIVIEREN",
-  "restore": "Wiederherstellen"
+  "restore": "Wiederherstellen",
+  "full_base": "• Vollständige Datenbank verdächtiger Websites",
+  "security": "• Wöchentliche Updates zur Gewährleistung eines angemessenen Schutzes",
+  "best_service": "• Moderne Technologien für den besten Service"
 }

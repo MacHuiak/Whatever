@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/features/vpn/UI/screens/info_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
 
@@ -36,7 +36,7 @@ class _PayWallState extends ConsumerState<PayWall> {
   @override
   Widget build(BuildContext context) {
     ref.listen(subscriptionStatusController, (previous, next) {
-      if (previous?.value !=null || (next.value !=null)) {
+      if (previous?.value != null || (next.value != null)) {
         Get.offAll(() => const MainVPNScreen());
       }
     });
@@ -99,7 +99,7 @@ class _PayWallState extends ConsumerState<PayWall> {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 1),
+            alignment: const Alignment(0, 0.95),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -107,34 +107,80 @@ class _PayWallState extends ConsumerState<PayWall> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                        minHeight: 120,
-                        maxHeight: 120,
+                        minHeight: 180,
+                        maxHeight: 220,
                         minWidth: context.width,
                         maxWidth: context.width),
                     child: Stack(
                       children: [
                         AnimatedContainer(
-                          height: 120,
+                          height: 220,
                           decoration: BoxDecoration(
                             border: Border.all(color: _getBorderColor()),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           duration: const Duration(milliseconds: 300),
-                          child: Center(
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: const Alignment(0, 0.6),
-                                  child: Text(
-                                    "3 days free trial — after \$9.99 / week",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 14,
-                                        color: _getPriceColor()),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: const Alignment(0, 0.2),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        S.of(context).full_base,
+                                        style: TextStyle(
+                                          color: _getTextPointColor(),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8,),
+                                      Text(
+                                        S.of(context).security,
+                                        style: TextStyle(
+                                          color: _getTextPointColor(),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8,),
+                                      Text(
+                                        S.of(context).best_service,
+                                        style: TextStyle(
+                                          color: _getTextPointColor(),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                              Align(
+                                alignment: const Alignment(0, 0.9),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "3 days free trial — after \$9.99 / week",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 18,
+                                          color: _getPriceColor(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         GestureDetector(
@@ -195,7 +241,11 @@ class _PayWallState extends ConsumerState<PayWall> {
                     children: [
                       TextButton(
                         onPressed: () {
-
+                          Get.to(
+                            () => const InfoScreen(
+                                title:"Privacy Policy",
+                                infoType: InfoType.privacy),
+                          );
                         },
                         child: Text(
                           "Privacy Policy",
@@ -214,7 +264,13 @@ class _PayWallState extends ConsumerState<PayWall> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(
+                            () => const InfoScreen(
+                                title: "Terms of Use",
+                                infoType: InfoType.terms),
+                          );
+                        },
                         child: Text(
                           "Terms of Use",
                           style: _getTextButtonStyle(),
@@ -234,26 +290,26 @@ class _PayWallState extends ConsumerState<PayWall> {
   TextStyle _getTextButtonStyle() {
     final textStyle = TextStyle(
       decoration: TextDecoration.underline,
-      color: const Color(0xFFE2FFE0).withOpacity(0.2),
+      color: const Color(0xFFE2FFE0).withOpacity(0.5),
     );
     switch (currentPage) {
       case 0:
         return textStyle.copyWith(
-          color: const Color(0xFFE2FFE0).withOpacity(0.2),
+          color: const Color(0xFFE2FFE0).withOpacity(0.5),
         );
       case 1:
         return textStyle.copyWith(
-          color: const Color(0xFFB9D9FF).withOpacity(0.22),
+          color: const Color(0xFFB9D9FF).withOpacity(0.52),
         );
 
       case 2:
         return textStyle.copyWith(
-          color: const Color(0xFFFFCEDA).withOpacity(0.22),
+          color: const Color(0xFFFFCEDA).withOpacity(0.52),
         );
 
       case 3:
         return textStyle.copyWith(
-          color: const Color(0xFFFFFCB5).withOpacity(0.22),
+          color: const Color(0xFFFFFCB5).withOpacity(0.52),
         );
 
       default:
@@ -337,21 +393,41 @@ class _PayWallState extends ConsumerState<PayWall> {
     }
   }
 
+
+
+  Color _getTextPointColor() {
+    switch (currentPage) {
+      case 0:
+        return const Color(0xFFE2FFE0).withOpacity(0.7);
+      case 1:
+        return const Color(0xFFB9D9FF).withOpacity(0.72);
+
+      case 2:
+        return const Color(0xFFFFCEDA).withOpacity(0.72);
+
+      case 3:
+        return const Color(0xFFFFFCB5).withOpacity(0.7);
+
+      default:
+        return const Color(0xFFFFFCB5).withOpacity(0.75);
+    }
+  }
+
   Color _getPriceColor() {
     switch (currentPage) {
       case 0:
-        return const Color(0xFFE2FFE0).withOpacity(0.4);
+        return const Color(0xFFE2FFE0).withOpacity(0.8);
       case 1:
-        return const Color(0xFFB9D9FF).withOpacity(0.42);
+        return const Color(0xFFB9D9FF).withOpacity(0.82);
 
       case 2:
-        return const Color(0xFFFFCEDA).withOpacity(0.42);
+        return const Color(0xFFFFCEDA).withOpacity(0.82);
 
       case 3:
-        return const Color(0xFFFFFCB5).withOpacity(0.4);
+        return const Color(0xFFFFFCB5).withOpacity(0.8);
 
       default:
-        return const Color(0xFFFFFCB5).withOpacity(0.25);
+        return const Color(0xFFFFFCB5).withOpacity(0.85);
     }
   }
 
@@ -500,7 +576,7 @@ class PayWallStepWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
-            "Protects your smartphone from spam advertising activity",
+            description,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 14,

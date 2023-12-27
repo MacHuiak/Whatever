@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Фильтр рекламного ПО"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Защищает ваш смартфон от вредной активности сайтов"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• Современные технологии для обеспечения лучшего сервиса"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Отменить подключение"),
         "clickAndDrag":
@@ -53,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Перетащите меч, чтобы начать\nподключение к VPN"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("Самый быстрый сервер"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Полная база подозрительных веб-сайтов"),
         "login": MessageLookupByLibrary.simpleMessage("Логин"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "passwordManager":
@@ -66,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Оцените наше приложение, и пусть с вами будет Сила"),
         "restore": MessageLookupByLibrary.simpleMessage("Восстановить"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Еженедельные обновления для обеспечения надлежащей защиты"),
         "site": MessageLookupByLibrary.simpleMessage("Сайт"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Фильтр спама"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

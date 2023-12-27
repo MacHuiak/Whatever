@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware-Filter"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Schützt Ihr Smartphone vor bösartiger Webseitenaktivität"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• Moderne Technologien für den besten Service"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Verbindung abbrechen"),
         "clickAndDrag":
@@ -53,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ziehe das Schwert, um die VPN-Verbindung zu starten"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("Schnellster Server"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Vollständige Datenbank verdächtiger Websites"),
         "login": MessageLookupByLibrary.simpleMessage("Anmeldung"),
         "password": MessageLookupByLibrary.simpleMessage("Passwort"),
         "passwordManager":
@@ -65,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Bewerte unsere App und möge die Macht mit dir sein"),
         "restore": MessageLookupByLibrary.simpleMessage("Wiederherstellen"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Wöchentliche Updates zur Gewährleistung eines angemessenen Schutzes"),
         "site": MessageLookupByLibrary.simpleMessage("Website"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Spam-Filter"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

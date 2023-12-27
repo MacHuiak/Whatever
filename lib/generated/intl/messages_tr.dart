@@ -37,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filtresi"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Telefonunuzu kötü sitelerin etkinliklerinden korur"),
+        "best_service": MessageLookupByLibrary.simpleMessage(
+            "• En iyi hizmeti sağlamak için modern teknolojiler"),
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Bağlantıyı İptal Et"),
         "clickAndDrag":
@@ -52,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "VPN bağlantısını başlatmak için kılıç sürükle"),
         "fastestServer":
             MessageLookupByLibrary.simpleMessage("En Hızlı Sunucu"),
+        "full_base": MessageLookupByLibrary.simpleMessage(
+            "• Şüpheli web sitelerinin tam veritabanı"),
         "login": MessageLookupByLibrary.simpleMessage("Giriş"),
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
         "passwordManager":
@@ -65,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateText": MessageLookupByLibrary.simpleMessage(
             "Uygulamamızı değerlendir ve kuvvet seninle olsun"),
         "restore": MessageLookupByLibrary.simpleMessage("Geri Yükle"),
+        "security": MessageLookupByLibrary.simpleMessage(
+            "• Uygun korumayı sağlamak için haftalık güncellemeler"),
         "site": MessageLookupByLibrary.simpleMessage("Site"),
         "spamFilter": MessageLookupByLibrary.simpleMessage("Spam filtresi"),
         "spamFilterBody": MessageLookupByLibrary.simpleMessage(

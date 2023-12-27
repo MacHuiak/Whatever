@@ -659,6 +659,36 @@ class S {
       args: [],
     );
   }
+
+  /// `• Full database of suspicious websites`
+  String get full_base {
+    return Intl.message(
+      '• Full database of suspicious websites',
+      name: 'full_base',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Weekly updates to ensure proper protection`
+  String get security {
+    return Intl.message(
+      '• Weekly updates to ensure proper protection',
+      name: 'security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Modern technologies for providing the best service`
+  String get best_service {
+    return Intl.message(
+      '• Modern technologies for providing the best service',
+      name: 'best_service',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

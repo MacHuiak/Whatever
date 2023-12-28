@@ -6,6 +6,7 @@ import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/info_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
+import 'package:modern_vpn_project/src/in_app_extension.dart';
 
 class PayWall extends ConsumerStatefulWidget {
   const PayWall({super.key});
@@ -42,10 +43,11 @@ class _PayWallState extends ConsumerState<PayWall> {
     });
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Align(
-            alignment: const Alignment(0, -0.4),
+          Padding(
+            padding: EdgeInsets.only(top: context.isBigScreen?64.0:8),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -53,8 +55,8 @@ class _PayWallState extends ConsumerState<PayWall> {
                   constraints: BoxConstraints(
                       maxWidth: context.width,
                       minWidth: context.width,
-                      maxHeight: 450,
-                      minHeight: 300),
+                      maxHeight: context.isBigScreen?450:300,
+                      minHeight: 250),
                   child: PageView(
                     controller: _pageController,
                     children: [
@@ -98,8 +100,8 @@ class _PayWallState extends ConsumerState<PayWall> {
               ],
             ),
           ),
-          Align(
-            alignment: const Alignment(0, 0.95),
+          Padding(
+            padding:  EdgeInsets.only(bottom: context.isBigScreen?16:8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -130,8 +132,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         S.of(context).full_base,
@@ -139,14 +140,18 @@ class _PayWallState extends ConsumerState<PayWall> {
                                           color: _getTextPointColor(),
                                         ),
                                       ),
-                                      const SizedBox(height: 8,),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
                                       Text(
                                         S.of(context).security,
                                         style: TextStyle(
                                           color: _getTextPointColor(),
                                         ),
                                       ),
-                                      const SizedBox(height: 8,),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
                                       Text(
                                         S.of(context).best_service,
                                         style: TextStyle(
@@ -165,14 +170,13 @@ class _PayWallState extends ConsumerState<PayWall> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "3 days free trial — after \$9.99 / week",
                                         style: TextStyle(
                                           fontWeight: FontWeight.w400,
-                                          fontSize: 18,
+                                          fontSize: context.isBigScreen?18:14,
                                           color: _getPriceColor(),
                                         ),
                                       ),
@@ -243,7 +247,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                         onPressed: () {
                           Get.to(
                             () => const InfoScreen(
-                                title:"Privacy Policy",
+                                title: "Privacy Policy",
                                 infoType: InfoType.privacy),
                           );
                         },
@@ -267,8 +271,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                         onPressed: () {
                           Get.to(
                             () => const InfoScreen(
-                                title: "Terms of Use",
-                                infoType: InfoType.terms),
+                                title: "Terms of Use", infoType: InfoType.terms),
                           );
                         },
                         child: Text(
@@ -392,8 +395,6 @@ class _PayWallState extends ConsumerState<PayWall> {
         );
     }
   }
-
-
 
   Color _getTextPointColor() {
     switch (currentPage) {
@@ -532,6 +533,7 @@ class PayWallStepWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           title,
@@ -542,24 +544,24 @@ class PayWallStepWidget extends StatelessWidget {
           constraints: BoxConstraints(
               maxWidth: context.width,
               minWidth: context.width,
-              maxHeight: 300,
-              minHeight: 300),
+              maxHeight: 240,
+              minHeight: 230),
           child: Stack(
             children: [
               Align(
-                alignment: const Alignment(0.7, 1.7),
+                alignment: const Alignment(0.7, 0.8),
                 child: Image.asset(
                   mainImagePath,
-                  width: 254,
-                  height: 254,
+                  width: context.width*0.7,
+                  height: context.width*0.5,
                 ),
               ),
               Align(
                 alignment: const Alignment(-0, -.3),
                 child: Image.asset(
                   bigCirclePath,
-                  width: 232,
-                  height: 232,
+                  width: context.width*0.64,
+                  height: context.width*0.46,
                 ),
               ),
               Align(
@@ -579,7 +581,7 @@ class PayWallStepWidget extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: context.isBigScreen?14:10,
               fontWeight: FontWeight.w300,
               color: Colors.white.withOpacity(0.76),
             ),

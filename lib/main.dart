@@ -61,7 +61,7 @@ class VPN extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: PayWall(),
+        home: SplashScreen(),
       ),
     );
   }

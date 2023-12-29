@@ -6,5 +6,5 @@ extension ContextExtension on BuildContext {
   //
   // double get width => MediaQuery.of(this).size.width;
 
-  bool get isBigScreen => width > 400 && height > 900;
+  bool get isBigScreen => width > 380 && height > 840;
 }

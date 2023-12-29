@@ -41,13 +41,15 @@ class _PayWallState extends ConsumerState<PayWall> {
         Get.offAll(() => const MainVPNScreen());
       }
     });
+    final a =context.height;
+    final v = context.width;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: context.isBigScreen?64.0:8),
+            padding: EdgeInsets.only(top: context.isBigScreen?48.0:8),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [

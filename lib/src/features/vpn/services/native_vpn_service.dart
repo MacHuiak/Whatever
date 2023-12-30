@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/data_counter_class.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class IosVPNService {
   final StreamController<ConnectionStatus> _connectionTypeController =
@@ -91,6 +92,8 @@ class NativeCallbackHandler {
       case "send_data_count":
         final byteSent = call.arguments["byteSend"];
         final byteReceived = call.arguments["byteReceived"];
+
+        Sentry.captureMessage("SEND DATA SENT: $byteSent  RECEIVED:$byteReceived");
         onDataCountGet(
             DataCountInfo(byteSent: byteSent, byteReceived: byteReceived));
         break;

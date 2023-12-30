@@ -130,6 +130,7 @@ class VpnConnectionService{
     private let vpnExtension = NetworkExtensionVPN()
     private var activeTimeCounter: AnyCancellable?
     private var connectionDataCounter: AnyCancellable?
+    private var configuration: OpenVPN.ProviderConfiguration?
     private var startConnectionTime:TimeInterval?
     var handleDataCount:((UInt,UInt)-> Void)
     var handleConnectionStatus:((String)-> Void)
@@ -168,12 +169,12 @@ class VpnConnectionService{
     
     func connectVPN(config:String){
         SentrySDK.capture(message: "START NATIVE VPN")
-        let vpnConfig = OpenVPN.Configuration.make("Whatever VPN", appGroup:appGroup, config: config)
+        configuration = OpenVPN.Configuration.make("Whatever VPN", appGroup:appGroup, config: config)
                 Task{
                     var extraInfo = NetworkExtensionExtra()
                     extraInfo.disconnectsOnSleep = false
                     do{
-                        try await vpnExtension.reconnect(extensionIdentifier, configuration: vpnConfig, extra: extraInfo, after: .seconds(2))
+                        try await vpnExtension.reconnect(extensionIdentifier, configuration: configuration!, extra: extraInfo, after: .seconds(2))
                     }catch{
                         SentrySDK.capture(message: "FAILED START CONNECTION")
                         SentrySDK.capture(error: error)
@@ -182,7 +183,7 @@ class VpnConnectionService{
                 }
         
         
-        startDataCount(vpnConfig: vpnConfig)
+        startDataCount()
     }
     
     
@@ -229,13 +230,13 @@ class VpnConnectionService{
         
     }
     
-    func startDataCount(vpnConfig: OpenVPN.ProviderConfiguration?){
+    func startDataCount(){
         guard connectionDataCounter == nil else{
             return
         }
         
         connectionDataCounter = Timer.TimerPublisher(interval: 3, runLoop: .main, mode: .common).autoconnect().sink{_ in
-            let dataCount = vpnConfig!.dataCount ?? DataCount(0,0)
+            let dataCount = self.configuration!.dataCount ?? DataCount(0,0)
             self.handleDataCount(dataCount.sent, dataCount.received)
         }
         

@@ -28,6 +28,7 @@ class IosVPNService {
 
   late NativeCallbackHandler _nativeCallbackHandler;
 
+
   IosVPNService() {
     _nativeCallbackHandler = NativeCallbackHandler(onTimeGet: (int time) {
       _connectionTimeController.add(time);

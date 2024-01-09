@@ -67,6 +67,9 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                   ? _getConnectionInfoStream()
                   : Stream.value(null),
               builder: (context, snapshot) {
+                ConnectionSpeedInfo connectionSpeedInfo = snapshot.data ??
+                    const ConnectionSpeedInfo(
+                        speedValue: "0", measureUnit: "B");
                 return ConstrainedBox(
                   constraints: const BoxConstraints(
                       maxHeight: 100,
@@ -105,7 +108,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                _connectionSpeedInfo.speedValue,
+                                connectionSpeedInfo.speedValue,
                                 textAlign: TextAlign.end,
                                 style: context.isBigScreen
                                     ? const TextStyle(
@@ -120,7 +123,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 2),
                                 child: Text(
-                                    '${_connectionSpeedInfo.measureUnit}/s',
+                                    '${connectionSpeedInfo.measureUnit}/s',
                                     textAlign: TextAlign.end,
                                     style: context.isBigScreen
                                         ? const TextStyle(
@@ -287,6 +290,9 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                   ? _getConnectionInfoStream()
                   : Stream.value(null),
               builder: (context, snapshot) {
+                ConnectionSpeedInfo connectionSpeedInfo = snapshot.data ??
+                    const ConnectionSpeedInfo(
+                        speedValue: "0", measureUnit: "B");
                 return ConstrainedBox(
                   constraints: const BoxConstraints(
                       maxHeight: 100,
@@ -325,7 +331,7 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                _connectionSpeedInfo.speedValue,
+                                connectionSpeedInfo.speedValue,
                                 textAlign: TextAlign.end,
                                 style: context.isBigScreen
                                     ? const TextStyle(
@@ -340,7 +346,7 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 2),
                                 child: Text(
-                                    '${_connectionSpeedInfo.measureUnit}/s',
+                                    '${connectionSpeedInfo.measureUnit}/s',
                                     textAlign: TextAlign.end,
                                     style: context.isBigScreen
                                         ? const TextStyle(

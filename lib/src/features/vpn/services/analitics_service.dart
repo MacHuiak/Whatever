@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 enum AnalyticsEvent {
   install("install"),
@@ -22,6 +23,7 @@ class AnalyticsServiceImpl {
 
   Future<void> logBuySubscription(AnalyticsEvent event,
       {required String purchaseID}) async {
+    Sentry.captureMessage("REGISTER BUY SUBSCRIPTION EVENT $purchaseID");
     _vpnChannel.invokeMethod(
         "buySubscription", {"event": event.name, "purchaseId": purchaseID});
   }

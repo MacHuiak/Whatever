@@ -75,12 +75,16 @@ class IOSPaymentServiceImpl {
             // TODO: Handle this case.
             break;
           case PurchaseStatus.purchased:
+            Sentry.captureMessage("CATCH PURCHASED DETAIL");
             if (_lastPurchaseDate == null) {
               // _purchaseServiceImpl.savePurchaseDate(
               //     _getDateFromString(purchaseDetails.transactionDate ?? "0"));
               if ((_transactions ?? []).isNotEmpty) {
                 Sentry.captureMessage("$_transactions");
                 notificationService?.cancelAllNotifications();
+                analyticsService?.logBuySubscription(AnalyticsEvent.trial,
+                    purchaseID:
+                    _transactions!.first.originalTransactionIdentifierIOS!);
               } else {
                 analyticsService?.logBuySubscription(AnalyticsEvent.trial,
                     purchaseID:

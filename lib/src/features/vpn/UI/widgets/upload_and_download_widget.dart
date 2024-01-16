@@ -310,15 +310,15 @@ class _InfoUploadWidgetState extends State<InfoUploadWidget> {
                           child: Row(
                             children: [
                               const Icon(
-                                Icons.arrow_upward,
+                                Icons.arrow_downward,
                                 size: 18,
-                                color: Color(0xFF5CF64A),
+                                color: AppColors.red200,
                               ),
                               const SizedBox(
                                 width: 6,
                               ),
                               Text(
-                                S.of(context).download,
+                                S.of(context).upload,
                                 style: const TextStyle(
                                     color: AppColors.subTitleColor),
                               )

@@ -1,9 +1,11 @@
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
 import 'package:modern_vpn_project/src/features/init/services/client_channel/client_channel.dart';
 import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/analitics_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/config_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/host_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/native_vpn_service.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/payment_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/vpn_connection_service.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
@@ -33,7 +35,9 @@ class DI {
     final connectionService = VpnConnectionService(
         configServiceImpl: configService, vpnService: IosVPNService());
     final passwordRepository = PasswordRepository();
-    final paymentService = IOSPaymentServiceImpl();
+    final notificationService = NotificationServiceImpl();
+
+    final paymentService = IOSPaymentServiceImpl(analyticsService: AnalyticsServiceImpl(), notificationService: notificationService);
 
     _dependencies[PasswordRepository] = passwordRepository;
     _dependencies[AuthRepositoryImpl] = auth;
@@ -43,5 +47,6 @@ class DI {
     _dependencies[VpnConnectionService] = connectionService;
     _dependencies[SharedPreferences] = sharedPreferences;
     _dependencies[IOSPaymentServiceImpl] = paymentService;
+    _dependencies[NotificationServiceImpl] = notificationService;
   }
 }

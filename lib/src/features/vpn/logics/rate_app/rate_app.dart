@@ -29,8 +29,9 @@ class RateAppNotifier extends Notifier<bool> {
     }
   }
 
-  void updateLaunchCount() {
-    final newCount = _rateService.updateCount();
-    state = newCount == 1;
+  Future<int> updateLaunchCount() async{
+    final newCount = await _rateService.updateCount();
+    state = newCount == 0;
+    return newCount;
   }
 }

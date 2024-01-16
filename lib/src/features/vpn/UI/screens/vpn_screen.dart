@@ -66,10 +66,12 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
           // Align(
           //   alignment: const Alignment(0, 0),
           //   child: ElevatedButton(
-          //     onPressed: () {
-          //       ref
-          //           .read(connectionProvider.notifier)
-          //           .startConnection(selectedHost!);
+          //     onPressed: () async {
+          //       // ref
+          //       //     .read(connectionProvider.notifier)
+          //       //     .startConnection(selectedHost!);
+          //
+          //
           //     },
           //     child: const Text("Click"),
           //   ),
@@ -78,22 +80,25 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
           Align(
             alignment: const Alignment(0, 0.4),
             child: LightSwordWidget(
-              onStart: () {
+              onStart: () async{
                 ref
                     .read(connectionProvider.notifier)
                     .startConnection(selectedHost!);
 
-                if (shouldRate) {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const Dialog(
-                          insetPadding: EdgeInsets.zero,
-                          child: RateAppWidget());
-                    },
-                  );
-                }
-                ref.read(rateNotifier.notifier).updateLaunchCount();
+                await ref.read(rateNotifier.notifier).updateLaunchCount().then((value) {
+                  if (value ==0) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+                            insetPadding: EdgeInsets.zero,
+                            child: RateAppWidget());
+                      },
+                    );
+                  }
+                });
+
+
               },
             ),
           ),

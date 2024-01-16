@@ -24,10 +24,10 @@ class IOSPaymentServiceImpl {
   late ProductDetails _productDetail;
   DateTime? _lastPurchaseDate;
 
-  final AnalyticsServiceImpl? analyticsService;
-  final NotificationServiceImpl? notificationService;
+  final AnalyticsServiceImpl analyticsService;
+  final NotificationServiceImpl notificationService;
 
-  IOSPaymentServiceImpl({this.analyticsService, this.notificationService});
+  IOSPaymentServiceImpl({required this.analyticsService, required this.notificationService});
 
   static InAppPurchase get _getInstance {
     _instance ??= InAppPurchase.instance;
@@ -81,15 +81,19 @@ class IOSPaymentServiceImpl {
               //     _getDateFromString(purchaseDetails.transactionDate ?? "0"));
               if ((_transactions ?? []).isNotEmpty) {
                 Sentry.captureMessage("$_transactions");
-                notificationService?.cancelAllNotifications();
-                analyticsService?.logBuySubscription(AnalyticsEvent.trial,
+                notificationService.cancelAllNotifications();
+                analyticsService.logBuySubscription(AnalyticsEvent.trial,
                     purchaseID:
                     _transactions!.first.originalTransactionIdentifierIOS!);
               } else {
-                analyticsService?.logBuySubscription(AnalyticsEvent.trial,
+                analyticsService.logBuySubscription(AnalyticsEvent.trial,
                     purchaseID:
                         _transactions!.first.originalTransactionIdentifierIOS!);
               }
+            }else{
+              analyticsService.logBuySubscription(AnalyticsEvent.trial,
+                  purchaseID:
+                  _transactions!.first.originalTransactionIdentifierIOS!);
             }
             final purchase = _getPurchaseDate(purchaseDetails);
             _lastPurchaseDate = purchase;
@@ -161,7 +165,7 @@ class IOSPaymentServiceImpl {
       DateTime? lastPurchaseDate = items.first.transactionDate;
       _lastPurchaseDate = lastPurchaseDate;
       if (lastPurchaseDate == null) {
-        notificationService?.scheduleNotification();
+        notificationService.scheduleNotification();
         await Sentry.captureMessage("RETURN STATUS NO LAST PURCHASE");
         return null;
       }
@@ -174,13 +178,14 @@ class IOSPaymentServiceImpl {
                   id: lastPurchase.originalTransactionIdentifierIOS)
               : null;
       if (accessStatus != null) {
-        notificationService?.cancelAllNotifications();
+        notificationService.cancelAllNotifications();
       } else {
-        notificationService?.scheduleNotification();
+        notificationService.scheduleNotification();
       }
       await Sentry.captureMessage("return status");
       return accessStatus;
     } on Error catch (_) {
+      notificationService.scheduleNotification();
       return null;
     }
   }

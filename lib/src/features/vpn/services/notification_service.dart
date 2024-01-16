@@ -13,19 +13,7 @@ class NotificationServiceImpl {
 
 
 
-  final Map<String, String> _notificationInfo = {
-    S.current.ensureSecurity: S.current.ensureSecurityBody,
-    S.current.guardYourPrivacy: S.current.guardYourPrivacyBody,
-    S.current.alertUnsecuredWifi: S.current.alertUnsecuredWifiBody,
-    S.current.publicNetworkWarning: S.current.publicNetworkWarningBody,
-    S.current.vpnAlert: S.current.vpnAlertBody,
-    S.current.bewareOfHackersBody: S.current.bewareOfHackers,
-    S.current.yourDataIsVulnerable: S.current.yourDataIsVulnerableBody,
-    S.current.prioritizePrivacy: S.current.prioritizePrivacyBody,
-    S.current.secureYourOnlineFootprint:
-        S.current.secureYourOnlineFootprintBody,
-    S.current.vpnOnthego: S.current.vpnOnthegoBody
-  };
+
 
   DarwinNotificationDetails iosNotificationDetails =
       const DarwinNotificationDetails(threadIdentifier: 'whatever_vpn');
@@ -51,26 +39,40 @@ class NotificationServiceImpl {
   }
 
   void scheduleNotification() {
+    final Map<String, String> _notificationInfo = {
+      S.current.ensureSecurity: S.current.ensureSecurityBody,
+      S.current.guardYourPrivacy: S.current.guardYourPrivacyBody,
+      S.current.alertUnsecuredWifi: S.current.alertUnsecuredWifiBody,
+      S.current.publicNetworkWarning: S.current.publicNetworkWarningBody,
+      S.current.vpnAlert: S.current.vpnAlertBody,
+      S.current.bewareOfHackersBody: S.current.bewareOfHackers,
+      S.current.yourDataIsVulnerable: S.current.yourDataIsVulnerableBody,
+      S.current.prioritizePrivacy: S.current.prioritizePrivacyBody,
+      S.current.secureYourOnlineFootprint:
+      S.current.secureYourOnlineFootprintBody,
+      S.current.vpnOnthego: S.current.vpnOnthegoBody
+    };
     cancelAllNotifications();
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 14; i++) {
       final first = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final second = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final third = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final forth = _notificationInfo.keys.elementAt(Random().nextInt(10));
-      final notificationTime = _nextTime(daysAhead: i + 1);
-      _localNotifications.zonedSchedule(i, first, _notificationInfo[first],
+      final notificationTime = _nextTime(daysAhead: i );
+      _localNotifications.show(i +Random().nextInt(1000), first, _notificationInfo[first], NotificationDetails(iOS: iosNotificationDetails));
+      _localNotifications.zonedSchedule(i+Random().nextInt(1000), first, _notificationInfo[first],
           notificationTime.$1, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i, second, _notificationInfo[second],
+      _localNotifications.zonedSchedule(i+Random().nextInt(1000), second, _notificationInfo[second],
           notificationTime.$2, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i, third, _notificationInfo[third],
+      _localNotifications.zonedSchedule(i+Random().nextInt(1000), third, _notificationInfo[third],
           notificationTime.$3, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i, forth, _notificationInfo[forth],
+      _localNotifications.zonedSchedule(i+Random().nextInt(1000), forth, _notificationInfo[forth],
           notificationTime.$4, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
@@ -90,13 +92,13 @@ class NotificationServiceImpl {
     int thirdTimeDifference = 14 - currentDate.hour;
     int forthTimeDifference = 20 - currentDate.hour;
     tz.TZDateTime scheduledDateFirst =
-        _getScheduleTime(now, daysAhead, firstTimeDifference);
+        _getScheduleTime(currentDate, daysAhead, firstTimeDifference);
     tz.TZDateTime scheduledDateSecond =
-        _getScheduleTime(now, daysAhead, secondTimeDifference);
+        _getScheduleTime(currentDate, daysAhead, secondTimeDifference);
     tz.TZDateTime scheduledDateThird =
-        _getScheduleTime(now, daysAhead, thirdTimeDifference);
+        _getScheduleTime(currentDate, daysAhead, thirdTimeDifference);
     tz.TZDateTime scheduledDateForth =
-        _getScheduleTime(now, daysAhead, forthTimeDifference);
+        _getScheduleTime(currentDate, daysAhead, forthTimeDifference);
     return (
       scheduledDateFirst,
       scheduledDateSecond,
@@ -108,7 +110,7 @@ class NotificationServiceImpl {
   tz.TZDateTime _getScheduleTime(
       DateTime now, int daysAhead, int hourAddition) {
     tz.TZDateTime scheduledDate = tz.TZDateTime(tz.local, now.year, now.month,
-        now.day + daysAhead, now.hour + hourAddition, now.minute);
+        now.day + daysAhead, now.hour + hourAddition, 0);
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
@@ -116,6 +118,6 @@ class NotificationServiceImpl {
   }
 
   Future<void> cancelAllNotifications() async {
-    await _localNotifications.cancelAll();
+    // await _localNotifications.cancelAll();
   }
 }

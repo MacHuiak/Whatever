@@ -10,14 +10,14 @@ class RateService {
 
   bool shouldRate() {
     final launchCount = getLaunchCount();
-    return launchCount == 1;
+    return launchCount == 0;
   }
 
   int getLaunchCount() => _preferences.getInt(launchCountKey) ?? 0;
 
-  int updateCount() {
+  Future<int> updateCount() async {
     final launchCount = getLaunchCount();
-    _preferences.setInt(launchCountKey, launchCount + 1);
+    await _preferences.setInt(launchCountKey, launchCount + 1);
     return launchCount;
   }
 }

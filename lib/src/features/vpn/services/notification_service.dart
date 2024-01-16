@@ -53,13 +53,14 @@ class NotificationServiceImpl {
       S.current.vpnOnthego: S.current.vpnOnthegoBody
     };
     cancelAllNotifications();
+    _localNotifications.show(1 , S.current.ensureSecurity, S.current.ensureSecurityBody, NotificationDetails(iOS: iosNotificationDetails));
+
     for (int i = 0; i < 14; i++) {
       final first = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final second = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final third = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final forth = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final notificationTime = _nextTime(daysAhead: i );
-      _localNotifications.show(i +Random().nextInt(1000), first, _notificationInfo[first], NotificationDetails(iOS: iosNotificationDetails));
       _localNotifications.zonedSchedule(i+Random().nextInt(1000), first, _notificationInfo[first],
           notificationTime.$1, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:

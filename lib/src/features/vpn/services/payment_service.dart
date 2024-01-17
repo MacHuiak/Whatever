@@ -165,7 +165,7 @@ class IOSPaymentServiceImpl {
       DateTime? lastPurchaseDate = items.first.transactionDate;
       _lastPurchaseDate = lastPurchaseDate;
       if (lastPurchaseDate == null) {
-        notificationService.scheduleNotification();
+
         await Sentry.captureMessage("RETURN STATUS NO LAST PURCHASE");
         return null;
       }

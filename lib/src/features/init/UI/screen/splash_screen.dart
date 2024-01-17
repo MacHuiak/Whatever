@@ -11,6 +11,7 @@ import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -23,6 +24,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
 
 
     // ref.watch(subscriptionStatusController).maybeWhen(orElse: () {

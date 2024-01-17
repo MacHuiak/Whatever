@@ -8,7 +8,10 @@ import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/splash_screen.dart';
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/payment_service.dart';
+import 'package:notification_permissions/notification_permissions.dart';
+// import 'package:permission_handler/permission_handler.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -34,9 +37,39 @@ void main() async {
   );
 }
 
-class VPN extends StatelessWidget {
+class VPN extends StatefulWidget  {
 
   const VPN({super.key});
+
+  @override
+  State<VPN> createState() => _VPNState();
+}
+
+class _VPNState extends State<VPN>  with WidgetsBindingObserver {
+
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    // Permission.notification.status.then((status){
+    //   print("");
+    // });
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      NotificationPermissions.getNotificationPermissionStatus().then((value) {
+        DI.getDependency<NotificationServiceImpl>().scheduleNotification();
+      });
+    }
+  }
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

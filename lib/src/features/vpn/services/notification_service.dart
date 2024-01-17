@@ -4,10 +4,11 @@ import 'dart:math';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
-
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 class NotificationServiceImpl {
   final _localNotifications = FlutterLocalNotificationsPlugin();
 
@@ -38,7 +39,7 @@ class NotificationServiceImpl {
     dev.log("onReceiveLocalNotification");
   }
 
-  void scheduleNotification() {
+  Future<void> scheduleNotification() async{
     final Map<String, String> _notificationInfo = {
       S.current.ensureSecurity: S.current.ensureSecurityBody,
       S.current.guardYourPrivacy: S.current.guardYourPrivacyBody,
@@ -53,27 +54,25 @@ class NotificationServiceImpl {
       S.current.vpnOnthego: S.current.vpnOnthegoBody
     };
     cancelAllNotifications();
-    _localNotifications.show(1 , S.current.ensureSecurity, S.current.ensureSecurityBody, NotificationDetails(iOS: iosNotificationDetails));
-
-    for (int i = 0; i < 14; i++) {
+    for (int i = 0; i < 7; i++) {
       final first = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final second = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final third = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final forth = _notificationInfo.keys.elementAt(Random().nextInt(10));
-      final notificationTime = _nextTime(daysAhead: i );
-      _localNotifications.zonedSchedule(i+Random().nextInt(1000), first, _notificationInfo[first],
+      final notificationTime = await _nextTime(daysAhead: i );
+      _localNotifications.zonedSchedule(i + Random().nextInt(64 -i) , first, _notificationInfo[first],
           notificationTime.$1, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i+Random().nextInt(1000), second, _notificationInfo[second],
+      _localNotifications.zonedSchedule(i+ Random().nextInt(64 -i), second, _notificationInfo[second],
           notificationTime.$2, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i+Random().nextInt(1000), third, _notificationInfo[third],
+      _localNotifications.zonedSchedule(i+ Random().nextInt(64 -i), third, _notificationInfo[third],
           notificationTime.$3, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
-      _localNotifications.zonedSchedule(i+Random().nextInt(1000), forth, _notificationInfo[forth],
+      _localNotifications.zonedSchedule(i+ Random().nextInt(64 -i), forth, _notificationInfo[forth],
           notificationTime.$4, NotificationDetails(iOS: iosNotificationDetails),
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime);
@@ -84,10 +83,18 @@ class NotificationServiceImpl {
     scheduleNotification();
   }
 
-  (tz.TZDateTime, tz.TZDateTime, tz.TZDateTime, tz.TZDateTime) _nextTime(
-      {int daysAhead = 0}) {
-    final currentDate = DateTime.now();
-    final now = currentDate.toUtc();
+  Future<(tz.TZDateTime, tz.TZDateTime, tz.TZDateTime, tz.TZDateTime)> _nextTime(
+      {int daysAhead = 0}) async{
+    tz.initializeTimeZones();
+
+    final String currentTimeZone = await FlutterNativeTimezone.getLocalTimezone();
+    final currentLocation = tz.getLocation(currentTimeZone);
+    tz.setLocalLocation(currentLocation);
+    final currentDate = tz.TZDateTime.now(currentLocation);
+
+    tz.setLocalLocation(tz.local);
+
+
     int firstTimeDifference = 10 - currentDate.hour;
     int secondTimeDifference = 18 - currentDate.hour;
     int thirdTimeDifference = 14 - currentDate.hour;
@@ -111,10 +118,11 @@ class NotificationServiceImpl {
   tz.TZDateTime _getScheduleTime(
       DateTime now, int daysAhead, int hourAddition) {
     tz.TZDateTime scheduledDate = tz.TZDateTime(tz.local, now.year, now.month,
-        now.day + daysAhead, now.hour + hourAddition, 0);
+        now.day + daysAhead, now.hour + hourAddition, 50);
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
+    final a = scheduledDate.isLocal;
     return scheduledDate;
   }
 

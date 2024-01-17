@@ -5,13 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/route_manager.dart';
-import 'package:modern_vpn_project/src/DI/di_container.dart';
-import 'package:modern_vpn_project/src/features/init/UI/screen/feature_check_screen.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
-import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

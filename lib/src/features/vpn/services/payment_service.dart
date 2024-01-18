@@ -86,14 +86,21 @@ class IOSPaymentServiceImpl {
                     purchaseID:
                     _transactions!.first.originalTransactionIdentifierIOS!);
               } else {
-                analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                    purchaseID:
-                        _transactions!.first.originalTransactionIdentifierIOS!);
+                Sentry.captureMessage("CATCH Maybe FIRST PURCHASED DETAIL");
+                if(purchaseDetails.purchaseID !=null){
+                  analyticsService.logBuySubscription(AnalyticsEvent.trial,
+                      purchaseID:purchaseDetails.purchaseID!
+                  );
+                }
               }
             }else{
-              analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                  purchaseID:
-                  _transactions!.first.originalTransactionIdentifierIOS!);
+              Sentry.captureMessage("CATCH FIRST PURCHASED DETAIL");
+              if(purchaseDetails.purchaseID !=null){
+                analyticsService.logBuySubscription(AnalyticsEvent.trial,
+                    purchaseID:purchaseDetails.purchaseID!
+                );
+              }
+
             }
             final purchase = _getPurchaseDate(purchaseDetails);
             _lastPurchaseDate = purchase;

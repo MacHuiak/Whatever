@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/DI/di_container.dart';
-import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/password_manager/UI/screens/manager_of_password_screen.dart';
-import 'package:modern_vpn_project/src/features/vpn/UI/widgets/drawer.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/header_widget_title.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/main_vpn_widget.dart';
@@ -76,32 +73,28 @@ class MainVPNState extends ConsumerState<MainVPNScreen> {
           //     child: const Text("Click"),
           //   ),
           // ),
-
-          // Align(
-          //   alignment: const Alignment(0, 0.4),
-          //   child: LightSwordWidget(
-          //     onStart: () async{
-          //       ref
-          //           .read(connectionProvider.notifier)
-          //           .startConnection(selectedHost!);
-          //
-          //       await ref.read(rateNotifier.notifier).updateLaunchCount().then((value) {
-          //         if (value ==0) {
-          //           showDialog(
-          //             context: context,
-          //             builder: (context) {
-          //               return const Dialog(
-          //                   insetPadding: EdgeInsets.zero,
-          //                   child: RateAppWidget());
-          //             },
-          //           );
-          //         }
-          //       });
-          //
-          //
-          //     },
-          //   ),
-          // ),
+          Align(
+            alignment: const Alignment(0, 0.4),
+            child: LightSwordWidget(
+              onStart: () async{
+                ref
+                    .read(connectionProvider.notifier)
+                    .startConnection(selectedHost!);
+                await ref.read(rateNotifier.notifier).updateLaunchCount().then((value) {
+                  if (value ==0) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+                            insetPadding: EdgeInsets.zero,
+                            child: RateAppWidget());
+                      },
+                    );
+                  }
+                });
+              },
+            ),
+          ),
           Align(
             alignment: const Alignment(0.85, -0.92),
             child: GestureDetector(

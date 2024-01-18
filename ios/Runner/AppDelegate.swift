@@ -45,7 +45,7 @@ import ExtremeVPNAnalytics
       })
       
       flutterMethodHandler(flutterChannel: flutterChannel)
-     // prepareLogHandler(logChannel: appLogHandler)
+      prepareLogHandler(logChannel: appLogHandler)
       
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

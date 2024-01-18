@@ -36,8 +36,8 @@ class DI {
         configServiceImpl: configService, vpnService: IosVPNService());
     final passwordRepository = PasswordRepository();
     final notificationService = NotificationServiceImpl();
-
-    final paymentService = IOSPaymentServiceImpl(analyticsService: AnalyticsServiceImpl(), notificationService: notificationService);
+final analyticsService =  AnalyticsServiceImpl();
+    final paymentService = IOSPaymentServiceImpl(analyticsService: analyticsService, notificationService: notificationService);
 
     _dependencies[PasswordRepository] = passwordRepository;
     _dependencies[AuthRepositoryImpl] = auth;
@@ -48,5 +48,6 @@ class DI {
     _dependencies[SharedPreferences] = sharedPreferences;
     _dependencies[IOSPaymentServiceImpl] = paymentService;
     _dependencies[NotificationServiceImpl] = notificationService;
+    _dependencies[AnalyticsServiceImpl]= analyticsService;
   }
 }

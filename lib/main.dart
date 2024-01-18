@@ -8,6 +8,7 @@ import 'package:modern_vpn_project/src/features/init/UI/screen/pay_wall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/splash_screen.dart';
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/analitics_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/payment_service.dart';
 import 'package:notification_permissions/notification_permissions.dart';
@@ -52,9 +53,11 @@ class _VPNState extends State<VPN>  with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    // Permission.notification.status.then((status){
-    //   print("");
-    // });
+    final firstInstall = DI.getDependency<SharedPreferences>().getBool("firstInstall")??true;
+    if(firstInstall){
+      DI.getDependency<SharedPreferences>().setBool("firstInstall",false);
+      DI.getDependency<AnalyticsServiceImpl>().logEvent(AnalyticsEvent.install);
+    }
   }
 
   @override

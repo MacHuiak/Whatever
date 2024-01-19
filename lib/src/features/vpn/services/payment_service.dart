@@ -72,7 +72,15 @@ class IOSPaymentServiceImpl {
       if (purchaseDetails.pendingCompletePurchase) {
         switch (purchaseDetails.status) {
           case PurchaseStatus.pending:
-            // TODO: Handle this case.
+            try {
+              _subscriptionController.add(SubscriptionInfo(
+                  id: purchaseDetails.purchaseID,
+                  expirationTimeStamp:
+                  _lastPurchaseDate!.millisecondsSinceEpoch,
+                  subscriptionType: "one_week_subscription"));
+            }catch(e,stackTrace){
+              Sentry.captureException(e,stackTrace: stackTrace);
+            }
             break;
           case PurchaseStatus.purchased:
             Sentry.captureMessage("CATCH PURCHASED DETAIL");
@@ -82,24 +90,38 @@ class IOSPaymentServiceImpl {
               if ((_transactions ?? []).isNotEmpty) {
                 Sentry.captureMessage("$_transactions");
                 notificationService.cancelAllNotifications();
-                analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                    purchaseID:
-                    _transactions!.first.originalTransactionIdentifierIOS!);
+                try {
+                  analyticsService.logBuySubscription(AnalyticsEvent.trial,
+                      purchaseID:
+                      _transactions!.first.originalTransactionIdentifierIOS!);
+                }catch(e,stackTrace){
+                  Sentry.captureException(e,stackTrace: stackTrace);
+                }
               } else {
                 Sentry.captureMessage("CATCH Maybe FIRST PURCHASED DETAIL");
+
+                try {
+                  if (purchaseDetails.purchaseID != null) {
+                    analyticsService.logBuySubscription(AnalyticsEvent.trial,
+                        purchaseID: purchaseDetails.purchaseID!
+                    );
+                  }
+                }catch(e,stacktrace){
+                  Sentry.captureException(e,stackTrace: stacktrace);
+                }
+              }
+            }else{
+              Sentry.captureMessage("CATCH FIRST PURCHASED DETAIL");
+              try {
                 if(purchaseDetails.purchaseID !=null){
                   analyticsService.logBuySubscription(AnalyticsEvent.trial,
                       purchaseID:purchaseDetails.purchaseID!
                   );
                 }
+              }catch(e,stacktrace){
+                Sentry.captureException(e,stackTrace: stacktrace);
               }
-            }else{
-              Sentry.captureMessage("CATCH FIRST PURCHASED DETAIL");
-              if(purchaseDetails.purchaseID !=null){
-                analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                    purchaseID:purchaseDetails.purchaseID!
-                );
-              }
+
 
             }
             final purchase = _getPurchaseDate(purchaseDetails);
@@ -134,6 +156,7 @@ class IOSPaymentServiceImpl {
             _subscriptionController.add(null);
             break;
         }
+        Sentry.captureMessage("COMPLETE PURCHASE");
         await _getInstance.completePurchase(purchaseDetails);
       }
     }
@@ -192,7 +215,9 @@ class IOSPaymentServiceImpl {
       }
       await Sentry.captureMessage("return status");
       return accessStatus;
-    } on Error catch (_) {
+    } on Error catch (e,stackTrace) {
+      await Sentry.captureMessage("Error during get status");
+      await Sentry.captureException(e,stackTrace: stackTrace);
       notificationService.scheduleNotification();
       return null;
     }
@@ -262,7 +287,6 @@ class IOSPaymentServiceImpl {
     return _getPurchaseDate(purchase.last);
   }
 
-  //10080
   Future<void> restorePayment() async {
     try {
       await _getInstance.restorePurchases();

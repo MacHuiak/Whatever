@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +9,65 @@ import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 
+
+class TutorialOverlay extends ModalRoute<void> {
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 500);
+
+  @override
+  bool get opaque => false;
+
+  @override
+  bool get barrierDismissible => false;
+
+  @override
+  Color get barrierColor => Colors.black.withOpacity(0.5);
+
+  @override
+  String get barrierLabel => "overlay";
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Widget buildPage(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      ) {
+    return Material(
+      type: MaterialType.transparency,
+      child: SafeArea(
+        child: _buildOverlayContent(context),
+      ),
+    );
+  }
+
+  Widget _buildOverlayContent(BuildContext context) {
+    return const Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          CupertinoActivityIndicator(
+            radius: 20,
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget buildTransitions(
+      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+    return FadeTransition(
+      opacity: animation,
+      child: ScaleTransition(
+        scale: animation,
+        child: child,
+      ),
+    );
+  }
+}
 class PayWall extends ConsumerStatefulWidget {
   const PayWall({super.key});
 
@@ -37,6 +97,7 @@ class _PayWallState extends ConsumerState<PayWall> {
   @override
   Widget build(BuildContext context) {
     ref.listen(subscriptionStatusController, (previous, next) {
+      Navigator.of(context).pop();
       if (previous?.value != null || (next.value != null)) {
         Get.offAll(() => const MainVPNScreen());
       }
@@ -192,9 +253,12 @@ class _PayWallState extends ConsumerState<PayWall> {
                         GestureDetector(
                           onTap: () {
                             HapticFeedback.vibrate();
+
                             ref
                                 .read(subscriptionStatusController.notifier)
                                 .buySubscription();
+                            Navigator.of(context).push(TutorialOverlay());
+
                           },
                           child: AnimatedContainer(
                             height: 59,
@@ -291,6 +355,9 @@ class _PayWallState extends ConsumerState<PayWall> {
       ),
     );
   }
+
+
+
 
   TextStyle _getTextButtonStyle() {
     final textStyle = TextStyle(

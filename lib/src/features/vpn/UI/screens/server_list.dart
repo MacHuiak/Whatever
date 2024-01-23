@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/connection/connection.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/server/server_list.dart';
+import 'package:modern_vpn_project/src/features/vpn/logics/sword_controller/sword_controller.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/connection_vpn_status.dart';
 import 'package:modern_vpn_project/src/features/vpn/models/host.dart';
@@ -119,6 +120,7 @@ class ServerListScreen extends HookConsumerWidget {
                                   ref
                                       .read(connectionProvider.notifier)
                                       .stopConnection();
+                                  ref.read(swordController.notifier).reboot();
                                 }
                               },
                               connectionType: selectedHost == currentHost

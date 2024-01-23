@@ -74,7 +74,7 @@ class ConnectionStatusWidget extends StatelessWidget {
                 ),
             },
             child: Padding(
-              padding: const EdgeInsets.all(14.0),
+              padding: const EdgeInsets.all(12.0),
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.black,

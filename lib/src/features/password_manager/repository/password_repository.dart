@@ -9,15 +9,16 @@ class PasswordRepository {
   final RxSharedPreferences rxSharedPreferences =
       RxSharedPreferences.getInstance();
 
-  Stream<List<StoredPassword>?> get passwordStream =>
-      rxSharedPreferences.getStringListStream(passwordKey).map((event) =>
-          event?.map((e) => StoredPassword.fromJson(json.decode(e))).toList());
+  Stream<List<StoredPassword>?> get passwordStream {
+   return rxSharedPreferences.getStringListStream(passwordKey).map((event) =>
+        event?.map((e) => StoredPassword.fromJson(json.decode(e))).toList());
+  }
 
   Future<void> savePassword(StoredPassword newPassword) async {
     final savedPasswords = await rxSharedPreferences.getStringList(passwordKey);
 
-    (savedPasswords ?? []).add(json.encode(newPassword.toJson()));
-    rxSharedPreferences.setStringList(passwordKey, savedPasswords);
+    final updatedPassword = (savedPasswords ?? [])..add(json.encode(newPassword.toJson()));
+    rxSharedPreferences.setStringList(passwordKey, updatedPassword);
   }
 
   Future<void> deletePassword(StoredPassword removedPassword) async {

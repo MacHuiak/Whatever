@@ -113,7 +113,7 @@ class _PasswordManagerScreenState extends State<PasswordManagerScreen> {
                                   children: [
                                     TextSpan(
                                       text: S.of(context).addNewN,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 20),
                                     ),

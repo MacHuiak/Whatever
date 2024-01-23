@@ -36,7 +36,9 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
       Stream<ConnectionSpeedInfo>.periodic(const Duration(seconds: 2), (_) {
         final byteCount = Random().nextInt(1024 * 1024);
         final additionalMultiplier = Random().nextInt(10);
-        final haveData = Random().nextInt(1);
+        final haveData = Random().nextInt(2);
+        final a = (byteCount * additionalMultiplier * haveData) +
+            _connectionSpeedInfo.getByteCountFromCounted();
         final result = DataCountInfo.getParseByteByUnit(
             (byteCount * additionalMultiplier * haveData) +
                 _connectionSpeedInfo.getByteCountFromCounted());
@@ -65,7 +67,7 @@ class _DownloadInfoWidgetState extends State<DownloadInfoWidget> {
           return StreamBuilder<ConnectionSpeedInfo?>(
               stream: activeStatus == ConnectionStatus.connected
                   ? _getConnectionInfoStream()
-                  : Stream.value(null),
+                  :Stream.value(null),
               builder: (context, snapshot) {
                 ConnectionSpeedInfo connectionSpeedInfo = snapshot.data ??
                     const ConnectionSpeedInfo(

@@ -48,7 +48,9 @@ class ClosedPasswordWidget extends StatelessWidget {
                   width: 12,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    onTap();
+                  },
                   child: const Icon(
                     Icons.keyboard_arrow_down,
                     color: Colors.white,

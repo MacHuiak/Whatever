@@ -45,15 +45,15 @@ class DataCountInfo {
         return ConnectionSpeedInfo(speedValue: "$byteCount", measureUnit: "B");
       case > 1024:
         return ConnectionSpeedInfo(
-            speedValue: (byteCount / 1024).toStringAsFixed(1),
+            speedValue: (byteCount ~/ 1024).toString(),
             measureUnit: "KB");
       case > 1024 * 1024:
         return ConnectionSpeedInfo(
-            speedValue: (byteCount / (1024 * 1024)).toStringAsFixed(1),
+            speedValue: (byteCount ~/ (1024 * 1024)).toString(),
             measureUnit: "MB");
       case > 1024 * 1024 * 1024:
         return ConnectionSpeedInfo(
-            speedValue: (byteCount / (1024 * 1024 * 1024)).toStringAsFixed(1),
+            speedValue: (byteCount ~/ (1024 * 1024 * 1024)).toString(),
             measureUnit: "GB");
 
       default:

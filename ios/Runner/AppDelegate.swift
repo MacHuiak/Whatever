@@ -190,6 +190,9 @@ class VpnConnectionService{
     func stopVPNConnection(){
         Task{
             await vpnExtension.disconnect()
+            stopCountTime()
+            stopDataCount()
+        
         }
         
     }

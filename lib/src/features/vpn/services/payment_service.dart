@@ -173,6 +173,7 @@ class IOSPaymentServiceImpl {
 
   Future<SubscriptionInfo?> haveAccess() async {
     try {
+      return SubscriptionInfo();
       await _getInstance.restorePurchases();
       await FlutterInappPurchase.instance.initialize();
       Sentry.captureMessage("check access");

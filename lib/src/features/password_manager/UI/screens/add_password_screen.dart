@@ -69,7 +69,7 @@ class _AddPasswordScreenState extends State<AddPasswordScreen> {
             PassTextField(
                 controller: passwordController,
                 hintText: S.of(context).password),
-            Spacer(),
+            const Spacer(),
             Center(
               child: ElevatedButton(
                 onPressed: () async {

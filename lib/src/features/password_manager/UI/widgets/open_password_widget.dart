@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/assets/colors.dart';
+import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
 import 'package:modern_vpn_project/src/features/password_manager/models/stored_password.dart';
@@ -38,8 +40,9 @@ class OpenedPasswordWidget extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () async {
-                        // await DependencyInjectorService.I.passRepository
-                        //     .deletePassword(site: widget.item!.site);
+                        DI.getDependency<PasswordRepository>().deletePassword(
+                          item,
+                        );
                       },
                       child: const Icon(
                         Icons.delete,

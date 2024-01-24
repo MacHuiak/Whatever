@@ -28,7 +28,7 @@ class PasswordRepository {
             .toList() ??
         [];
 
-    passwords.remove(removedPassword);
+    passwords = passwords..removeWhere((element) => element.password == removedPassword.password && element.login == removedPassword.login && element.site == removedPassword.site );
     rxSharedPreferences.setStringList(
         passwordKey, passwords.map((e) => json.encode(e.toJson())).toList());
   }

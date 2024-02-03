@@ -51,7 +51,7 @@ class NotificationServiceImpl {
       S.current.secureYourOnlineFootprintBody,
       S.current.vpnOnthego: S.current.vpnOnthegoBody
     };
-    cancelAllNotifications();
+    await cancelAllNotifications();
     for (int i = 0; i < 7; i++) {
       final first = _notificationInfo.keys.elementAt(Random().nextInt(10));
       final second = _notificationInfo.keys.elementAt(Random().nextInt(10));
@@ -125,6 +125,6 @@ class NotificationServiceImpl {
   }
 
   Future<void> cancelAllNotifications() async {
-    // await _localNotifications.cancelAll();
+    await _localNotifications.cancelAll();
   }
 }

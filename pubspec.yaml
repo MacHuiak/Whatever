@@ -4,7 +4,7 @@ description: "New vpn app"
 
 publish_to: 'none'
 
-version: 1.0.11+1
+version: 1.0.11+2
 
 environment:
   sdk: '>=3.1.0 <4.0.0'

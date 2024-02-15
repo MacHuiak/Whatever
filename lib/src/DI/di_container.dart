@@ -1,8 +1,10 @@
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:modern_vpn_project/src/features/init/services/auth/auth_service.dart';
 import 'package:modern_vpn_project/src/features/init/services/client_channel/client_channel.dart';
 import 'package:modern_vpn_project/src/features/password_manager/repository/password_repository.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/analitics_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/config_service.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/firebase_remote_config_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/host_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/native_vpn_service.dart';
 import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
@@ -36,8 +38,14 @@ class DI {
         configServiceImpl: configService, vpnService: IosVPNService());
     final passwordRepository = PasswordRepository();
     final notificationService = NotificationServiceImpl();
-final analyticsService =  AnalyticsServiceImpl();
-    final paymentService = IOSPaymentServiceImpl(analyticsService: analyticsService, notificationService: notificationService);
+    final analyticsService = AnalyticsServiceImpl();
+    final paymentService = IOSPaymentServiceImpl(
+        analyticsService: analyticsService,
+        notificationService: notificationService,
+        sharedPreferences: sharedPreferences);
+    final remoteConfigService = FirebaseRemoteConfigService(
+        firebaseRemoteConfig: FirebaseRemoteConfig.instance,
+        sharedPreferences: sharedPreferences);
 
     _dependencies[PasswordRepository] = passwordRepository;
     _dependencies[AuthRepositoryImpl] = auth;
@@ -48,6 +56,7 @@ final analyticsService =  AnalyticsServiceImpl();
     _dependencies[SharedPreferences] = sharedPreferences;
     _dependencies[IOSPaymentServiceImpl] = paymentService;
     _dependencies[NotificationServiceImpl] = notificationService;
-    _dependencies[AnalyticsServiceImpl]= analyticsService;
+    _dependencies[AnalyticsServiceImpl] = analyticsService;
+    _dependencies[FirebaseRemoteConfigService] = remoteConfigService;
   }
 }

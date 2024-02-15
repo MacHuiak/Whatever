@@ -18,6 +18,7 @@
 		24F70D592B21B8BC005C7E6A /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F70D582B21B8BC005C7E6A /* PacketTunnelProvider.swift */; };
 		24F70D5E2B21B8BC005C7E6A /* OpenVPNExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 24F70D542B21B8BC005C7E6A /* OpenVPNExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		63F44730F8EB10839F78AE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843C42AF24CC0AA3D99BBEAA /* GoogleService-Info.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		843C42AF24CC0AA3D99BBEAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 				331C8082294A63A400263BE5 /* RunnerTests */,
 				1635ABBA53C6AC07D172F548 /* Pods */,
 				70E05188FE0779C749158A45 /* Frameworks */,
+				843C42AF24CC0AA3D99BBEAA /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,8 +294,8 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */,
-				2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger.git" */,
+				249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */,
+				2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -320,6 +323,7 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				63F44730F8EB10839F78AE92 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +872,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger.git" */ = {
+		2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MacHuiak/whatever_logger.git";
 			requirement = {
@@ -876,7 +880,7 @@
 				kind = branch;
 			};
 		};
-		249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */ = {
+		249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/passepartoutvpn/tunnelkit.git";
 			requirement = {
@@ -889,32 +893,32 @@
 /* Begin XCSwiftPackageProductDependency section */
 		2485CC182B3973FB007275BE /* ExtremeVPNAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger.git" */;
+			package = 2485CC172B3973FB007275BE /* XCRemoteSwiftPackageReference "whatever_logger" */;
 			productName = ExtremeVPNAnalytics;
 		};
 		249A5B582B270789007F7A3A /* TunnelKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKit;
 		};
 		249A5B5A2B270789007F7A3A /* TunnelKitLZO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitLZO;
 		};
 		249A5B5C2B270789007F7A3A /* TunnelKitOpenVPN */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPN;
 		};
 		249A5B5E2B270789007F7A3A /* TunnelKitOpenVPNAppExtension */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPNAppExtension;
 		};
 		249A5B602B27091E007F7A3A /* TunnelKitOpenVPNAppExtension */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit.git" */;
+			package = 249A5B572B270789007F7A3A /* XCRemoteSwiftPackageReference "tunnelkit" */;
 			productName = TunnelKitOpenVPNAppExtension;
 		};
 /* End XCSwiftPackageProductDependency section */

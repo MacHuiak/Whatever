@@ -4,11 +4,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
+import 'package:modern_vpn_project/src/DI/di_container.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/american_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/colored_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/galaxy_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/page_view_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/planet_view_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/step_paywall.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/info_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/screens/vpn_screen.dart';
 import 'package:modern_vpn_project/src/features/vpn/logics/subscription/subscription.dart';
+import 'package:modern_vpn_project/src/features/vpn/services/firebase_remote_config_service.dart';
 import 'package:modern_vpn_project/src/in_app_extension.dart';
-
 
 class TutorialOverlay extends ModalRoute<void> {
   @override
@@ -31,10 +38,10 @@ class TutorialOverlay extends ModalRoute<void> {
 
   @override
   Widget buildPage(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      ) {
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     return Material(
       type: MaterialType.transparency,
       child: SafeArea(
@@ -57,8 +64,8 @@ class TutorialOverlay extends ModalRoute<void> {
   }
 
   @override
-  Widget buildTransitions(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(
       opacity: animation,
       child: ScaleTransition(
@@ -68,6 +75,7 @@ class TutorialOverlay extends ModalRoute<void> {
     );
   }
 }
+
 class PayWall extends ConsumerStatefulWidget {
   const PayWall({super.key});
 
@@ -76,6 +84,97 @@ class PayWall extends ConsumerStatefulWidget {
 }
 
 class _PayWallState extends ConsumerState<PayWall> {
+  late int step;
+
+  @override
+  void initState() {
+    super.initState();
+
+    step = DI.getDependency<FirebaseRemoteConfigService>().getPaywallType();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen(subscriptionStatusController, (previous, next) {
+      Navigator.of(context).pop();
+      if (previous?.value != null || (next.value != null)) {
+        Get.offAll(() => const MainVPNScreen());
+      }
+    });
+
+    switch (step) {
+      case 2:
+        return AmericanGalaxyPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 3:
+        return GalaxyPaywall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 4:
+        return PlanetVpnPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 5:
+        return StepPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 6:
+        return PageViewPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 7:
+        return ColoredPaywall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 1:
+        return const FirstPayWall();
+      default:
+        return const FirstPayWall();
+    }
+  }
+
+  onTermsTap() {
+    Get.to(
+      () => const InfoScreen(title: "Terms of Use", infoType: InfoType.terms),
+    );
+  }
+
+  onPrivacyTap() {
+    Get.to(
+      () =>
+          const InfoScreen(title: "Privacy Policy", infoType: InfoType.privacy),
+    );
+  }
+
+  buySubscription() {
+    HapticFeedback.vibrate();
+
+    ref.read(subscriptionStatusController.notifier).buySubscription();
+    Navigator.of(context).push(TutorialOverlay());
+  }
+}
+
+class FirstPayWall extends ConsumerStatefulWidget {
+  const FirstPayWall({super.key});
+
+  @override
+  ConsumerState<FirstPayWall> createState() => _FirstPayWallState();
+}
+
+class _FirstPayWallState extends ConsumerState<FirstPayWall> {
   final PageController _pageController = PageController();
   int currentPage = 0;
 
@@ -96,21 +195,13 @@ class _PayWallState extends ConsumerState<PayWall> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen(subscriptionStatusController, (previous, next) {
-      Navigator.of(context).pop();
-      if (previous?.value != null || (next.value != null)) {
-        Get.offAll(() => const MainVPNScreen());
-      }
-    });
-    final a =context.height;
-    final v = context.width;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: context.isBigScreen?48.0:8),
+            padding: EdgeInsets.only(top: context.isBigScreen ? 48.0 : 8),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -118,7 +209,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                   constraints: BoxConstraints(
                       maxWidth: context.width,
                       minWidth: context.width,
-                      maxHeight: context.isBigScreen?450:300,
+                      maxHeight: context.isBigScreen ? 450 : 300,
                       minHeight: 250),
                   child: PageView(
                     controller: _pageController,
@@ -164,7 +255,7 @@ class _PayWallState extends ConsumerState<PayWall> {
             ),
           ),
           Padding(
-            padding:  EdgeInsets.only(bottom: context.isBigScreen?16:8.0),
+            padding: EdgeInsets.only(bottom: context.isBigScreen ? 16 : 8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -195,7 +286,8 @@ class _PayWallState extends ConsumerState<PayWall> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         S.of(context).full_base,
@@ -233,13 +325,15 @@ class _PayWallState extends ConsumerState<PayWall> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "3 days free trial — after \$9.99 / week",
                                         style: TextStyle(
                                           fontWeight: FontWeight.w400,
-                                          fontSize: context.isBigScreen?18:14,
+                                          fontSize:
+                                              context.isBigScreen ? 18 : 14,
                                           color: _getPriceColor(),
                                         ),
                                       ),
@@ -258,7 +352,6 @@ class _PayWallState extends ConsumerState<PayWall> {
                                 .read(subscriptionStatusController.notifier)
                                 .buySubscription();
                             Navigator.of(context).push(TutorialOverlay());
-
                           },
                           child: AnimatedContainer(
                             height: 59,
@@ -337,7 +430,8 @@ class _PayWallState extends ConsumerState<PayWall> {
                         onPressed: () {
                           Get.to(
                             () => const InfoScreen(
-                                title: "Terms of Use", infoType: InfoType.terms),
+                                title: "Terms of Use",
+                                infoType: InfoType.terms),
                           );
                         },
                         child: Text(
@@ -355,9 +449,6 @@ class _PayWallState extends ConsumerState<PayWall> {
       ),
     );
   }
-
-
-
 
   TextStyle _getTextButtonStyle() {
     final textStyle = TextStyle(
@@ -621,16 +712,16 @@ class PayWallStepWidget extends StatelessWidget {
                 alignment: const Alignment(0.7, 0.8),
                 child: Image.asset(
                   mainImagePath,
-                  width: context.width*0.7,
-                  height: context.width*0.5,
+                  width: context.width * 0.7,
+                  height: context.width * 0.5,
                 ),
               ),
               Align(
                 alignment: const Alignment(-0, -.3),
                 child: Image.asset(
                   bigCirclePath,
-                  width: context.width*0.64,
-                  height: context.width*0.46,
+                  width: context.width * 0.64,
+                  height: context.width * 0.46,
                 ),
               ),
               Align(
@@ -650,7 +741,7 @@ class PayWallStepWidget extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: context.isBigScreen?14:10,
+              fontSize: context.isBigScreen ? 14 : 10,
               fontWeight: FontWeight.w300,
               color: Colors.white.withOpacity(0.76),
             ),

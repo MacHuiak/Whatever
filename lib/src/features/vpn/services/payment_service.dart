@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:developer';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_inapp_purchase/flutter_inapp_purchase.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
@@ -10,6 +11,7 @@ import 'package:modern_vpn_project/src/features/vpn/services/analitics_service.d
 import 'package:modern_vpn_project/src/features/vpn/services/notification_service.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const String storeKeyOneWeekSubscription = 'one_week_access';
 
@@ -26,8 +28,12 @@ class IOSPaymentServiceImpl {
 
   final AnalyticsServiceImpl analyticsService;
   final NotificationServiceImpl notificationService;
+  final SharedPreferences sharedPreferences;
 
-  IOSPaymentServiceImpl({required this.analyticsService, required this.notificationService});
+  IOSPaymentServiceImpl(
+      {required this.sharedPreferences,
+      required this.analyticsService,
+      required this.notificationService});
 
   static InAppPurchase get _getInstance {
     _instance ??= InAppPurchase.instance;
@@ -65,6 +71,12 @@ class IOSPaymentServiceImpl {
     await _getInstance.buyNonConsumable(
         purchaseParam:
             PurchaseParam(productDetails: productDetails ?? _productDetail));
+    await FirebaseAnalytics.instance.logEvent(
+      name: "buySubscription",
+      parameters: {
+        "paywall_type": sharedPreferences.getString("paywall_type") ?? ""
+      },
+    );
   }
 
   Future<void> _verifyPurchase(List<PurchaseDetails> purchases) async {
@@ -76,10 +88,10 @@ class IOSPaymentServiceImpl {
               _subscriptionController.add(SubscriptionInfo(
                   id: purchaseDetails.purchaseID,
                   expirationTimeStamp:
-                  _lastPurchaseDate!.millisecondsSinceEpoch,
+                      _lastPurchaseDate!.millisecondsSinceEpoch,
                   subscriptionType: "one_week_subscription"));
-            }catch(e,stackTrace){
-              Sentry.captureException(e,stackTrace: stackTrace);
+            } catch (e, stackTrace) {
+              Sentry.captureException(e, stackTrace: stackTrace);
             }
             break;
           case PurchaseStatus.purchased:
@@ -92,10 +104,10 @@ class IOSPaymentServiceImpl {
                 notificationService.cancelAllNotifications();
                 try {
                   analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                      purchaseID:
-                      _transactions!.first.originalTransactionIdentifierIOS!);
-                }catch(e,stackTrace){
-                  Sentry.captureException(e,stackTrace: stackTrace);
+                      purchaseID: _transactions!
+                          .first.originalTransactionIdentifierIOS!);
+                } catch (e, stackTrace) {
+                  Sentry.captureException(e, stackTrace: stackTrace);
                 }
               } else {
                 Sentry.captureMessage("CATCH Maybe FIRST PURCHASED DETAIL");
@@ -103,26 +115,22 @@ class IOSPaymentServiceImpl {
                 try {
                   if (purchaseDetails.purchaseID != null) {
                     analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                        purchaseID: purchaseDetails.purchaseID!
-                    );
+                        purchaseID: purchaseDetails.purchaseID!);
                   }
-                }catch(e,stacktrace){
-                  Sentry.captureException(e,stackTrace: stacktrace);
+                } catch (e, stacktrace) {
+                  Sentry.captureException(e, stackTrace: stacktrace);
                 }
               }
-            }else{
+            } else {
               Sentry.captureMessage("CATCH FIRST PURCHASED DETAIL");
               try {
-                if(purchaseDetails.purchaseID !=null){
+                if (purchaseDetails.purchaseID != null) {
                   analyticsService.logBuySubscription(AnalyticsEvent.trial,
-                      purchaseID:purchaseDetails.purchaseID!
-                  );
+                      purchaseID: purchaseDetails.purchaseID!);
                 }
-              }catch(e,stacktrace){
-                Sentry.captureException(e,stackTrace: stacktrace);
+              } catch (e, stacktrace) {
+                Sentry.captureException(e, stackTrace: stacktrace);
               }
-
-
             }
             final purchase = _getPurchaseDate(purchaseDetails);
             _lastPurchaseDate = purchase;
@@ -172,6 +180,7 @@ class IOSPaymentServiceImpl {
   }
 
   Future<SubscriptionInfo?> haveAccess() async {
+    return const SubscriptionInfo();
     try {
       await _getInstance.restorePurchases();
       await FlutterInappPurchase.instance.initialize();
@@ -215,9 +224,9 @@ class IOSPaymentServiceImpl {
       }
       await Sentry.captureMessage("return status");
       return accessStatus;
-    } on Error catch (e,stackTrace) {
+    } on Error catch (e, stackTrace) {
       await Sentry.captureMessage("Error during get status");
-      await Sentry.captureException(e,stackTrace: stackTrace);
+      await Sentry.captureException(e, stackTrace: stackTrace);
       notificationService.scheduleNotification();
       return null;
     }

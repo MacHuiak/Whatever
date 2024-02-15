@@ -441,20 +441,20 @@ class S {
   }
 
   /// `ACTIVATE`
-  String get activate {
+  String get activateCapital {
     return Intl.message(
       'ACTIVATE',
-      name: 'activate',
+      name: 'activateCapital',
       desc: '',
       args: [],
     );
   }
 
   /// `Restore`
-  String get restore {
+  String get restoreCapital {
     return Intl.message(
       'Restore',
-      name: 'restore',
+      name: 'restoreCapital',
       desc: '',
       args: [],
     );
@@ -685,6 +685,406 @@ class S {
     return Intl.message(
       '• Modern technologies for providing the best service',
       name: 'best_service',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Complete Protection`
+  String get getCompleteProtection {
+    return Intl.message(
+      'Get Complete Protection',
+      name: 'getCompleteProtection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get full access for 9.99 $ per WEEK.`
+  String get getFullAccess {
+    return Intl.message(
+      'Get full access for 9.99 \$ per WEEK.',
+      name: 'getFullAccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3 DAY free trial. Cancel the subscription at any moment`
+  String get dayTrial {
+    return Intl.message(
+      '3 DAY free trial. Cancel the subscription at any moment',
+      name: 'dayTrial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restore Purchase`
+  String get restorePurchase {
+    return Intl.message(
+      'Restore Purchase',
+      name: 'restorePurchase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of Use`
+  String get termsOfUse {
+    return Intl.message(
+      'Terms of Use',
+      name: 'termsOfUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribe`
+  String get subscribe {
+    return Intl.message(
+      'Subscribe',
+      name: 'subscribe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protect your privacy online! Prevent websites from collecting your data without consent. Take control of your fingerprint.`
+  String get protectOnline {
+    return Intl.message(
+      'Protect your privacy online! Prevent websites from collecting your data without consent. Take control of your fingerprint.',
+      name: 'protectOnline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Increase your comfort and browsing speed! Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.`
+  String get increaseComfort {
+    return Intl.message(
+      'Increase your comfort and browsing speed! Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.',
+      name: 'increaseComfort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stay protected from potentially dangerous phishing and scam sites.`
+  String get stayProtected {
+    return Intl.message(
+      'Stay protected from potentially dangerous phishing and scam sites.',
+      name: 'stayProtected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Block user tracking`
+  String get blockUserTracking {
+    return Intl.message(
+      'Block user tracking',
+      name: 'blockUserTracking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Block ads`
+  String get blockAds {
+    return Intl.message(
+      'Block ads',
+      name: 'blockAds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Danger warnings`
+  String get dangerWarnings {
+    return Intl.message(
+      'Danger warnings',
+      name: 'dangerWarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restore`
+  String get restore {
+    return Intl.message(
+      'Restore',
+      name: 'restore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3 Days Free Trial. Cancel subscription anytime`
+  String get anotherFreeTrial {
+    return Intl.message(
+      '3 Days Free Trial. Cancel subscription anytime',
+      name: 'anotherFreeTrial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get full access for $9.99 weekly`
+  String get getFullAccessFor999Weekly {
+    return Intl.message(
+      'Get full access for \$9.99 weekly',
+      name: 'getFullAccessFor999Weekly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protection`
+  String get protection {
+    return Intl.message(
+      'Protection',
+      name: 'protection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Full`
+  String get getFull {
+    return Intl.message(
+      'Get Full',
+      name: 'getFull',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Web surfing protection`
+  String get webSurfingProtection {
+    return Intl.message(
+      'Web surfing protection',
+      name: 'webSurfingProtection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This application makes your web surfing safe and private. Forget about leaking your personal data and create your own blacklist if necessary.`
+  String get surfingSafe {
+    return Intl.message(
+      'This application makes your web surfing safe and private. Forget about leaking your personal data and create your own blacklist if necessary.',
+      name: 'surfingSafe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad blocking`
+  String get adBlocking {
+    return Intl.message(
+      'Ad blocking',
+      name: 'adBlocking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GalaxyVPN blocks 95% of all advertising on the Internet and makes page loading 30% faster`
+  String get advertisingOnTheInternetAnd {
+    return Intl.message(
+      'GalaxyVPN blocks 95% of all advertising on the Internet and makes page loading 30% faster',
+      name: 'advertisingOnTheInternetAnd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Danger warning`
+  String get dangerWarning {
+    return Intl.message(
+      'Danger warning',
+      name: 'dangerWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stay protected from potentially dangerous phishing and scam sites`
+  String get phishingAndScamSites {
+    return Intl.message(
+      'Stay protected from potentially dangerous phishing and scam sites',
+      name: 'phishingAndScamSites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ready`
+  String get ready {
+    return Intl.message(
+      'ready',
+      name: 'ready',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GalaxyVPN protection is`
+  String get galaxyvpnProtectionIs {
+    return Intl.message(
+      'GalaxyVPN protection is',
+      name: 'galaxyvpnProtectionIs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `to be activated`
+  String get toBeActivated {
+    return Intl.message(
+      'to be activated',
+      name: 'toBeActivated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `-complete database of high risk sites.`
+  String get completeDatabase {
+    return Intl.message(
+      '-complete database of high risk sites.',
+      name: 'completeDatabase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `-weekly regular updates for full protection.`
+  String get weeklyRegularUpdates {
+    return Intl.message(
+      '-weekly regular updates for full protection.',
+      name: 'weeklyRegularUpdates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to`
+  String get doYouWantTo {
+    return Intl.message(
+      'Do you want to',
+      name: 'doYouWantTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `activate`
+  String get activate {
+    return Intl.message(
+      'activate',
+      name: 'activate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `it?`
+  String get it {
+    return Intl.message(
+      'it?',
+      name: 'it',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3-day trial free`
+  String get dayTrialFree {
+    return Intl.message(
+      '3-day trial free',
+      name: 'dayTrialFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Safe VPN connection`
+  String get safeVpnConnection {
+    return Intl.message(
+      'Safe VPN connection',
+      name: 'safeVpnConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active Ads Blocker`
+  String get activeAdsBlocker {
+    return Intl.message(
+      'Active Ads Blocker',
+      name: 'activeAdsBlocker',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great Security`
+  String get greatSecurity {
+    return Intl.message(
+      'Great Security',
+      name: 'greatSecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BLOCK SCAM ADS AND MAKE YOUR WEB SURFING SAFE!`
+  String get blockScamAdsAndMakeYourWebSurfingSafe {
+    return Intl.message(
+      'BLOCK SCAM ADS AND MAKE YOUR WEB SURFING SAFE!',
+      name: 'blockScamAdsAndMakeYourWebSurfingSafe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Renews at $9.99/week. Cancel anytime.`
+  String get renewsCancelAnytime {
+    return Intl.message(
+      'Renews at \$9.99/week. Cancel anytime.',
+      name: 'renewsCancelAnytime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Free & Block Threads`
+  String get tryFreeBlockThreads {
+    return Intl.message(
+      'Try Free & Block Threads',
+      name: 'tryFreeBlockThreads',
       desc: '',
       args: [],
     );

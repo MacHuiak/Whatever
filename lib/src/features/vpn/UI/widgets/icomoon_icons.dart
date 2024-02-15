@@ -12,10 +12,16 @@ class Icomoon {
 
   static const String _fontFamily = 'icomoon';
 
+  static const IconData bigStar = IconData(0xe914, fontFamily: _fontFamily);
+  static const IconData star = IconData(0xe915, fontFamily: _fontFamily);
+  static const IconData close = IconData(0xe916, fontFamily: _fontFamily);
+  static const IconData wifi = IconData(0xe917, fontFamily: _fontFamily);
+  static const IconData shield = IconData(0xe918, fontFamily: _fontFamily);
+  static const IconData globe = IconData(0xe919, fontFamily: _fontFamily);
   static const IconData add = IconData(0xe910, fontFamily: _fontFamily);
   static const IconData yes = IconData(0xe911, fontFamily: _fontFamily);
-  static const IconData star = IconData(0xe912, fontFamily: _fontFamily);
-  static const IconData close = IconData(0xe913, fontFamily: _fontFamily);
+  static const IconData star1 = IconData(0xe912, fontFamily: _fontFamily);
+  static const IconData close1 = IconData(0xe913, fontFamily: _fontFamily);
   static const IconData reload = IconData(0xe900, fontFamily: _fontFamily);
   static const IconData warning = IconData(0xe901, fontFamily: _fontFamily);
   static const IconData share = IconData(0xe902, fontFamily: _fontFamily);

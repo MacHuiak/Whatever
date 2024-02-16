@@ -102,80 +102,48 @@ class _PayWallState extends ConsumerState<PayWall> {
       }
     });
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          switch (step) {
-            2 => AmericanGalaxyPayWall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            3 => GalaxyPaywall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            4 => PlanetVpnPayWall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            5 => StepPayWall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            6 => PageViewPayWall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            7 => ColoredPaywall(
-                onPrivacyTap: onPrivacyTap,
-                onTermsTap: onTermsTap,
-                subscribe: buySubscription,
-              ),
-            1 => const FirstPayWall(),
-            _ => const FirstPayWall()
-          },
-          Align(
-            alignment: const Alignment(1, -1),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 40, right: 40),
-              child: DropdownButton<int>(
-                // Initial Value
-                value: step,
-
-                // Down Arrow Icon
-                icon: const Icon(Icons.keyboard_arrow_down),
-                dropdownColor: Colors.black,
-                // Array list of items
-                items: [1, 2, 3, 4, 5, 6, 7].map((int items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(
-                      "$items",
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  );
-                }).toList(),
-                // After selecting the desired option,it will
-                // change button value to selected value
-                onChanged: (int? newValue) {
-                  setState(() {
-                    step = newValue!;
-                  });
-                },
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+    switch (step) {
+      case 2:
+        return AmericanGalaxyPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 3:
+        return GalaxyPaywall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 4:
+        return PlanetVpnPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 5:
+        return StepPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 6:
+        return PageViewPayWall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 7:
+        return ColoredPaywall(
+          onPrivacyTap: onPrivacyTap,
+          onTermsTap: onTermsTap,
+          subscribe: buySubscription,
+        );
+      case 1:
+        return const FirstPayWall();
+      default:
+        return const FirstPayWall();
+    }
   }
 
   onTermsTap() {

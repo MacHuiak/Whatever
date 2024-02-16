@@ -70,15 +70,55 @@ class PlanetVpnPayWall extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  GestureDetector(
-                    onTap: subscribe,
-                    child: const SizedBox(
-                      height: 51,
-                      child: Placeholder(),
-                    ),
-                  ),
+                   GestureDetector(
+                     onTap: subscribe,
+                     child: SizedBox(
+                       height: 60,
+                       child: DecoratedBox(
+                         decoration: BoxDecoration(
+                           boxShadow: [
+                             BoxShadow(
+                               color: const Color(0xFFA7FF9C).withAlpha(60),
+                               blurRadius: 8.0,
+                               spreadRadius: 4.0,
+                             )
+                           ],
+                           border: Border.all(
+                             color: const Color(0xFFC0FFB8),
+                           ),
+                           borderRadius: BorderRadius.circular(30),
+                         ),
+                         child: Padding(
+                           padding: const EdgeInsets.all(17.0),
+                           child: DecoratedBox(
+                             decoration: BoxDecoration(
+                               color: Colors.black,
+                               borderRadius: BorderRadius.circular(30),
+                               boxShadow: const [
+                                 BoxShadow(
+                                   color: Colors.black,
+                                   blurRadius: 8.0,
+                                   spreadRadius: 10.0,
+                                 ),
+                               ],
+                             ),
+                             child: Center(
+                               child: Text(
+                                 S.of(context).activate.toUpperCase(),
+                                 textAlign: TextAlign.center,
+                                 style: GoogleFonts.poppins().copyWith(
+                                     fontWeight: FontWeight.w700,
+                                     fontSize: 22,
+                                     color: Colors.white),
+                               ),
+                             ),
+                           ),
+                         ),
+                       ),
+                     ),
+                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 24,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

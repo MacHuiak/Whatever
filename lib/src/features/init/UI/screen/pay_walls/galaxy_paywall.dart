@@ -82,7 +82,7 @@ class GalaxyPaywall extends StatelessWidget {
                             ),
                             children: [
                               TextSpan(
-                                text: S.of(context).ready,
+                                text: " ${S.of(context).ready} ",
                                 style: GoogleFonts.comfortaa().copyWith(
                                   fontWeight: FontWeight.w300,
                                   fontSize: 20,
@@ -126,7 +126,7 @@ class GalaxyPaywall extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: S.of(context).activate,
+                              text: " ${S.of(context).activate} ",
                               style: GoogleFonts.comfortaa().copyWith(
                                 fontWeight: FontWeight.w300,
                                 fontSize: 15,
@@ -142,10 +142,53 @@ class GalaxyPaywall extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      const SizedBox(
-                        width: 298,
-                        height: 50,
-                        child: Placeholder(),
+                      GestureDetector(
+                        onTap: subscribe,
+                        child: SizedBox(
+                          width: 298,
+                          height: 60,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0xFFA7FF9C).withAlpha(60),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 4.0,
+                                )
+                              ],
+                              border: Border.all(
+                                color: const Color(0xFFC0FFB8),
+                              ),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(17.0),
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(30),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Colors.black,
+                                      blurRadius: 8.0,
+                                      spreadRadius: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    S.of(context).activate.toUpperCase(),
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.poppins().copyWith(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 22,
+                                        color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       const Spacer(),
                       Padding(
@@ -177,12 +220,15 @@ class GalaxyPaywall extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      S.of(context).privacyPolicy,
-                      style: GoogleFonts.poppins().copyWith(
-                        fontSize: 10,
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
+                    GestureDetector(
+                      onTap: onPrivacyTap,
+                      child: Text(
+                        S.of(context).privacyPolicy,
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: 10,
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                     Text(
@@ -193,12 +239,15 @@ class GalaxyPaywall extends StatelessWidget {
                         decoration: TextDecoration.underline,
                       ),
                     ),
-                    Text(
-                      S.of(context).termsOfUse,
-                      style: GoogleFonts.poppins().copyWith(
-                        fontSize: 10,
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
+                    GestureDetector(
+                      onTap: onTermsTap,
+                      child: Text(
+                        S.of(context).termsOfUse,
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: 10,
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     )
                   ],

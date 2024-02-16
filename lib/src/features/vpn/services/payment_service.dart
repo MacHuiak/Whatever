@@ -99,6 +99,12 @@ class IOSPaymentServiceImpl {
             if (_lastPurchaseDate == null) {
               // _purchaseServiceImpl.savePurchaseDate(
               //     _getDateFromString(purchaseDetails.transactionDate ?? "0"));
+              await FirebaseAnalytics.instance.logEvent(
+                name: "catchPurchasedStatus",
+                parameters: {
+                  "paywall_type": sharedPreferences.getString("paywall_type") ?? ""
+                },
+              );
               if ((_transactions ?? []).isNotEmpty) {
                 Sentry.captureMessage("$_transactions");
                 notificationService.cancelAllNotifications();

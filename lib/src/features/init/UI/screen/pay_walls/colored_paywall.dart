@@ -132,43 +132,7 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
             child: Padding(
               padding: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top, left: 16),
-              child: (step >= 1 && step <= 2)
-                  ? GestureDetector(
-                      onTap: () {
-                        step = step - 1;
-                      },
-                      child: SizedBox(
-                        width: 32,
-                        height: 32,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: GradientBoxBorder(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.white.withOpacity(0.1),
-                                  Colors.white.withOpacity(0.5)
-                                ],
-                                transform: const GradientRotation(pi / 4),
-                              ),
-                              width: 0.5,
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.chevron_left_rounded,
-                            color: Colors.white.withOpacity(0.6),
-                            size: 24,
-                          ),
-                        ),
-                      ),
-                    )
-                  : GestureDetector(
-                      child: Text(
-                        "Restore",
-                        style: GoogleFonts.poppins().copyWith(
-                            color: Colors.white.withOpacity(0.4), fontSize: 14),
-                      ),
-                    ),
+              child: _getBackButtonWidget(),
             ),
           ),
           Align(
@@ -221,17 +185,58 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if(step ==3) {
+                      if (step == 3) {
                         widget.subscribe();
-                      } else{
+                      } else {
                         setState(() {
-                          step = step +1;
+                          step = step + 1;
                         });
                       }
                     },
-                    child: const SizedBox(
-                      height: 60,
-                      child: Placeholder(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: SizedBox(
+                        height: 60,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              _getButtonShadow()
+                            ],
+                            border: Border.all(
+                              color: _getMainBorderColor(),
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(17.0),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(30),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black,
+                                    blurRadius: 8.0,
+                                    spreadRadius: 10.0,
+                                  ),
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  (step == 3)
+                                      ? S.of(context).activate.toUpperCase()
+                                      : S.of(context).next,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins().copyWith(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 22,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   )
                 ],
@@ -241,6 +246,53 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
         ],
       ),
     );
+  }
+
+  Widget _getBackButtonWidget() {
+    switch(step){
+      case 1:
+        return const SizedBox();
+      case 2:
+        return GestureDetector(
+          onTap: () {
+            step = step - 1;
+          },
+          child: SizedBox(
+            width: 32,
+            height: 32,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: GradientBoxBorder(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white.withOpacity(0.1),
+                      Colors.white.withOpacity(0.5)
+                    ],
+                    transform: const GradientRotation(pi / 4),
+                  ),
+                  width: 0.5,
+                ),
+              ),
+              child: Icon(
+                Icons.chevron_left_rounded,
+                color: Colors.white.withOpacity(0.6),
+                size: 24,
+              ),
+            ),
+          ),
+        );
+      case 3:
+        return GestureDetector(
+          child: Text(
+            "Restore",
+            style: GoogleFonts.poppins().copyWith(
+                color: Colors.white.withOpacity(0.4), fontSize: 14),
+          ),
+        );
+      default:
+        return const SizedBox();
+    }
   }
 
   String _getTitle() {
@@ -295,6 +347,52 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
         return const Color(0xFF5CF64A);
       default:
         return const Color(0xFFFF3C6B);
+    }
+  }
+
+  Color _getMainBorderColor() {
+    switch (step) {
+      case 3:
+        return const Color(0xFFA7FF9C);
+      case 2:
+        return const Color(0xFF8EC2FF);
+
+      case 1:
+        return const Color(0xFFFF96B0);
+
+      default:
+        return const Color(0xFFFF96B0);
+    }
+  }
+
+  BoxShadow _getButtonShadow() {
+    switch (step) {
+      case 3:
+        return BoxShadow(
+          color: const Color(0xFFA7FF9C).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+      case 2:
+        return BoxShadow(
+          color: const Color(0xFF8EC2FF).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+
+      case 1:
+        return BoxShadow(
+          color: const Color(0xFFFF96B0).withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
+
+      default:
+        return BoxShadow(
+          color: _getMainBorderColor().withAlpha(60),
+          blurRadius: 8.0,
+          spreadRadius: 4.0,
+        );
     }
   }
 }

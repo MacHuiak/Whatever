@@ -19,7 +19,7 @@ class StepPayWall extends StatefulWidget {
 
 class _StepPayWallState extends State<StepPayWall> {
   int step = 1;
-  bool subscribeStatus = true;
+  bool subscribeStatus = false;
 
   @override
   Widget build(BuildContext context) {
@@ -121,11 +121,52 @@ class _StepPayWallState extends State<StepPayWall> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          widget.subscribe();
-                        },
-                        child: const SizedBox(
-                            width: 250, height: 68, child: Placeholder()),
+                        onTap: widget.subscribe,
+                        child: SizedBox(
+                          width: 298,
+                          height: 60,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0xFFA7FF9C).withAlpha(60),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 4.0,
+                                )
+                              ],
+                              border: Border.all(
+                                color: const Color(0xFFC0FFB8),
+                              ),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(17.0),
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(30),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Colors.black,
+                                      blurRadius: 8.0,
+                                      spreadRadius: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    S.of(context).activate.toUpperCase(),
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.poppins().copyWith(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 22,
+                                        color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         height: 24,

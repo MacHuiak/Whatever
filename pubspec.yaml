@@ -33,7 +33,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
-  sentry_flutter: ^7.13.2
+  sentry_flutter: ^7.16.1
   in_app_review: ^2.0.8
   flutter_rating_bar: ^4.0.1
   flutter_local_notifications: ^16.2.0

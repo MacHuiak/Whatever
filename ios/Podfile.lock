@@ -125,18 +125,18 @@ PODS:
   - PromisesObjC (2.3.1)
   - rive_common (0.0.1):
     - Flutter
-  - Sentry (8.15.2):
-    - Sentry/Core (= 8.15.2)
-    - SentryPrivate (= 8.15.2)
-  - Sentry/Core (8.15.2):
-    - SentryPrivate (= 8.15.2)
-  - Sentry/HybridSDK (8.15.2):
-    - SentryPrivate (= 8.15.2)
+  - Sentry (8.20.0):
+    - Sentry/Core (= 8.20.0)
+    - SentryPrivate (= 8.20.0)
+  - Sentry/Core (8.20.0):
+    - SentryPrivate (= 8.20.0)
+  - Sentry/HybridSDK (8.20.0):
+    - SentryPrivate (= 8.20.0)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry/HybridSDK (= 8.15.2)
-  - SentryPrivate (8.15.2)
+    - Sentry/HybridSDK (= 8.20.0)
+  - SentryPrivate (8.20.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -227,23 +227,23 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: 19b3f709993d6fa1d84941d41c01e3c4c11eab93
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_inapp_purchase: 5c6a1ac3f11b11d0c8c0321c0c41c1f05805e4c8
-  flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
+  flutter_local_notifications: 4cde75091f6327eb8517fa068a0a5950212d2086
   flutter_native_timezone: 5f05b2de06c9776b4cc70e1839f03de178394d22
   GoogleAppMeasurement: bb3c564c3efb933136af0e94899e0a46167466a8
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
-  in_app_purchase_storekit: 4fb7ee9e824b1f09107fbfbbce8c4b276366dc43
+  in_app_purchase_storekit: 9e9931234f0adcf71ae323f8c83785b96030edf1
   in_app_review: 318597b3a06c22bb46dc454d56828c85f444f99d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   notification_permissions: 825ea1bf2a52ab585c53fd7b5e8e96876d735d4b
   package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   rive_common: 8a159d68033a8b073e5853acc50f03aa486a2888
-  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
-  sentry_flutter: 2c309a1d4b45e59d02cfa15795705687f1e2081b
-  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
-  shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
-  url_launcher_ios: bf5ce03e0e2088bad9cc378ea97fa0ed5b49673b
+  Sentry: a8d7b373b9f9868442b02a0c425192f693103cbf
+  sentry_flutter: 03e7660857a8cdb236e71456a7e8447b65c8a788
+  SentryPrivate: 006b24af16828441f70e2ab6adf241bd0a8ad130
+  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
+  url_launcher_ios: bbd758c6e7f9fd7b5b1d4cde34d2b95fcce5e812
 
 PODFILE CHECKSUM: 7f4caa7d02a80e6f541f367dd041a55554ad37fc
 

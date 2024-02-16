@@ -32,7 +32,7 @@ class FirebaseRemoteConfigService {
       final paywallType = firebaseRemoteConfig.getString('paywall_type');
       sharedPreferences.setString('paywall_type', paywallType);
       FirebaseAnalytics.instance.logEvent(
-        name: "paywallTypeFromConfig",
+        name: "paywall_type_from_config",
         parameters: {
           "paywall_type": paywallType
         },

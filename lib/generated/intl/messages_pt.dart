@@ -83,8 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Servidor mais rápido"),
         "full_base": MessageLookupByLibrary.simpleMessage(
             "• Base de dados completa de sites suspeitos"),
-        "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("A proteção do GalaxyVPN é"),
+        "galaxyvpnProtectionIs": MessageLookupByLibrary.simpleMessage(
+            "A proteção do Whatever VPN é"),
         "getCompleteProtection":
             MessageLookupByLibrary.simpleMessage("Obtenha proteção completa"),
         "getFull": MessageLookupByLibrary.simpleMessage("Obter Completo"),

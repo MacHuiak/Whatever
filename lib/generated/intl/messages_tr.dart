@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addUserConfig": MessageLookupByLibrary.simpleMessage(
             "Kullanıcı konfigürasyonu ekle"),
         "advertisingOnTheInternetAnd": MessageLookupByLibrary.simpleMessage(
-            "GalaxyVPN İnternet\'teki tüm reklamların %95\'ini engeller ve sayfa yüklenme hızını %30 artırır"),
+            "Whatever VPN İnternet\'teki tüm reklamların %95\'ini engeller ve sayfa yüklenme hızını %30 artırır"),
         "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filtresi"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Telefonunuzu kötü sitelerin etkinliklerinden korur"),
@@ -83,7 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "full_base": MessageLookupByLibrary.simpleMessage(
             "• Şüpheli web sitelerinin tam veritabanı"),
         "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("GalaxyVPN koruması"),
+            MessageLookupByLibrary.simpleMessage("Whatever VPN koruması"),
         "getCompleteProtection":
             MessageLookupByLibrary.simpleMessage("Tam Korumayı Al"),
         "getFull": MessageLookupByLibrary.simpleMessage("Tam Alın"),

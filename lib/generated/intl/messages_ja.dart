@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewN": MessageLookupByLibrary.simpleMessage("新規追加\n"),
         "addUserConfig": MessageLookupByLibrary.simpleMessage("ユーザー設定を追加"),
         "advertisingOnTheInternetAnd": MessageLookupByLibrary.simpleMessage(
-            "GalaxyVPN 可屏蔽互联网上 95％ 的广告，并使页面加载速度提高 30％"),
+            "Whatever VPN 可屏蔽互联网上 95％ 的广告，并使页面加载速度提高 30％"),
         "adwareFilter": MessageLookupByLibrary.simpleMessage("広告ソフトウェアフィルター"),
         "adwareFilterBody":
             MessageLookupByLibrary.simpleMessage("悪意のあるサイトの活動からスマートフォンを保護します"),
@@ -70,7 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "full_base":
             MessageLookupByLibrary.simpleMessage("• 疑わしいウェブサイトの完全なデータベース"),
         "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("GalaxyVPN 保护是"),
+            MessageLookupByLibrary.simpleMessage("Whatever VPN 保护是"),
         "getCompleteProtection": MessageLookupByLibrary.simpleMessage("获得完整保护"),
         "getFull": MessageLookupByLibrary.simpleMessage("获取完整"),
         "getFullAccess":

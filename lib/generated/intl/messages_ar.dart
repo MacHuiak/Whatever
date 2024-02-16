@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("إضافة تكوين المستخدم"),
         "advertisingOnTheInternetAnd": MessageLookupByLibrary.simpleMessage(
-            "يمنع GalaxyVPN 95٪ من جميع الإعلانات على الإنترنت ويجعل تحميل الصفحات أسرع بنسبة 30٪"),
+            "يمنع Whatever VPN 95٪ من جميع الإعلانات على الإنترنت ويجعل تحميل الصفحات أسرع بنسبة 30٪"),
         "adwareFilter":
             MessageLookupByLibrary.simpleMessage("مرشح البرمجيات الإعلانية"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
@@ -79,7 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "full_base": MessageLookupByLibrary.simpleMessage(
             "• قاعدة بيانات كاملة للمواقع الإلكترونية المشبوهة"),
         "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("حماية GalaxyVPN هي"),
+            MessageLookupByLibrary.simpleMessage("حماية Whatever VPN هي"),
         "getCompleteProtection":
             MessageLookupByLibrary.simpleMessage("احصل على حماية كاملة"),
         "getFull": MessageLookupByLibrary.simpleMessage("احصل على الكامل"),

@@ -39,15 +39,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     ref.listen(subscriptionStatusController, (previous, next) {
-      // if (previous?.value != null || (next.value != null)) {
-      //   Get.offAll(() => const MainVPNScreen());
-      // } else {
+      if (previous?.value != null || (next.value != null)) {
+        Get.offAll(() => const MainVPNScreen());
+      } else {
         DI.getDependency<FirebaseRemoteConfigService>().init().then(
           (value) {
             Get.offAll(() => const PayWall());
           },
         );
-      // }
+      }
     });
     return Scaffold(
       backgroundColor: Colors.black,

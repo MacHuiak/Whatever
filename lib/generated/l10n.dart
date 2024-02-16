@@ -910,10 +910,10 @@ class S {
     );
   }
 
-  /// `GalaxyVPN blocks 95% of all advertising on the Internet and makes page loading 30% faster`
+  /// `Whatever VPN blocks 95% of all advertising on the Internet and makes page loading 30% faster`
   String get advertisingOnTheInternetAnd {
     return Intl.message(
-      'GalaxyVPN blocks 95% of all advertising on the Internet and makes page loading 30% faster',
+      'Whatever VPN blocks 95% of all advertising on the Internet and makes page loading 30% faster',
       name: 'advertisingOnTheInternetAnd',
       desc: '',
       args: [],
@@ -950,10 +950,10 @@ class S {
     );
   }
 
-  /// `GalaxyVPN protection is`
+  /// `Whatever VPN protection is`
   String get galaxyvpnProtectionIs {
     return Intl.message(
-      'GalaxyVPN protection is',
+      'Whatever VPN protection is',
       name: 'galaxyvpnProtectionIs',
       desc: '',
       args: [],

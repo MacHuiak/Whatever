@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("Add user config"),
         "advertisingOnTheInternetAnd": MessageLookupByLibrary.simpleMessage(
-            "GalaxyVPN blocks 95% of all advertising on the Internet and makes page loading 30% faster"),
+            "Whatever VPN blocks 95% of all advertising on the Internet and makes page loading 30% faster"),
         "adwareFilter": MessageLookupByLibrary.simpleMessage("Adware filter"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "Protects your smartphone from a bad site activity"),
@@ -94,7 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "full_base": MessageLookupByLibrary.simpleMessage(
             "• Full database of suspicious websites"),
         "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("GalaxyVPN protection is"),
+            MessageLookupByLibrary.simpleMessage("Whatever VPN protection is"),
         "getCompleteProtection":
             MessageLookupByLibrary.simpleMessage("Get Complete Protection"),
         "getFull": MessageLookupByLibrary.simpleMessage("Get Full"),

@@ -72,7 +72,7 @@ class IOSPaymentServiceImpl {
         purchaseParam:
             PurchaseParam(productDetails: productDetails ?? _productDetail));
     await FirebaseAnalytics.instance.logEvent(
-      name: "buySubscription",
+      name: "buy_subscription",
       parameters: {
         "paywall_type": sharedPreferences.getString("paywall_type") ?? ""
       },
@@ -96,15 +96,17 @@ class IOSPaymentServiceImpl {
             break;
           case PurchaseStatus.purchased:
             Sentry.captureMessage("CATCH PURCHASED DETAIL");
+            await FirebaseAnalytics.instance.logEvent(
+              name: "catch_purchased_status",
+              parameters: {
+                "paywall_type": sharedPreferences.getString("paywall_type") ?? "",
+                "purchase_ID":purchaseDetails.purchaseID.toString()
+              },
+            );
             if (_lastPurchaseDate == null) {
               // _purchaseServiceImpl.savePurchaseDate(
               //     _getDateFromString(purchaseDetails.transactionDate ?? "0"));
-              await FirebaseAnalytics.instance.logEvent(
-                name: "catchPurchasedStatus",
-                parameters: {
-                  "paywall_type": sharedPreferences.getString("paywall_type") ?? ""
-                },
-              );
+
               if ((_transactions ?? []).isNotEmpty) {
                 Sentry.captureMessage("$_transactions");
                 notificationService.cancelAllNotifications();
@@ -186,7 +188,6 @@ class IOSPaymentServiceImpl {
   }
 
   Future<SubscriptionInfo?> haveAccess() async {
-    return const SubscriptionInfo();
     try {
       await _getInstance.restorePurchases();
       await FlutterInappPurchase.instance.initialize();

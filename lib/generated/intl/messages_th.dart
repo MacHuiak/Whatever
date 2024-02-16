@@ -40,7 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addUserConfig":
             MessageLookupByLibrary.simpleMessage("เพิ่มการตั้งค่าผู้ใช้"),
         "advertisingOnTheInternetAnd": MessageLookupByLibrary.simpleMessage(
-            "GalaxyVPN บล็อก 95% ของโฆษณาบนอินเทอร์เน็ตและทำให้การโหลดหน้าเว็บเร็วขึ้น 30%"),
+            "Whatever VPN บล็อก 95% ของโฆษณาบนอินเทอร์เน็ตและทำให้การโหลดหน้าเว็บเร็วขึ้น 30%"),
         "adwareFilter": MessageLookupByLibrary.simpleMessage("ตัวกรองแอดแวร์"),
         "adwareFilterBody": MessageLookupByLibrary.simpleMessage(
             "ป้องกันสมาร์ทโฟนของคุณจากกิจกรรมของเว็บไซต์ที่ไม่ดี"),
@@ -81,8 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("เซิร์ฟเวอร์ที่เร็วที่สุด"),
         "full_base": MessageLookupByLibrary.simpleMessage(
             "• ฐานข้อมูลเต็มของเว็บไซต์ที่น่าสงสัย"),
-        "galaxyvpnProtectionIs":
-            MessageLookupByLibrary.simpleMessage("การป้องกันของ GalaxyVPN คือ"),
+        "galaxyvpnProtectionIs": MessageLookupByLibrary.simpleMessage(
+            "การป้องกันของ Whatever VPN คือ"),
         "getCompleteProtection":
             MessageLookupByLibrary.simpleMessage("รับความคุ้มครองที่สมบูรณ์"),
         "getFull": MessageLookupByLibrary.simpleMessage("รับทั้งหมด"),

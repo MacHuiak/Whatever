@@ -69,7 +69,6 @@ class GalaxyPaywall extends StatelessWidget {
                         height: 60,
                         child: Image.asset("assets/images/planets.png"),
                       ),
-                      //GalaxyVPN protection is ready to be activated
                       SizedBox(
                         width: 220,
                         child: RichText(

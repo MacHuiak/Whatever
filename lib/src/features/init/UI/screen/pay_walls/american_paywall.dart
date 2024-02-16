@@ -49,14 +49,14 @@ class AmericanGalaxyPayWall extends StatelessWidget {
                 ),
                 AmButton(
                   text: S.of(context).activeAdsBlocker,
-                  icon: Icomoon.globe,
+                  icon: Icomoon.shield,
                 ),
                 const SizedBox(
                   height: 12,
                 ),
                 AmButton(
                   text: S.of(context).safeVpnConnection,
-                  icon: Icomoon.globe,
+                  icon: Icomoon.wifi,
                 )
               ],
             ),

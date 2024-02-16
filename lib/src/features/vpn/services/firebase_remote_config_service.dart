@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,6 +31,12 @@ class FirebaseRemoteConfigService {
     if (savedType == null) {
       final paywallType = firebaseRemoteConfig.getString('paywall_type');
       sharedPreferences.setString('paywall_type', paywallType);
+      FirebaseAnalytics.instance.logEvent(
+        name: "paywallTypeFromConfig",
+        parameters: {
+          "paywall_type": paywallType
+        },
+      );
       return int.tryParse(paywallType) ?? 1;
     } else {
       return int.tryParse(savedType) ?? 1;

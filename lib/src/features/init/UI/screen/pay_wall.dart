@@ -7,7 +7,7 @@ import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/DI/di_container.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/american_paywall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/colored_paywall.dart';
-import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/galaxy_paywall.dart';
+import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/cosmo_paywall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/page_view_paywall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/planet_view_paywall.dart';
 import 'package:modern_vpn_project/src/features/init/UI/screen/pay_walls/step_paywall.dart';
@@ -104,13 +104,13 @@ class _PayWallState extends ConsumerState<PayWall> {
 
     switch (step) {
       case 2:
-        return AmericanGalaxyPayWall(
+        return AmericanCosmoPayWall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
         );
       case 3:
-        return GalaxyPaywall(
+        return CosmoPaywall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,

@@ -41,7 +41,7 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/galaxy_background.png"),
+          Image.asset("assets/images/cosmo_background.png"),
           SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,

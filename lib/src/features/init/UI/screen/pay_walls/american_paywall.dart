@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 
-class AmericanGalaxyPayWall extends StatelessWidget {
+class AmericanCosmoPayWall extends StatelessWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
 
-  const AmericanGalaxyPayWall(
+  const AmericanCosmoPayWall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
@@ -19,7 +19,7 @@ class AmericanGalaxyPayWall extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/am_galaxy.png"),
+          Image.asset("assets/images/am_cosmo.png"),
           Align(
             alignment: const Alignment(0, 0),
             child: Column(

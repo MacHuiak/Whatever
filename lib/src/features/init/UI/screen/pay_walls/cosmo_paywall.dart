@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 
-class GalaxyPaywall extends StatelessWidget {
+class CosmoPaywall extends StatelessWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
 
-  const GalaxyPaywall(
+  const CosmoPaywall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
@@ -18,7 +18,7 @@ class GalaxyPaywall extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/galaxy_background.png"),
+          Image.asset("assets/images/cosmo_background.png"),
           Align(
             alignment: const Alignment(0, -0.6),
             child: SizedBox(

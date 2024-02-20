@@ -2,11 +2,16 @@ import 'dart:developer';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FirebaseRemoteConfigService {
   final FirebaseRemoteConfig firebaseRemoteConfig;
   final SharedPreferences sharedPreferences;
+
+  final _initController = BehaviorSubject<bool>();
+
+  Stream<bool> get remoteConfigStatusStream => _initController.stream;
 
   FirebaseRemoteConfigService(
       {required this.sharedPreferences, required this.firebaseRemoteConfig});
@@ -21,6 +26,7 @@ class FirebaseRemoteConfigService {
         ),
       );
       await firebaseRemoteConfig.fetchAndActivate();
+      _initController.add(true);
     } on FirebaseRemoteConfig catch (e, st) {
       rethrow;
     }

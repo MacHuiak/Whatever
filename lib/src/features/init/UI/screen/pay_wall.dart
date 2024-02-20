@@ -380,7 +380,7 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                                     ]),
                                 child: Center(
                                   child: Text(
-                                    S.of(context).activate,
+                                    S.of(context).activate.toUpperCase(),
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w300,

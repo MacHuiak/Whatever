@@ -46,6 +46,7 @@ class DI {
     final remoteConfigService = FirebaseRemoteConfigService(
         firebaseRemoteConfig: FirebaseRemoteConfig.instance,
         sharedPreferences: sharedPreferences);
+    remoteConfigService.init();
 
     _dependencies[PasswordRepository] = passwordRepository;
     _dependencies[AuthRepositoryImpl] = auth;

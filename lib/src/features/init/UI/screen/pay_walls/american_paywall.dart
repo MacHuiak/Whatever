@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/features/vpn/UI/widgets/icomoon_icons.dart';
 
-class AmericanCosmoPayWall extends StatelessWidget {
+class AmericanCosmoPayWall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
@@ -15,11 +15,26 @@ class AmericanCosmoPayWall extends StatelessWidget {
       required this.subscribe});
 
   @override
+  State<AmericanCosmoPayWall> createState() => _AmericanCosmoPayWallState();
+}
+
+class _AmericanCosmoPayWallState extends State<AmericanCosmoPayWall> {
+  late AssetImage image;
+
+  @override
+  void initState() {
+    super.initState();
+    image = const AssetImage("assets/images/am_cosmo.png");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/am_cosmo.png"),
+          Image(
+            image: image,
+          ),
           Align(
             alignment: const Alignment(0, 0),
             child: Column(
@@ -98,7 +113,7 @@ class AmericanCosmoPayWall extends StatelessWidget {
                     ),
                     child: Center(
                       child: GestureDetector(
-                        onTap: subscribe,
+                        onTap: widget.subscribe,
                         child: Text(
                           S.of(context).tryFreeBlockThreads,
                           style: GoogleFonts.poppins().copyWith(
@@ -116,7 +131,7 @@ class AmericanCosmoPayWall extends StatelessWidget {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: onPrivacyTap,
+                          onTap: widget.onPrivacyTap,
                           child: Text(
                             S.of(context).privacyPolicy,
                             style: GoogleFonts.poppins().copyWith(
@@ -128,7 +143,7 @@ class AmericanCosmoPayWall extends StatelessWidget {
                         ),
                         const Spacer(),
                         GestureDetector(
-                          onTap: onTermsTap,
+                          onTap: widget.onTermsTap,
                           child: Text(
                             S.of(context).termsOfUse,
                             style: GoogleFonts.poppins().copyWith(

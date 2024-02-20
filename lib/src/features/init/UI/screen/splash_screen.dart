@@ -42,9 +42,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       if (previous?.value != null || (next.value != null)) {
         Get.offAll(() => const MainVPNScreen());
       } else {
-        DI.getDependency<FirebaseRemoteConfigService>().init().then(
-          (value) {
-            Get.offAll(() => const PayWall());
+        DI
+            .getDependency<FirebaseRemoteConfigService>()
+            .remoteConfigStatusStream
+            .listen(
+          (event) {
+            if (event) {
+              Get.offAll(() => const PayWall());
+            }
           },
         );
       }

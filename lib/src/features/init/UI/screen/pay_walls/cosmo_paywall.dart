@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 
-class CosmoPaywall extends StatelessWidget {
+class CosmoPaywall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
@@ -14,11 +14,25 @@ class CosmoPaywall extends StatelessWidget {
       required this.subscribe});
 
   @override
+  State<CosmoPaywall> createState() => _CosmoPaywallState();
+}
+
+class _CosmoPaywallState extends State<CosmoPaywall> {
+  late AssetImage image;
+  @override
+  void initState() {
+    super.initState();
+    image = const AssetImage("assets/images/cosmo_background.png");
+
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/cosmo_background.png"),
+          Image(
+            image: image,
+          ),
           Align(
             alignment: const Alignment(0, -0.6),
             child: SizedBox(
@@ -142,7 +156,7 @@ class CosmoPaywall extends StatelessWidget {
                         height: 12,
                       ),
                       GestureDetector(
-                        onTap: subscribe,
+                        onTap: widget.subscribe,
                         child: SizedBox(
                           width: 298,
                           height: 60,
@@ -193,7 +207,7 @@ class CosmoPaywall extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: GestureDetector(
-                          onTap: subscribe,
+                          onTap: widget.subscribe,
                           child: Text(
                             S.of(context).getFullAccessFor999Weekly,
                             style: GoogleFonts.poppins().copyWith(
@@ -220,7 +234,7 @@ class CosmoPaywall extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: onPrivacyTap,
+                      onTap: widget.onPrivacyTap,
                       child: Text(
                         S.of(context).privacyPolicy,
                         style: GoogleFonts.poppins().copyWith(
@@ -239,7 +253,7 @@ class CosmoPaywall extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: onTermsTap,
+                      onTap: widget.onTermsTap,
                       child: Text(
                         S.of(context).termsOfUse,
                         style: GoogleFonts.poppins().copyWith(

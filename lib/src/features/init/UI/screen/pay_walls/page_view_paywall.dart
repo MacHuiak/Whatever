@@ -18,6 +18,8 @@ class PageViewPayWall extends StatefulWidget {
 }
 
 class _PageViwePayWallState extends State<PageViewPayWall> {
+  late AssetImage image;
+
   final PageController _pageController = PageController();
   int step = 0;
 
@@ -25,6 +27,7 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
   void initState() {
     super.initState();
     _pageController.addListener(onPageChange);
+    image = const AssetImage("assets/images/cosmo_background.png");
   }
 
   void onPageChange() {
@@ -41,7 +44,9 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/images/cosmo_background.png"),
+          Image(
+            image: image,
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -141,54 +146,54 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                 GestureDetector(
-                   onTap: widget.subscribe,
-                   child: SizedBox(
-                     width: 298,
-                     height: 60,
-                     child: DecoratedBox(
-                       decoration: BoxDecoration(
-                         boxShadow: [
-                           BoxShadow(
-                             color: const Color(0xFFA7FF9C).withAlpha(60),
-                             blurRadius: 8.0,
-                             spreadRadius: 4.0,
-                           )
-                         ],
-                         border: Border.all(
-                           color: const Color(0xFFC0FFB8),
-                         ),
-                         borderRadius: BorderRadius.circular(30),
-                       ),
-                       child: Padding(
-                         padding: const EdgeInsets.all(17.0),
-                         child: DecoratedBox(
-                           decoration: BoxDecoration(
-                             color: Colors.black,
-                             borderRadius: BorderRadius.circular(30),
-                             boxShadow: const [
-                               BoxShadow(
-                                 color: Colors.black,
-                                 blurRadius: 8.0,
-                                 spreadRadius: 10.0,
-                               ),
-                             ],
-                           ),
-                           child: Center(
-                             child: Text(
-                               S.of(context).activate.toUpperCase(),
-                               textAlign: TextAlign.center,
-                               style: GoogleFonts.poppins().copyWith(
-                                   fontWeight: FontWeight.w700,
-                                   fontSize: 22,
-                                   color: Colors.white),
-                             ),
-                           ),
-                         ),
-                       ),
-                     ),
-                   ),
-                 ),
+                GestureDetector(
+                  onTap: widget.subscribe,
+                  child: SizedBox(
+                    width: 298,
+                    height: 60,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFFA7FF9C).withAlpha(60),
+                            blurRadius: 8.0,
+                            spreadRadius: 4.0,
+                          )
+                        ],
+                        border: Border.all(
+                          color: const Color(0xFFC0FFB8),
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(17.0),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 8.0,
+                                spreadRadius: 10.0,
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Text(
+                              S.of(context).activateCapital,
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins().copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 22,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 24,
                 ),

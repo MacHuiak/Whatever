@@ -39,13 +39,35 @@ class FirebaseRemoteConfigService {
       sharedPreferences.setString('paywall_type', paywallType);
       FirebaseAnalytics.instance.logEvent(
         name: "paywall_type_from_config",
-        parameters: {
-          "paywall_type": paywallType
-        },
+        parameters: {"paywall_type": paywallType},
+      );
+      FirebaseAnalytics.instance.logEvent(
+        name: _getPayWallEvent(int.tryParse(paywallType) ?? 1),
       );
       return int.tryParse(paywallType) ?? 1;
     } else {
       return int.tryParse(savedType) ?? 1;
+    }
+  }
+
+  String _getPayWallEvent(int payWallType) {
+    switch (payWallType) {
+      case 1:
+        return "pay_wall_1";
+      case 2:
+        return "pay_wall_2";
+      case 3:
+        return "pay_wall_3";
+      case 4:
+        return "pay_wall_4";
+      case 5:
+        return "pay_wall_5";
+      case 6:
+        return "pay_wall_6";
+      case 7:
+        return "pay_wall_7";
+      default:
+        return "pay_wall_1";
     }
   }
 }

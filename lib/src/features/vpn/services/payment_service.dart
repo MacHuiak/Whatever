@@ -74,9 +74,36 @@ class IOSPaymentServiceImpl {
     await FirebaseAnalytics.instance.logEvent(
       name: "buy_subscription",
       parameters: {
-        "paywall_type": sharedPreferences.getString("paywall_type") ?? ""
+        "paywall_type": sharedPreferences.getString("paywall_type") ?? "1"
       },
     );
+
+    await FirebaseAnalytics.instance.logEvent(
+      name: _getEvent(
+          int.tryParse(sharedPreferences.getString("paywall_type") ?? "1") ??
+              1),
+    );
+  }
+
+  String _getEvent(int payWallType) {
+    switch (payWallType) {
+      case 1:
+        return "subscription_pay_wall_1";
+      case 2:
+        return "subscription_pay_wall_2";
+      case 3:
+        return "subscription_pay_wall_3";
+      case 4:
+        return "subscription_pay_wall_4";
+      case 5:
+        return "subscription_pay_wall_5";
+      case 6:
+        return "subscription_pay_wall_6";
+      case 7:
+        return "subscription_pay_wall_7";
+      default:
+        return "subscription_pay_wall_1";
+    }
   }
 
   Future<void> _verifyPurchase(List<PurchaseDetails> purchases) async {
@@ -99,8 +126,9 @@ class IOSPaymentServiceImpl {
             await FirebaseAnalytics.instance.logEvent(
               name: "catch_purchased_status",
               parameters: {
-                "paywall_type": sharedPreferences.getString("paywall_type") ?? "",
-                "purchase_ID":purchaseDetails.purchaseID.toString()
+                "paywall_type":
+                    sharedPreferences.getString("paywall_type") ?? "",
+                "purchase_ID": purchaseDetails.purchaseID.toString()
               },
             );
             if (_lastPurchaseDate == null) {

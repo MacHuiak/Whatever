@@ -57,6 +57,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("إلغاء الاتصال"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("انقر واسحب"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("حجب الإعلانات"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("تحذير من الخطر"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("الحصول على وصول كامل"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "ابق محميًا من مواقع الصيد الاحتيالية والاحتيالية الخطيرة بشكل محتمل"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "استخدم ميزة حجب الإعلانات لدينا لإزالة الإعلانات على مواقع الويب والنوافذ المنبثقة والتشتت. استمتع بتجربة ويب أكثر نظافة."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "- قاعدة بيانات كاملة للمواقع ذات المخاطر العالية."),
         "copied": MessageLookupByLibrary.simpleMessage("تم النسخ"),
@@ -92,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "زيادة راحتك وسرعة تصفحك! استخدم ميزة حظر الإعلانات لدينا لإزالة الإعلانات على مواقع الويب والنوافذ المنبثقة والتشتت. استمتع بتجربة ويب نظيفة."),
         "it": MessageLookupByLibrary.simpleMessage("هذا؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "تجربة مجانية لمدة 3 أيام — بعد \$9.99 / أسبوع"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordManager":

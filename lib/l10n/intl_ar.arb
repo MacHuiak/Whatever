@@ -82,5 +82,11 @@
   "greatSecurity": "أمان عظيم",
   "blockScamAdsAndMakeYourWebSurfingSafe": "قم بحظر إعلانات الاحتيال واجعل تصفح الويب الخاص بك آمنًا!",
   "renewsCancelAnytime": "يجدد بسعر 9.99 دولار أمريكي / الأسبوع. إلغاء في أي وقت.",
-  "tryFreeBlockThreads": "جرب مجانًا وقم بحظر المواضيع"
+  "tryFreeBlockThreads": "جرب مجانًا وقم بحظر المواضيع",
+  "coloredAdBlocking": "حجب الإعلانات",
+  "coloredDangerWarning": "تحذير من الخطر",
+  "coloredGetFullAccess": "الحصول على وصول كامل",
+  "coloredUsesOurAd": "استخدم ميزة حجب الإعلانات لدينا لإزالة الإعلانات على مواقع الويب والنوافذ المنبثقة والتشتت. استمتع بتجربة ويب أكثر نظافة.",
+  "coloredStayProtected": "ابق محميًا من مواقع الصيد الاحتيالية والاحتيالية الخطيرة بشكل محتمل",
+  "main3DaysFreeTrialAfter999Week": "تجربة مجانية لمدة 3 أيام — بعد $9.99 / أسبوع"
 }

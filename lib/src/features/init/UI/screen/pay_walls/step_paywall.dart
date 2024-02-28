@@ -6,12 +6,14 @@ class StepPayWall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const StepPayWall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<StepPayWall> createState() => _StepPayWallState();
@@ -197,12 +199,15 @@ class _StepPayWallState extends State<StepPayWall> {
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                               ),
-                              Text(
-                                S.of(context).restorePurchase,
-                                style: GoogleFonts.poppins().copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  decoration: TextDecoration.underline,
+                              GestureDetector(
+                                onTap: widget.onRestore,
+                                child: Text(
+                                  S.of(context).restorePurchase,
+                                  style: GoogleFonts.poppins().copyWith(
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               Container(

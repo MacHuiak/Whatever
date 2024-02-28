@@ -6,12 +6,14 @@ class PlanetVpnPayWall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const PlanetVpnPayWall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<PlanetVpnPayWall> createState() => _PlanetVpnPayWallState();
@@ -149,12 +151,15 @@ class _PlanetVpnPayWallState extends State<PlanetVpnPayWall> {
                           ),
                         ),
                       ),
-                      Text(
-                        S.of(context).restorePurchase,
-                        style: GoogleFonts.poppins().copyWith(
-                          fontSize: 10,
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
+                      GestureDetector(
+                        onTap: widget.onRestore,
+                        child: Text(
+                          S.of(context).restorePurchase,
+                          style: GoogleFonts.poppins().copyWith(
+                            fontSize: 10,
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
                       GestureDetector(

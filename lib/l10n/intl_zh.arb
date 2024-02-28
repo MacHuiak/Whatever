@@ -82,5 +82,11 @@
   "greatSecurity": "高いセキュリティ",
   "blockScamAdsAndMakeYourWebSurfingSafe": "スパム広告をブロックし、ウェブサーフィンを安全に！",
   "renewsCancelAnytime": "毎週 $9.99 で更新します。いつでもキャンセルできます。",
-  "tryFreeBlockThreads": "無料でお試しください、スレッドをブロック"
+  "tryFreeBlockThreads": "無料でお試しください、スレッドをブロック",
+  "coloredAdBlocking": "广告拦截",
+  "coloredDangerWarning": "危险警告",
+  "coloredGetFullAccess": "获取完整访问权限",
+  "coloredUsesOurAd": "使用我们的广告拦截功能，去除网站、弹出窗口和干扰的广告。享受更清洁的网络体验。",
+  "coloredStayProtected": "保护免受潜在危险的网络钓鱼和诈骗网站",
+  "main3DaysFreeTrialAfter999Week": "3天免费试用 — 9.99美元/周后"
 }

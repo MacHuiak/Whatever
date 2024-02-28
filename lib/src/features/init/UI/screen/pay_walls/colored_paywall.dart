@@ -10,12 +10,14 @@ class ColoredPaywall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const ColoredPaywall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<ColoredPaywall> createState() => _ColoredPaywallState();
@@ -199,9 +201,7 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
                         height: 60,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            boxShadow: [
-                              _getButtonShadow()
-                            ],
+                            boxShadow: [_getButtonShadow()],
                             border: Border.all(
                               color: _getMainBorderColor(),
                             ),
@@ -249,7 +249,7 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
   }
 
   Widget _getBackButtonWidget() {
-    switch(step){
+    switch (step) {
       case 1:
         return const SizedBox();
       case 2:
@@ -284,10 +284,11 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
         );
       case 3:
         return GestureDetector(
+          onTap: widget.onRestore,
           child: Text(
-            "Restore",
-            style: GoogleFonts.poppins().copyWith(
-                color: Colors.white.withOpacity(0.4), fontSize: 14),
+            S.of(context).restore,
+            style: GoogleFonts.poppins()
+                .copyWith(color: Colors.white.withOpacity(0.4), fontSize: 14),
           ),
         );
       default:
@@ -298,26 +299,26 @@ class _ColoredPaywallState extends State<ColoredPaywall> {
   String _getTitle() {
     switch (step) {
       case 1:
-        return "Ad blocking";
+        return S.of(context).coloredAdBlocking;
       case 2:
-        return "Danger warning";
+        return S.of(context).coloredDangerWarning;
       case 3:
-        return "Get Full Access";
+        return S.of(context).coloredGetFullAccess;
       default:
-        return "Ad blocking";
+        return S.of(context).coloredAdBlocking;
     }
   }
 
   String _getText() {
     switch (step) {
       case 1:
-        return "Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.";
+        return S.of(context).coloredUsesOurAd;
       case 2:
-        return "Stay protected from potentially dangerous phishing and scam sites";
+        return S.of(context).coloredStayProtected;
       case 3:
-        return "Get full access for 9.99\$ per WEEK. 3 DAYS Free Trial. Cancel subscription anytime";
+        return S.of(context).coloredGetFullAccess;
       default:
-        return "Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.";
+        return S.of(context).coloredUsesOurAd;
     }
   }
 

@@ -59,6 +59,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Verbindung abbrechen"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Klicken und ziehen"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("Werbung blockieren"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("Gefahrenwarnung"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("Vollen Zugriff erhalten"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "Bleiben Sie vor potenziell gefährlichen Phishing- und Betrugssites geschützt"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "Verwendet unser Ad-Blocking-Feature, um Werbung auf Websites, Pop-ups und Ablenkungen zu entfernen. Genießen Sie ein saubereres Web-Erlebnis."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "-vollständige Datenbank mit Hochrisiko-Sites."),
         "copied": MessageLookupByLibrary.simpleMessage("Kopiert"),
@@ -98,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Steigern Sie Ihren Komfort und Ihre Browsergeschwindigkeit! Verwenden Sie unser Werbeblockierungsfeature, um Anzeigen auf Websites, Pop-ups und Ablenkungen zu entfernen. Genießen Sie eine sauberere Web-Erfahrung."),
         "it": MessageLookupByLibrary.simpleMessage("es?"),
         "login": MessageLookupByLibrary.simpleMessage("Anmeldung"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "3 Tage kostenlose Testversion — nach \$9.99 / Woche"),
         "next": MessageLookupByLibrary.simpleMessage("Nächster"),
         "password": MessageLookupByLibrary.simpleMessage("Passwort"),
         "passwordManager":

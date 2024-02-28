@@ -50,6 +50,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "blockUserTracking": MessageLookupByLibrary.simpleMessage("阻止用户追踪"),
         "cancelConnection": MessageLookupByLibrary.simpleMessage("接続をキャンセル"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("クリックしてドラッグ"),
+        "coloredAdBlocking": MessageLookupByLibrary.simpleMessage("広告ブロック"),
+        "coloredDangerWarning": MessageLookupByLibrary.simpleMessage("危険警告"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("フルアクセスを取得"),
+        "coloredStayProtected":
+            MessageLookupByLibrary.simpleMessage("潜在的に危険なフィッシングと詐欺サイトから保護されます"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "ウェブサイト、ポップアップ、および邪魔をする広告を削除するために、私たちの広告ブロック機能を使用します。 よりきれいなウェブ体験をお楽しみください。"),
         "completeDatabase":
             MessageLookupByLibrary.simpleMessage(" - 高风险网站的完整数据库。"),
         "copied": MessageLookupByLibrary.simpleMessage("コピー済み"),
@@ -82,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "增加您的舒适度和浏览速度！使用我们的广告拦截功能在网站上移除广告、弹出窗口和干扰。享受更清洁的网络体验。"),
         "it": MessageLookupByLibrary.simpleMessage("吗？"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
+        "main3DaysFreeTrialAfter999Week":
+            MessageLookupByLibrary.simpleMessage("3日間の無料トライアル — \$9.99 / 週後"),
         "next": MessageLookupByLibrary.simpleMessage("下一个"),
         "password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "passwordManager": MessageLookupByLibrary.simpleMessage("パスワードマネージャー"),

@@ -103,5 +103,11 @@
   "greatSecurity": "Great Security",
   "blockScamAdsAndMakeYourWebSurfingSafe": "BLOCK SCAM ADS AND MAKE YOUR WEB SURFING SAFE!",
   "renewsCancelAnytime": "Renews at $9.99/week. Cancel anytime.",
-  "tryFreeBlockThreads": "Try Free & Block Threads"
+  "tryFreeBlockThreads": "Try Free & Block Threads",
+  "coloredAdBlocking": "Ad blocking",
+  "coloredDangerWarning": "Danger warning",
+  "coloredGetFullAccess": "Get Full Access",
+  "coloredUsesOurAd": "Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.",
+  "coloredStayProtected": "Stay protected from potentially dangerous phishing and scam sites",
+  "main3DaysFreeTrialAfter999Week": "3 days free trial — after $9.99 / week"
 }

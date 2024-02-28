@@ -82,5 +82,11 @@
   "greatSecurity": "Große Sicherheit",
   "blockScamAdsAndMakeYourWebSurfingSafe": "BLOCKIEREN SIE BETRUGSANZEIGEN UND MACHEN SIE IHR WEB-SURFEN SICHER!",
   "renewsCancelAnytime": "Verlängert sich automatisch um 9,99 USD/Woche. Jederzeit kündbar.",
-  "tryFreeBlockThreads": "Kostenlos ausprobieren und Threads blockieren"
+  "tryFreeBlockThreads": "Kostenlos ausprobieren und Threads blockieren",
+  "coloredAdBlocking": "Werbung blockieren",
+  "coloredDangerWarning": "Gefahrenwarnung",
+  "coloredGetFullAccess": "Vollen Zugriff erhalten",
+  "coloredUsesOurAd": "Verwendet unser Ad-Blocking-Feature, um Werbung auf Websites, Pop-ups und Ablenkungen zu entfernen. Genießen Sie ein saubereres Web-Erlebnis.",
+  "coloredStayProtected": "Bleiben Sie vor potenziell gefährlichen Phishing- und Betrugssites geschützt",
+  "main3DaysFreeTrialAfter999Week": "3 Tage kostenlose Testversion — nach $9.99 / Woche"
 }

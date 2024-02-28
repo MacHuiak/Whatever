@@ -59,6 +59,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Отменить подключение"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Нажмите и перетащите"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("Блокировка рекламы"),
+        "coloredDangerWarning": MessageLookupByLibrary.simpleMessage(
+            "Предупреждение о возможной опасности"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("Получить полный доступ"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "Оставайтесь защищенными от потенциально опасных фишинговых и мошеннических сайтов"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "Используйте нашу функцию блокировки рекламы, чтобы убрать рекламу на веб-сайтах, всплывающие окна и отвлечения. Наслаждайтесь более чистым веб-опытом."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "- полная база данных сайтов с высоким риском."),
         "copied": MessageLookupByLibrary.simpleMessage("Скопировано"),
@@ -98,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Увеличьте свой комфорт и скорость просмотра! Используйте нашу функцию блокировки рекламы, чтобы убрать рекламу на веб-сайтах, всплывающие окна и отвлечения. Наслаждайтесь чище веб-опытом."),
         "it": MessageLookupByLibrary.simpleMessage("это?"),
         "login": MessageLookupByLibrary.simpleMessage("Логин"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "3-дневная бесплатная пробная версия — после \$9.99 / неделю"),
         "next": MessageLookupByLibrary.simpleMessage("Далее"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "passwordManager":

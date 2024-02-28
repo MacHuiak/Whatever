@@ -1089,6 +1089,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Ad blocking`
+  String get coloredAdBlocking {
+    return Intl.message(
+      'Ad blocking',
+      name: 'coloredAdBlocking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Danger warning`
+  String get coloredDangerWarning {
+    return Intl.message(
+      'Danger warning',
+      name: 'coloredDangerWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Full Access`
+  String get coloredGetFullAccess {
+    return Intl.message(
+      'Get Full Access',
+      name: 'coloredGetFullAccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.`
+  String get coloredUsesOurAd {
+    return Intl.message(
+      'Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience.',
+      name: 'coloredUsesOurAd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stay protected from potentially dangerous phishing and scam sites`
+  String get coloredStayProtected {
+    return Intl.message(
+      'Stay protected from potentially dangerous phishing and scam sites',
+      name: 'coloredStayProtected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3 days free trial — after $9.99 / week`
+  String get main3DaysFreeTrialAfter999Week {
+    return Intl.message(
+      '3 days free trial — after \$9.99 / week',
+      name: 'main3DaysFreeTrialAfter999Week',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

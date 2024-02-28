@@ -6,12 +6,14 @@ class PageViewPayWall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const PageViewPayWall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<PageViewPayWall> createState() => _PageViwePayWallState();
@@ -233,12 +235,15 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
                           decoration: const BoxDecoration(
                               color: Colors.white, shape: BoxShape.circle),
                         ),
-                        Text(
-                          S.of(context).restorePurchase,
-                          style: GoogleFonts.poppins().copyWith(
-                            fontSize: 10,
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
+                        GestureDetector(
+                          onTap: widget.onRestore,
+                          child: Text(
+                            S.of(context).restorePurchase,
+                            style: GoogleFonts.poppins().copyWith(
+                              fontSize: 10,
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         Container(

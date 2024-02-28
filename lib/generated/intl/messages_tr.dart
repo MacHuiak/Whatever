@@ -57,6 +57,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bağlantıyı İptal Et"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Tıkla ve sürükle"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("Reklam engelleme"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("Tehlike uyarısı"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("Tam Erişim Al"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "Potansiyel olarak tehlikeli dolandırıcılık ve sahtekarlık sitelerinden korunun"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "Web sitelerindeki reklamları, açılır pencereleri ve dikkat dağıtıcıları kaldırmak için reklam engelleme özelliğimizi kullanın. Daha temiz bir web deneyimi yaşayın."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "-yüksek riskli sitelerin tam veritabanı."),
         "copied": MessageLookupByLibrary.simpleMessage("Kopyalandı"),
@@ -97,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Konforunuzu ve gezinme hızınızı artırın! Reklam engelleme özelliğimizi kullanarak web sitelerindeki reklamları, açılır pencereleri ve dikkat dağıtıcıları kaldırın. Daha temiz bir web deneyimi yaşayın."),
         "it": MessageLookupByLibrary.simpleMessage("onu?"),
         "login": MessageLookupByLibrary.simpleMessage("Giriş"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "3 gün ücretsiz deneme — sonrasında \$9.99 / hafta"),
         "next": MessageLookupByLibrary.simpleMessage("İleri"),
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
         "passwordManager":

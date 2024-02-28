@@ -83,5 +83,11 @@
   "greatSecurity": "Grande sécurité",
   "blockScamAdsAndMakeYourWebSurfingSafe": "BLOQUEZ LES PUBLICITÉS ARNAQUES ET RENDEZ VOTRE NAVIGATION SUR INTERNET SÛRE !",
   "renewsCancelAnytime": "Renouvelle à 9,99 $/semaine. Annulable à tout moment.",
-  "tryFreeBlockThreads": "Essayez gratuitement et bloquez les threads"
+  "tryFreeBlockThreads": "Essayez gratuitement et bloquez les threads",
+  "coloredAdBlocking": "Blocage de la publicité",
+  "coloredDangerWarning": "Avertissement de danger",
+  "coloredGetFullAccess": "Obtenir un accès complet",
+  "coloredUsesOurAd": "Utilise notre fonction de blocage des publicités pour supprimer les annonces sur les sites Web, les pop-ups et les distractions. Profitez d'une expérience Web plus propre.",
+  "coloredStayProtected": "Restez protégé contre les sites de phishing et les escroqueries potentiellement dangereux",
+  "main3DaysFreeTrialAfter999Week": "Essai gratuit de 3 jours — après $9.99 / semaine"
 }

@@ -67,6 +67,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("Cancel connection"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("Click and drag"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("Ad blocking"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("Danger warning"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("Get Full Access"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "Stay protected from potentially dangerous phishing and scam sites"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "-complete database of high risk sites."),
         "copied": MessageLookupByLibrary.simpleMessage("Copied"),
@@ -111,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Increase your comfort and browsing speed! Uses our ad blocking feature to remove ads on websites, pop-ups and distractions. Enjoy a cleaner web experience."),
         "it": MessageLookupByLibrary.simpleMessage("it?"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "3 days free trial — after \$9.99 / week"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordManager":

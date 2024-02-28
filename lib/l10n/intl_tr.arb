@@ -83,5 +83,11 @@
   "greatSecurity": "Harika Güvenlik",
   "blockScamAdsAndMakeYourWebSurfingSafe": "DOLANDIRICILIK REKLAMLARINI ENGELLEYİN VE WEB GEZİNMEYİ GÜVENLİ HALE GETİRİN!",
   "renewsCancelAnytime": "Haftalık 9.99 ABD dolarına yenilenir. İstediğiniz zaman iptal edin.",
-  "tryFreeBlockThreads": "Ücretsiz Deneyin ve İplikleri Engelle"
+  "tryFreeBlockThreads": "Ücretsiz Deneyin ve İplikleri Engelle",
+  "coloredAdBlocking": "Reklam engelleme",
+  "coloredDangerWarning": "Tehlike uyarısı",
+  "coloredGetFullAccess": "Tam Erişim Al",
+  "coloredUsesOurAd": "Web sitelerindeki reklamları, açılır pencereleri ve dikkat dağıtıcıları kaldırmak için reklam engelleme özelliğimizi kullanın. Daha temiz bir web deneyimi yaşayın.",
+  "coloredStayProtected": "Potansiyel olarak tehlikeli dolandırıcılık ve sahtekarlık sitelerinden korunun",
+  "main3DaysFreeTrialAfter999Week": "3 gün ücretsiz deneme — sonrasında $9.99 / hafta"
 }

@@ -7,12 +7,14 @@ class AmericanCosmoPayWall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const AmericanCosmoPayWall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<AmericanCosmoPayWall> createState() => _AmericanCosmoPayWallState();
@@ -134,6 +136,18 @@ class _AmericanCosmoPayWallState extends State<AmericanCosmoPayWall> {
                           onTap: widget.onPrivacyTap,
                           child: Text(
                             S.of(context).privacyPolicy,
+                            style: GoogleFonts.poppins().copyWith(
+                              color: Colors.white.withOpacity(0.76),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: widget.onPrivacyTap,
+                          child: Text(
+                            S.of(context).restorePurchase,
                             style: GoogleFonts.poppins().copyWith(
                               color: Colors.white.withOpacity(0.76),
                               fontWeight: FontWeight.w400,

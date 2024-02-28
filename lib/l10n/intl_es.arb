@@ -82,5 +82,11 @@
   "greatSecurity": "Gran seguridad",
   "blockScamAdsAndMakeYourWebSurfingSafe": "¡BLOQUEA ANUNCIOS DE ESTAFA Y HAZ QUE TU NAVEGACIÓN WEB SEA SEGURA!",
   "renewsCancelAnytime": "Se renueva a $ 9.99/semana. Cancela en cualquier momento.",
-  "tryFreeBlockThreads": "¡Prueba gratis y bloquea hilos!"
+  "tryFreeBlockThreads": "¡Prueba gratis y bloquea hilos!",
+  "coloredAdBlocking": "Bloqueo de anuncios",
+  "coloredDangerWarning": "Advertencia de peligro",
+  "coloredGetFullAccess": "Obtener acceso completo",
+  "coloredUsesOurAd": "Utiliza nuestra función de bloqueo de anuncios para eliminar anuncios en sitios web, ventanas emergentes y distracciones. Disfruta de una experiencia web más limpia.",
+  "coloredStayProtected": "Mantente protegido contra sitios de phishing y estafas potencialmente peligrosos",
+  "main3DaysFreeTrialAfter999Week": "Prueba gratuita de 3 días — después de $9.99 / semana"
 }

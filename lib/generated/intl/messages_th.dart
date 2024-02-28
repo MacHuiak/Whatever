@@ -57,6 +57,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancelConnection":
             MessageLookupByLibrary.simpleMessage("ยกเลิกการเชื่อมต่อ"),
         "clickAndDrag": MessageLookupByLibrary.simpleMessage("คลิกและลากรูป"),
+        "coloredAdBlocking": MessageLookupByLibrary.simpleMessage("บล็อกโฆษณา"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("คำเตือนเกี่ยวกับอันตราย"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("รับการเข้าถึงเต็มรูปแบบ"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "ปกป้องจากเว็บไซต์ของฟิชชิ่งและฉลองที่อาจเป็นอันตราย"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "ใช้คุณลักษณะการบล็อกโฆษณาของเราเพื่อลบโฆษณาบนเว็บไซต์ ป๊อปอัพ และสิ่งรบกวน สนุกกับประสบการณ์เว็บที่สะอาด"),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "- ฐานข้อมูลเต็มของเว็บไซต์ที่เสี่ยงสูง"),
         "copied": MessageLookupByLibrary.simpleMessage("คัดลอกแล้ว"),
@@ -96,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "เพิ่มความสะดวกสบายและความเร็วในการเรียกดู! ใช้ฟีเจอร์การบล็อกโฆษณาของเราเพื่อลบโฆษณาบนเว็บไซต์ ป๊อปอัพ และสิ่งรบกวน สนุกกับประสบการณ์เว็บที่สะอาด"),
         "it": MessageLookupByLibrary.simpleMessage("หรือไม่"),
         "login": MessageLookupByLibrary.simpleMessage("เข้าสู่ระบบ"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "ทดลองใช้ฟรี 3 วัน — หลังจาก \$9.99 / สัปดาห์"),
         "next": MessageLookupByLibrary.simpleMessage("ต่อไป"),
         "password": MessageLookupByLibrary.simpleMessage("รหัสผ่าน"),
         "passwordManager":

@@ -108,36 +108,42 @@ class _PayWallState extends ConsumerState<PayWall> {
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 3:
         return CosmoPaywall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 4:
         return PlanetVpnPayWall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 5:
         return StepPayWall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 6:
         return PageViewPayWall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 7:
         return ColoredPaywall(
           onPrivacyTap: onPrivacyTap,
           onTermsTap: onTermsTap,
           subscribe: buySubscription,
+          onRestore: restoreSubscription,
         );
       case 1:
         return const FirstPayWall();
@@ -146,23 +152,30 @@ class _PayWallState extends ConsumerState<PayWall> {
     }
   }
 
-  onTermsTap() {
+  void onTermsTap() {
     Get.to(
       () => const InfoScreen(title: "Terms of Use", infoType: InfoType.terms),
     );
   }
 
-  onPrivacyTap() {
+  void onPrivacyTap() {
     Get.to(
       () =>
           const InfoScreen(title: "Privacy Policy", infoType: InfoType.privacy),
     );
   }
 
-  buySubscription() {
+  void buySubscription() {
     HapticFeedback.vibrate();
 
     ref.read(subscriptionStatusController.notifier).buySubscription();
+    Navigator.of(context).push(TutorialOverlay());
+  }
+
+  void restoreSubscription() {
+    HapticFeedback.vibrate();
+
+    ref.read(subscriptionStatusController.notifier).restoreSubscription();
     Navigator.of(context).push(TutorialOverlay());
   }
 }
@@ -329,7 +342,7 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "3 days free trial — after \$9.99 / week",
+                                        S.of(context).main3DaysFreeTrialAfter999Week,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w400,
                                           fontSize:
@@ -347,7 +360,6 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                         GestureDetector(
                           onTap: () {
                             HapticFeedback.vibrate();
-
                             ref
                                 .read(subscriptionStatusController.notifier)
                                 .buySubscription();
@@ -411,7 +423,7 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                           );
                         },
                         child: Text(
-                          "Privacy Policy",
+                          S.of(context).privacyPolicy,
                           style: _getTextButtonStyle(),
                         ),
                       ),
@@ -419,7 +431,7 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                         onPressed: () {
                           ref
                               .read(subscriptionStatusController.notifier)
-                              .buySubscription();
+                              .restoreSubscription();
                         },
                         child: Text(
                           S.of(context).restore,
@@ -435,7 +447,7 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                           );
                         },
                         child: Text(
-                          "Terms of Use",
+                          S.of(context).termsOfUse,
                           style: _getTextButtonStyle(),
                         ),
                       )

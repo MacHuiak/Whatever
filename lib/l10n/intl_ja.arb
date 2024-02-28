@@ -84,5 +84,11 @@
   "greatSecurity": "很好的安全性",
   "blockScamAdsAndMakeYourWebSurfingSafe": "拦截诈骗广告，使您的网络浏览安全！",
   "renewsCancelAnytime": "每周以 9.99 美元续订。随时取消。",
-  "tryFreeBlockThreads": "免费尝试并阻止线程"
+  "tryFreeBlockThreads": "免费尝试并阻止线程",
+  "coloredAdBlocking": "広告ブロック",
+  "coloredDangerWarning": "危険警告",
+  "coloredGetFullAccess": "フルアクセスを取得",
+  "coloredUsesOurAd": "ウェブサイト、ポップアップ、および邪魔をする広告を削除するために、私たちの広告ブロック機能を使用します。 よりきれいなウェブ体験をお楽しみください。",
+  "coloredStayProtected": "潜在的に危険なフィッシングと詐欺サイトから保護されます",
+  "main3DaysFreeTrialAfter999Week": "3日間の無料トライアル — $9.99 / 週後"
 }

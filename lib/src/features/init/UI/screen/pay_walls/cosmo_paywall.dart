@@ -6,12 +6,14 @@ class CosmoPaywall extends StatefulWidget {
   final void Function() onPrivacyTap;
   final void Function() onTermsTap;
   final void Function() subscribe;
+  final void Function() onRestore;
 
   const CosmoPaywall(
       {super.key,
       required this.onPrivacyTap,
       required this.onTermsTap,
-      required this.subscribe});
+      required this.subscribe,
+      required this.onRestore});
 
   @override
   State<CosmoPaywall> createState() => _CosmoPaywallState();
@@ -19,12 +21,13 @@ class CosmoPaywall extends StatefulWidget {
 
 class _CosmoPaywallState extends State<CosmoPaywall> {
   late AssetImage image;
+
   @override
   void initState() {
     super.initState();
     image = const AssetImage("assets/images/cosmo_background.png");
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -244,12 +247,15 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                         ),
                       ),
                     ),
-                    Text(
-                      S.of(context).restorePurchase,
-                      style: GoogleFonts.poppins().copyWith(
-                        fontSize: 10,
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
+                    GestureDetector(
+                      onTap: widget.onRestore,
+                      child: Text(
+                        S.of(context).restorePurchase,
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: 10,
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                     GestureDetector(

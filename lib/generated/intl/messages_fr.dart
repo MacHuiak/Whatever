@@ -61,6 +61,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Annuler la connexion"),
         "clickAndDrag":
             MessageLookupByLibrary.simpleMessage("Cliquer et glisser"),
+        "coloredAdBlocking":
+            MessageLookupByLibrary.simpleMessage("Blocage de la publicité"),
+        "coloredDangerWarning":
+            MessageLookupByLibrary.simpleMessage("Avertissement de danger"),
+        "coloredGetFullAccess":
+            MessageLookupByLibrary.simpleMessage("Obtenir un accès complet"),
+        "coloredStayProtected": MessageLookupByLibrary.simpleMessage(
+            "Restez protégé contre les sites de phishing et les escroqueries potentiellement dangereux"),
+        "coloredUsesOurAd": MessageLookupByLibrary.simpleMessage(
+            "Utilise notre fonction de blocage des publicités pour supprimer les annonces sur les sites Web, les pop-ups et les distractions. Profitez d\'une expérience Web plus propre."),
         "completeDatabase": MessageLookupByLibrary.simpleMessage(
             "- base de données complète des sites à haut risque."),
         "copied": MessageLookupByLibrary.simpleMessage("Copié"),
@@ -100,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Augmentez votre confort et votre vitesse de navigation ! Utilisez notre fonction de blocage des publicités pour supprimer les publicités sur les sites Web, les pop-ups et les distractions. Profitez d\'une expérience Web plus propre."),
         "it": MessageLookupByLibrary.simpleMessage("cela?"),
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
+        "main3DaysFreeTrialAfter999Week": MessageLookupByLibrary.simpleMessage(
+            "Essai gratuit de 3 jours — après \$9.99 / semaine"),
         "next": MessageLookupByLibrary.simpleMessage("Suivant"),
         "password": MessageLookupByLibrary.simpleMessage("Mot de passe"),
         "passwordManager": MessageLookupByLibrary.simpleMessage(

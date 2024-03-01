@@ -101,6 +101,7 @@ class _AmericanCosmoPayWallState extends State<AmericanCosmoPayWall> {
                       fontSize: 16,
                       color: Colors.white.withOpacity(0.76),
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 12,
@@ -129,25 +130,13 @@ class _AmericanCosmoPayWallState extends State<AmericanCosmoPayWall> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 18.0, horizontal: 64),
+                        vertical: 18.0, horizontal: 16),
                     child: Row(
                       children: [
                         GestureDetector(
                           onTap: widget.onPrivacyTap,
                           child: Text(
                             S.of(context).privacyPolicy,
-                            style: GoogleFonts.poppins().copyWith(
-                              color: Colors.white.withOpacity(0.76),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: widget.onPrivacyTap,
-                          child: Text(
-                            S.of(context).restorePurchase,
                             style: GoogleFonts.poppins().copyWith(
                               color: Colors.white.withOpacity(0.76),
                               fontWeight: FontWeight.w400,
@@ -212,12 +201,16 @@ class AmButton extends StatelessWidget {
               const SizedBox(
                 width: 8,
               ),
-              Text(
-                text,
-                style: GoogleFonts.poppins().copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
+              SizedBox(
+                width: 200,
+                child: Text(
+                  text,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.poppins().copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],

@@ -305,25 +305,28 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                                       Text(
                                         S.of(context).full_base,
                                         style: TextStyle(
+                                          height: 1,
                                           color: _getTextPointColor(),
                                         ),
                                       ),
                                       const SizedBox(
-                                        height: 8,
+                                        height: 4,
                                       ),
                                       Text(
                                         S.of(context).security,
                                         style: TextStyle(
                                           color: _getTextPointColor(),
+                                          height: 1
                                         ),
                                       ),
                                       const SizedBox(
-                                        height: 8,
+                                        height: 4,
                                       ),
                                       Text(
                                         S.of(context).best_service,
                                         style: TextStyle(
                                           color: _getTextPointColor(),
+                                          height: 1
                                         ),
                                       ),
                                     ],
@@ -342,11 +345,14 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        S.of(context).main3DaysFreeTrialAfter999Week,
+                                        S
+                                            .of(context)
+                                            .main3DaysFreeTrialAfter999Week,
+                                        textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.w400,
+                                          fontWeight: FontWeight.w600,
                                           fontSize:
-                                              context.isBigScreen ? 18 : 14,
+                                          14,
                                           color: _getPriceColor(),
                                         ),
                                       ),
@@ -414,41 +420,50 @@ class _FirstPayWallState extends ConsumerState<FirstPayWall> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextButton(
-                        onPressed: () {
-                          Get.to(
-                            () => const InfoScreen(
-                                title: "Privacy Policy",
-                                infoType: InfoType.privacy),
-                          );
-                        },
-                        child: Text(
-                          S.of(context).privacyPolicy,
-                          style: _getTextButtonStyle(),
+                      Flexible(
+                        child: TextButton(
+                          onPressed: () {
+                            Get.to(
+                              () => const InfoScreen(
+                                  title: "Privacy Policy",
+                                  infoType: InfoType.privacy),
+                            );
+                          },
+                          child: Text(
+                            S.of(context).privacyPolicy,
+                            textAlign: TextAlign.center,
+                            style: _getTextButtonStyle(),
+                          ),
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          ref
-                              .read(subscriptionStatusController.notifier)
-                              .restoreSubscription();
-                        },
-                        child: Text(
-                          S.of(context).restore,
-                          style: _getTextButtonStyle(),
+                      Flexible(
+                        child: TextButton(
+                          onPressed: () {
+                            ref
+                                .read(subscriptionStatusController.notifier)
+                                .restoreSubscription();
+                          },
+                          child: Text(
+                            S.of(context).restore,
+                            textAlign: TextAlign.center,
+                            style: _getTextButtonStyle(),
+                          ),
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Get.to(
-                            () => const InfoScreen(
-                                title: "Terms of Use",
-                                infoType: InfoType.terms),
-                          );
-                        },
-                        child: Text(
-                          S.of(context).termsOfUse,
-                          style: _getTextButtonStyle(),
+                      Flexible(
+                        child: TextButton(
+                          onPressed: () {
+                            Get.to(
+                              () => const InfoScreen(
+                                  title: "Terms of Use",
+                                  infoType: InfoType.terms),
+                            );
+                          },
+                          child: Text(
+                            S.of(context).termsOfUse,
+                            textAlign: TextAlign.center,
+                            style: _getTextButtonStyle(),
+                          ),
                         ),
                       )
                     ],

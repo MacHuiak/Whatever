@@ -45,6 +45,23 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
             ),
           ),
           Align(
+            alignment: Alignment(-1,-1),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 48,left: 16),
+              child: GestureDetector(
+                onTap: widget.onRestore,
+                child: Text(
+                  S.of(context).restorePurchase,
+                  style: GoogleFonts.poppins().copyWith(
+                    fontSize: 10,
+                    color: Colors.white,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Align(
             alignment: const Alignment(0, 1),
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -79,7 +96,7 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                   child: Column(
                     children: [
                       const SizedBox(
-                        height: 32,
+                        height: 16,
                       ),
                       SizedBox(
                         width: 120,
@@ -93,6 +110,7 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                           text: TextSpan(
                             text: S.of(context).galaxyvpnProtectionIs,
                             style: GoogleFonts.poppins().copyWith(
+                              height: 1,
                               fontWeight: FontWeight.w300,
                               fontSize: 18,
                             ),
@@ -124,6 +142,7 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                       ),
                       Text(
                         S.of(context).weeklyRegularUpdates,
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.poppins().copyWith(
                             fontWeight: FontWeight.w400,
                             fontSize: 10,
@@ -213,9 +232,10 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                           onTap: widget.subscribe,
                           child: Text(
                             S.of(context).getFullAccessFor999Weekly,
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.w300,
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white),
                           ),
                         ),
@@ -247,17 +267,7 @@ class _CosmoPaywallState extends State<CosmoPaywall> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: widget.onRestore,
-                      child: Text(
-                        S.of(context).restorePurchase,
-                        style: GoogleFonts.poppins().copyWith(
-                          fontSize: 10,
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
+
                     GestureDetector(
                       onTap: widget.onTermsTap,
                       child: Text(

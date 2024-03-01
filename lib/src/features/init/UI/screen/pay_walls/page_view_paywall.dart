@@ -59,6 +59,24 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
             ),
           ),
           Align(
+            alignment: Alignment(-1, -1),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 16.0, top: MediaQuery.of(context).padding.top),
+              child: GestureDetector(
+                onTap: widget.onRestore,
+                child: Text(
+                  S.of(context).restorePurchase,
+                  style: GoogleFonts.poppins().copyWith(
+                    fontSize: 10,
+                    color: Colors.white,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Align(
             alignment: const Alignment(0, 1),
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -222,23 +240,6 @@ class _PageViwePayWallState extends State<PageViewPayWall> {
                           onTap: widget.onPrivacyTap,
                           child: Text(
                             S.of(context).privacyPolicy,
-                            style: GoogleFonts.poppins().copyWith(
-                              fontSize: 10,
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 2,
-                          height: 2,
-                          decoration: const BoxDecoration(
-                              color: Colors.white, shape: BoxShape.circle),
-                        ),
-                        GestureDetector(
-                          onTap: widget.onRestore,
-                          child: Text(
-                            S.of(context).restorePurchase,
                             style: GoogleFonts.poppins().copyWith(
                               fontSize: 10,
                               color: Colors.white,

@@ -13,7 +13,6 @@ import 'package:modern_vpn_project/src/features/vpn/services/notification_servic
 import 'package:modern_vpn_project/src/features/vpn/services/payment_service.dart';
 import 'package:notification_permissions/notification_permissions.dart';
 
-// import 'package:permission_handler/permission_handler.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -83,8 +82,11 @@ class _VPNState extends State<VPN> with WidgetsBindingObserver {
         .getDependency<UserLogin>()
         .logIn(userName: "GalaxyNewUser", password: "newUser1907*!");
     DI.getDependency<IOSPaymentServiceImpl>().loadPurchases();
-    return const GetMaterialApp(
+    final a = WidgetsBinding.instance.window.locale;
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: WidgetsBinding.instance.window.locale,
+      supportedLocales: S.delegate.supportedLocales,
       localizationsDelegates: [
         S.delegate,
         // 2
@@ -92,17 +94,7 @@ class _VPNState extends State<VPN> with WidgetsBindingObserver {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: [
-          S.delegate,
-          // 2
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        home: SplashScreen(),
-      ),
+      home: SplashScreen(),
     );
   }
 }

@@ -29,10 +29,10 @@ class _StepPayWallState extends State<StepPayWall> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        leadingWidth: subscribeStatus ? 100 : null,
+        leadingWidth: subscribeStatus ? 140 : null,
         leading: subscribeStatus
             ? TextButton(
-                onPressed: () {},
+                onPressed: widget.onRestore,
                 child: Text(
                   S.of(context).restore,
                   style: GoogleFonts.poppins().copyWith(
@@ -76,8 +76,7 @@ class _StepPayWallState extends State<StepPayWall> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      SizedBox(
-                        width: 178,
+                      Flexible(
                         child: Text(
                           S.of(context).getCompleteProtection,
                           textAlign: TextAlign.center,
@@ -200,24 +199,6 @@ class _StepPayWallState extends State<StepPayWall> {
                                     shape: BoxShape.circle),
                               ),
                               GestureDetector(
-                                onTap: widget.onRestore,
-                                child: Text(
-                                  S.of(context).restorePurchase,
-                                  style: GoogleFonts.poppins().copyWith(
-                                    fontSize: 10,
-                                    color: Colors.white,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                height: 2,
-                                decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle),
-                              ),
-                              GestureDetector(
                                 onTap: widget.onTermsTap,
                                 child: Text(
                                   S.of(context).termsOfUse,
@@ -257,6 +238,7 @@ class _StepPayWallState extends State<StepPayWall> {
                       ),
                       Text(
                         _getTitle(),
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.poppins().copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,

@@ -68,6 +68,7 @@ class _PlanetVpnPayWallState extends State<PlanetVpnPayWall> {
                   ),
                   Text(
                     S.of(context).anotherFreeTrial,
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.poppins().copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 15,

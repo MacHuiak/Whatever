@@ -4,7 +4,7 @@ description: "New vpn app"
 
 publish_to: 'none'
 
-version: 1.0.15+2
+version: 1.0.15+3
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
@@ -41,12 +41,15 @@ dependencies:
   in_app_purchase: ^3.1.13
   notification_permissions: ^0.6.1
   flutter_native_timezone: ^2.0.0
-  #firebase
   firebase_analytics: ^10.8.5
   firebase_core: ^2.25.4
   firebase_remote_config: ^4.3.13
   gradient_borders: ^1.0.0
   google_fonts: ^6.1.0
+  flutter_bloc: ^8.1.4
+  just_audio: ^0.9.36
+  battery_plus: ^5.0.3
+
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,11 @@
+import 'package:battery_plus/battery_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:modern_vpn_project/firebase_options.dart';
 import 'package:modern_vpn_project/generated/l10n.dart';
 import 'package:modern_vpn_project/src/DI/di_container.dart';
@@ -17,6 +20,7 @@ import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async {
+
   await SentryFlutter.init(
     (options) {
       options.dsn =
@@ -83,6 +87,8 @@ class _VPNState extends State<VPN> with WidgetsBindingObserver {
         .logIn(userName: "GalaxyNewUser", password: "newUser1907*!");
     DI.getDependency<IOSPaymentServiceImpl>().loadPurchases();
     final a = WidgetsBinding.instance.window.locale;
+    Battery();
+    AudioPlayer();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       locale: WidgetsBinding.instance.window.locale,
